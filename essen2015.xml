@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="#style" ?>
+<!DOCTYPE games [ <!ATTLIST xsl:stylesheet id  ID #REQUIRED> ]>
+<games>
+   <xsl:stylesheet id="style" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+
+      <xsl:output method="html" indent="yes"/>
+      <xsl:strip-space elements="*"/>
+
+      <xsl:template match="games">
+         <meta name="viewport" content="width=device-width"/>
+         <style>
+            section {
+               margin: 1%;
+               padding: 5px;
+               border: 1px dashed #05f;
+               background: #acf;
+            }
+            @media screen and (min-width: 480px) { section {
+               float: left;
+            } }
+            h2 { margin: 5px; }
+            li { padding: 5px; }
+            ul > li { list-style: none; }
+            section        { position: relative; }
+            a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
+            footer { clear: both; }
+            nav ul { padding: 0; }
+            nav li { float: left; }
+            nav a { color: gray; font-size: 60%; text-decoration: none; }
+            .unplayed { color: red; }
+            .preordered {
+               color: red;
+               position: absolute;
+               margin-left: -1.3em;
+            }
+            .note { font-size: 50%; }
+            .touch .note-indicator { display: none; }
+            .no-touch .note { display: none; }
+            .broken-off { list-style: none }
+
+            @media print {
+               .note-indicator { display: none; }
+               .note { display: inline ! important; }
+               nav, a[href='#nav'] { display: none; }
+               section { page-break-inside: avoid; }
+            }
+         </style>
+         <script>
+            document.documentElement.className = ("ontouchstart" in document.documentElement) ? 'touch' : 'no-touch';
+         </script>
+         <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
+         <footer><a id="nav"/><nav><ul>
+            <xsl:for-each select="//toplist|list">
+               <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
+            </xsl:for-each>
+         </ul></nav></footer>
+      </xsl:template>
+
+      <xsl:template match="g[@ref]">
+         <xsl:apply-templates select="//g[@id=current()/@ref]"/>
+         <xsl:if test="1!=count(//g[@id=current()/@ref])">ERROR</xsl:if>
+      </xsl:template>
+
+      <xsl:template match="toplist|list">
+         <section id="{position()}">
+            <a href="#nav" title="Go down to navigation">↓</a>
+            <xsl:variable name="n" select="count(current()/g)"/>
+            <xsl:if test="name()='toplist'">
+               <h2><xsl:value-of select="concat('TOP ',$n,' ',@name)"/></h2>
+               <ol>
+                  <xsl:apply-templates/>
+               </ol>
+            </xsl:if>
+            <xsl:if test="name()='list'">
+               <h2>
+                  <xsl:value-of select="@name"/>
+                  <xsl:value-of select="concat(' [',@booth,']')"/>
+                  <!-- Number of entries added to heading -->
+                  <!--xsl:value-of select="concat(' (',$n,')')"/-->
+               </h2>
+               <ul>
+                  <xsl:apply-templates/>
+               </ul>
+            </xsl:if>
+         </section>
+      </xsl:template>
+
+      <xsl:template match="g">
+         <li title="{normalize-space(note/text())}">
+            <xsl:if test="po"><span class='preordered'>😎</span></xsl:if>
+            <xsl:if test="preceding-sibling::break"><xsl:attribute name="class">broken-off</xsl:attribute></xsl:if>
+            <xsl:apply-templates select="unplayed"/>
+            <!-- Indicator for hover notes on desktop -->
+            <xsl:value-of select="text()"/><xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
+            <!-- Inline notes on mobile -->
+            <span class="note">
+               <xsl:value-of select="normalize-space(note/text())"/>
+            </span>
+         </li>
+      </xsl:template>
+
+      <xsl:template match="unplayed">
+         <xsl:attribute name="class"><xsl:value-of select="name()"/></xsl:attribute>
+      </xsl:template>
+
+   </xsl:stylesheet>
+
+
+   <!-- Hall 1 -->
+
+   <list name="Czech Board Games" booth="1-D117">
+      <g>Shuffle Heroes <po/> <note>Kickstarted for 15€. Essen pickup.</note></g>
+   </list>
+
+   <list name="LudiCreations" booth="1-D129">
+      <g>Pocket Imperium <note>Published version of the "Good Little Game".</note></g>
+      <g>...and then, we held hands. <note>Coop about a relationship with interesting mechanics and theme.</note></g>
+   </list>
+
+   <list name="Czech Games Edition" booth="1-D140">
+      <g>Tash-Kalar Expansion <po/> <note>Reserved. 10€.</note></g>
+      <g>Codenames <po/> <note>Vlaada Chvátil. Already played. Reserved. 15€.</note></g>
+   </list>
+
+   <list name="Hobby World (@ Igrology)" booth="1-E151">
+      <g>Five Seals of Magic</g>
+   </list>
+
+   <list name="Backspindle Games Ltd." booth="1-F148">
+      <g>Clacks: A Discworls Board Game <note>Similar to "The Signs Are Right!"</note></g>
+   </list>
+
+   <list name="Bézier Games, Inc." booth="1-G139">
+      <g>Favor of the Pharaoh <note>Dice manipulation game. Check this out.</note></g>
+      <g>Castles of Mad King Ludwig: Secrets <note>Maybe play it.</note></g>
+   </list>
+
+
+   <!-- Hall 2 -->
+
+   <list name="Board &amp; Dice" booth="2-B110">
+      <g>ExoPlanets <note>Kickstarter. Planets! Life! Multiple Chip Use! Hidden Goals!!! Oh my1!!1 (Rahdo thinks it's too aggressive)</note></g>
+   </list>
+
+   <list name="Tasty Minstrel Games" booth="2-D139">
+      <g>Flip City <note>Deckbuilding Push-your-luck with double-sided cards. Good for 2p. Was on Kickstarter.</note></g>
+      <g>Dungeon of Fortune <note>Successor(?) to Dungeon Roll.</note></g>
+      <g>My Village (en)<note>Village meets Machi-Koro</note></g>
+      <g>Steam Works, Gold West <note>Maybe play.</note></g>
+      <!-- / -->
+      <g>Cthulhu Realms<note>published by ADC Blackfire Entertainment GmbH</note></g>
+   </list>
+
+   <!--list name="White Goblin Games (@ Adriaensen Speciaalzaak Gezelschapsspellen)" booth="2-E105">
+   </list-->
+
+   <list name="e-raptor.pl" booth="2-E112">
+      <g>Organizers for specific games &amp; storage</g>
+   </list>
+
+
+   <!-- Hall 3 -->
+
+   <list name="Repos Production" booth="3-B109">
+      <g>7 Wonders: Duel <note>2p version of 7 Wonders</note></g>
+   </list>
+
+   <list name="KOSMOS" booth="3-B118">
+      <g>Machi Koro Expansion</g>
+   </list>
+
+   <list name="Ares Games" booth="3-E100">
+      <g>Odyssey: Wrath of Poseidon</g>
+   </list>
+
+   <list name="Capsicum Games" booth="3-E111">
+      <g>Siggil</g>
+      <g>Speak Easy <note>Bought one of those last year</note></g>
+   </list>
+
+   <list name="Schmidt Spiele" booth="3-H102">
+   </list>
+
+   <list name="Frosted Games" booth="3-J100">
+      <g>Brettspiel-Adventskalendar 2015 <note>Contains mini expansions for a lot of games. 45€. Can be preordered.</note></g>
+   </list>
+
+   <list name="Alderac Entertainment Group" booth="3-K107">
+      <g>Dice City <note>What the dice do changes based on the board</note></g>
+   </list>
+
+   <list name="2F Spiele" booth="3-L103+7">
+      <g>504 <note>That modular game by Friedemann Friese.</note></g>
+   </list>
+   <list name="Stronghold Games" booth="3-M107">
+      <g>504 <note>That modular game by Friedemann Friese.</note></g>
+      <g>Stronghold <note>"Battle of Helm's Deep - The Boardgame". Nice time mechanic. 2nd Edition.</note></g>
+   </list>
+
+   <list name="Pegasus Spiele" booth="3-M101+3+10">
+      <g>Istanbul Expansion</g>
+      <g>Pixel Tactics <note>Not sure why this in on the list. Maybe a reprint? I've been wanting to play this for a while now.</note></g>
+      <g>Rokoko Expansion <note>Could be a chance to play the base game.</note></g>
+      <g>My Village (de)<note>Village meets Machi-Koro</note></g>
+   </list>
+
+   <list name="PLAYthisONE" booth="3-M105">
+      <g>RevoltaaA <note>Trick-taking game by Knizia. Maybe play.</note></g>
+   </list>
+
+   <list name="Portal Games" booth="3-N113">
+      <g>Imperial Settlers: Atlanteans <note>Hopefully the have a bigger stand this time so we can actually play this.</note></g>
+      <g>Stronghold (second edition)</g>
+   </list>
+
+   <list name="Blackrock Games" booth="3-P104">
+      <g>Piratoons <note>Could be nice, seems to be quite chaotic</note></g>
+   </list>
+
+   <list name="Z-Man Games (Pandemic / Non-Pandemic)" booth="3-P113 / 3-P115">
+      <g>Pandemic: Legacy <note>Not really a game you can try out, is it? [Also @ Asmodee 1-F122 and 3-B108]</note></g>
+      <g>Cacao</g>
+   </list>
+   <list name="ABACUSSPIELE" booth="3-E108">
+      <g>Cacao</g>
+   </list>
+
+   <list name="Schwerkraft-Verlag" booth="3-Q120">
+      <g>Catacombs <note>Dungeon-delving disk-flicker. New Artwork. 1st (Also Elzra Corp. 3rd).</note></g>
+   </list>
+
+   <list name="Plaid Hat Games" booth="3-R100">
+      <g>Ashes: Rise of the Phoenixborn</g>
+      <g>Specter Ops <note>Scotland Yard like game</note></g>
+   </list>
+
+   <list name="Ludonaute" booth="3-S116">
+      <g>Colt Express Expansion &amp; Twinples <note>Should I preorder?</note></g>
+      <g>Discoveries <note>Maybe play. Interesting dice placement mechanic. Theme... eh...</note></g>
+   </list>
+
+
+   <!-- Hall 7 -->
+
+   <list name="Grey Fox Games" booth="7-C112">
+      <g>Champions of Midgard <note>Mythical-Viking worker placement where your warriors are dice </note></g>
+   </list>
+
+   <list name="Gen42 Games" booth="7-E101">
+      <g>Tatsu <note>Abstract with dragons from the same publisher as Hive</note></g>
+   </list>
+
+   <list name="Upper Deck (?)" booth="7-G103">
+      <g>Bring Out Yer Dead <note>Ginger Ale Games / Upper Deck Entertainment. Kickstarter.</note></g>
+      <g>Firefly: Shiny Dice <note>Upper Deck Entertainment. Dungeon Roll like game with a Firefly theme. For fans only ;)</note></g>
+   </list>
+
+   <list name="Mirror Box Games" booth="7-J108">
+      <g>Chaosmos</g>
+   </list>
+
+
+   <!-- Hall ? -->
+
+   <list name="WizKids Games (@ Asmodee)" booth="1-F122 and 3-B108">
+   </list>
+
+   <list name="Bombyx / REBEL.pl" booth="1-F122 and 3-B108 / 1-G141">
+      <g>Abyss: Kraken <note>Expansion! :)</note></g>
+   </list>
+
+   <list name="Libellud (@ Asmodee)" booth="1-F122 and 3-B108">
+      <g>Mysterium <note>Coop+Dixit+Clue. From last year. Now published in English.</note></g>
+   </list>
+
+   <list name="Pretzel Games" booth="with Z-Man ?">
+      <g>Flick 'em Up <note>Dexterity Western game with tons of scenarios.</note></g>
+   </list>
+
+   <list name="Misc" booth="?">
+      <g>Red Raven | Above and Below <note>Ryan Laukat</note></g>
+      <g>Rio Grande | Dominion: Adventures <note>Especially the event cards look interesting. Maybe play.</note></g>
+      <g>Smirk &amp; Dagger Games | Nevermore <note>3-6p game where people turn into ravens.</note></g>
+      <g>FFG | Mission: Red Planet (2nd Ed.) <note>Reprint.</note></g>
+   </list>
+
+   <!-- Misc -->
+
+   <list name="Other games to watch out for">
+      <g>Fury of Dracula <note>FFG 3rd Edition announced!</note>
+                         <url><![CDATA[https://www.fantasyflightgames.com/en/news/2015/7/23/fury-of-dracula/]]></url></g>
+      <g>Pixel Tactics <note>Pixel Tactics 2 is the newest incarnation.</note></g>
+      <g>Biblios</g>
+      <g>Kemet</g>
+      <g>The Duke <note>Chess-like abstract with cool movement.</note></g>
+      <g>Hawken Real-Time Card Game <note>Asymetrical Mecha combat</note></g>
+      <g>Hegemonic <note>4X</note></g>
+      <g>Impulse <note>4X</note></g>
+      <g>VivaJava: The Coffee Game – The Dice Game<note>(unreleased)</note></g>
+      <g>Fauna, Anachronism <note>Mentioned on DiceTower as being educating.</note></g>
+      <g>Fidelitas <note>Green Couch Games, Jason Kotarski. Missed Kickstarter (2014).</note></g>
+      <g>NanoBot Battle Arena <note>Derpy Games, LLC; Benji Michalek. Kickstarter (2014).</note></g>
+   </list>
+
+   <list name="Unplayed highlights from Essen 2014">
+      <g>Gaïa <note>God-game. 25€ at Essen 2014.</note></g>
+      <g>Ancient Terrible Things <note>Cthulhuish non-coop with Yatzee-style dice-rolling.</note></g>
+      <g>Jäger und Späher <note>KOSMOS 2p series.</note></g>
+      <g>Nations: The Dice Game <note>Really nice looking dice. Actually published by Lautapelit.fi.</note></g>
+      <g>Ninja Taisen <note>2p. Ninjas, Cards, Dice, RPS, Art. 14€. Was sold out at Essen 2014.</note></g>
+      <g>Kings Forge <note>Dice (pool) manipulation game. Check this out! (was on KS)</note></g>
+   </list>
+
+</games>

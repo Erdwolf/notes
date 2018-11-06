@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="#style" ?>
+<games>
+   <xsl:stylesheet id="style" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+
+      <xsl:output method="html" indent="yes"/>
+      <xsl:strip-space elements="*"/>
+
+      <xsl:template match="games">
+         <meta name="viewport" content="width=device-width"/>
+         <style>
+            section {
+               margin: 1%;
+               padding: 5px;
+               border: 1px dashed #05f;
+               background: #acf;
+            }
+            @media screen and (min-width: 480px) { section {
+               float: left;
+            } }
+            h2 { margin: 5px; }
+            li { padding: 5px; }
+            ul > li { list-style: none; }
+            section        { position: relative; }
+            a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
+            footer { clear: both; }
+            nav ul { padding: 0; }
+            nav li { float: left; }
+            nav a { color: gray; font-size: 60%; text-decoration: none; }
+            .unplayed { color: red; }
+            .preordered {
+               color: red;
+               position: absolute;
+               margin-left: -1.3em;
+            }
+            .note { font-size: 50%; }
+            .touch .note-indicator { display: none; }
+            .no-touch .note { display: none; }
+            .broken-off { list-style: none }
+            ul.expansions {
+               padding: 5px 0px 0px;
+               font-size: smaller;
+            }
+            ul.expansions > li {
+               padding-left: 0px;
+            }
+
+            @media print {
+               .note-indicator { display: none; }
+               .note { display: inline ! important; }
+               nav, a[href='#nav'] { display: none; }
+               section { page-break-inside: avoid; }
+            }
+         </style>
+         <script>
+            /* Feature detection */
+            document.documentElement.className = 'touch';
+         </script>
+         <header><xsl:value-of select="count(//*[@booth]/g)"/> Games at <xsl:value-of select="count(//*[@booth])"/> booths</header>
+         <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
+         <footer><a id="nav"/><nav><ul>
+            <xsl:for-each select="//list">
+               <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
+            </xsl:for-each>
+         </ul></nav></footer>
+      </xsl:template>
+
+      <xsl:template match="list">
+         <section id="{position()}">
+            <a href="#nav" title="Go down to navigation">↓</a>
+            <h2>
+               <!-- Name of the list (Category/Publisher/...) -->
+               <xsl:value-of select="@name"/>
+               <!-- Booth number (if present) -->
+               <xsl:if test="@booth">
+                  <xsl:value-of select="concat(' [',@booth,']')"/>
+               </xsl:if>
+               <!-- Number of entries on this list -->
+               <xsl:variable name="n" select="count(current()/g)"/>
+               <xsl:if test="not(@booth) and $n>1">
+                  <xsl:value-of select="concat(' (',$n,')')"/>
+               </xsl:if>
+            </h2>
+            <xsl:if test="not(old)">
+               <ul>
+                  <xsl:apply-templates/>
+               </ul>
+            </xsl:if>
+         </section>
+      </xsl:template>
+
+      <!-- Highlight unplayed games -->
+      <xsl:attribute-set name="classes">
+         <xsl:attribute name="class">
+            <xsl:if test="unplayed">unplayed</xsl:if>
+         </xsl:attribute>
+      </xsl:attribute-set>
+
+      <xsl:template match="g|x">
+         <li title="{normalize-space(note/text())}" xsl:use-attribute-sets="classes">
+            <xsl:if test="name()='x'">+ </xsl:if>
+            <!-- Highlight pre-ordered games -->
+            <xsl:if test="po"><span class='preordered'>😎</span></xsl:if>
+            <!-- Indicator for hover notes on desktop -->
+            <xsl:value-of select="text()"/><xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
+            <!-- Inline notes on mobile -->
+            <span class="note">
+               <xsl:value-of select="normalize-space(note/text())"/>
+            </span>
+            <xsl:if test="x">
+               <ul class="expansions">
+                  <xsl:apply-templates select="x"/>
+               </ul>
+            </xsl:if>
+         </li>
+      </xsl:template>
+
+   </xsl:stylesheet>
+
+
+   <!-- Hall 1 -->
+
+   <list name="Spiele Museum / spielen.at - GzFdSiÖ" booth="1-C106">
+      <g>Potions Brew</g>
+   </list>
+
+   <list name="Giochix.it" booth="1-C123">
+      <g>The Vampire, the Elf and the Cthulhu <note>Writers battling over the contents of a novel</note></g>
+   </list>
+
+   <list name="Mind Fitness Games" booth="1-C143">
+      <g>Sponsio <note>MSRP €15, discounted to €12 for sales at SPIEL 2016 (or €30 for three copies).</note></g>
+   </list>
+
+   <list name="Aporta Games" booth="1-D109">
+      <g>Doodle China <url>http://aportagames.com/preorder.html</url></g>
+   </list>
+
+   <list name="Artipia Games" booth="1-D137">
+      <g>Fields of Green <note>Among the Stars not-in-space</note></g>
+   </list>
+
+   <list name="Space Cowboys" booth="1-F122 (3-B108)">
+      <g>Hit Z Road <note>Innovative artwork</note></g>
+   </list>
+
+   <list name="Bézier Games" booth="1-G139">
+      <g>Colony <note>Ted Alspach</note></g>
+   </list>
+
+
+   <!-- Hall 2 -->
+
+   <list name="REDIMP GAMES" booth="2-C107">
+      <g>Martians: A Story of Civilization <note>€45. Kickstarter.</note></g>
+   </list>
+
+   <list name="Tailor Games" booth="2-C110">
+      <g>Morpheus <note>€20. Didn't watch review</note></g>
+   </list>
+
+   <list name="YAY Games" booth="2-E121">
+      <g>Ominoes</g>
+   </list>
+
+
+   <!-- Hall 3 -->
+
+   <list name="Repos Production" booth="3-B108">
+      <g>7 Wonders: Duel – Pantheon<note>English Version @ 1-F122 (Asmodee)</note></g>
+   </list>
+
+   <list name="Bombyx (@ Asmodee's)" booth="3-B108">
+      <g>Zany Penguins <note>Awesome card backs. Interesting scoring mechanism. Similar to Arboretum.</note></g>
+      <g>Legendary Inventors</g>
+   </list>
+
+   <list name="KOSMOS" booth="3-B118">
+      <g>Targi: Die Erweiterung <note>€16</note></g>
+      <g>EXIT: *</g>
+   </list>
+
+   <list name="Capsicum Games" booth="3-E111">
+      <g>Noxford</g>
+   </list>
+
+   <list name="AMIGO" booth="3-H103">
+      <g>Bohnanza: Das Duell</g>
+      <g>X nimmt!</g>
+   </list>
+
+   <list name="Ravensburger" booth="3-H110">
+      <g>Das verrückte Labyrinth, 30th Aniversary Glow-in-the-dark Edition <note>Maybe play in the dark</note></g>
+   </list>
+
+   <list name="Mücke Spiele / Spiel direkt" booth="3-J100">
+      <g>Area 51: Top Secret <note>Didn't watch review</note></g>
+   </list>
+
+   <list name="Zoch Verlag" booth="3-J108">
+      <g>Dreams <note>Players build pictures w/ stars, one not knowing what it is</note></g>
+   </list>
+
+   <list name="Ferti" booth="3-L100">
+      <g>Taluva Deluxe</g>
+   </list>
+
+   <list name="2F-Spiele" booth="3-M106/M108">
+      <g>Fabled Fruit / "Fabelsaft" <note>Changes after each play</note></g>
+   </list>
+
+   <list name="Stronghold Games" booth="3-M107">
+     <g>Terraforming Mars <note>Didn't watch review</note></g>
+   </list>
+
+   <list name="Pegasus Spiele" booth="3-M110">
+      <g>Dungeon of Fortune <note>German version. €20.</note></g>
+      <g>Coal Baron: The Great Card Game <note>German version. €20.</note></g>
+      <g>Kingdomino <note>Bruno Cathala. Simple, but good Gateway. English version @ 3-N107.</note></g>
+   </list>
+
+   <list name="Blue Orange (EU)" booth="3-N107">
+      <g>Kingdomino <note>Bruno Cathala. Simple, but good Gateway.</note></g>
+   </list>
+
+   <list name="Portal Games" booth="3-O118">
+      <g>51st State</g>
+      <g>Imperial Settlers Expansions</g>
+   </list>
+
+   <list name="Ludonaute" booth="3-Q116">
+      <g>Colt Express: Marshal &amp; Prisonniers <note>€20</note></g>
+   </list>
+
+
+
+   <!-- Hall 4 -->
+
+   <list name="nikamundus" booth="4-A114">
+      <g>Aurimentic <note>Didn't watch review</note></g>
+   </list>
+
+   <list name="2mt Games" booth="4-B125">
+      <g>Ninja Arena</g>
+   </list>
+
+   <list name="MO ZI Game" booth="4-C108">
+      <g>Sweet Nose <note>30/35 EUR. Game about eating sweets.</note></g>
+   </list>
+
+
+   <!-- Hall 6 -->
+
+   <list name="Gen42 Games" booth="6-D107">
+      <g>Tatsu</g>
+   </list>
+
+   <list name="Lucky Duck Games" booth="6-D125">
+      <g>Vikings Gone Wild <note>More in-your face deck builder</note></g>
+   </list>
+
+
+   <!-- Hall 7 -->
+
+   <list name="Lifestyle Boardgames" booth="7-A124">
+      <g>Macroscope <note>Picture guessing game w/ interesting device and 400 pictures.</note></g>
+   </list>
+
+   <list name="ThunderGryph Games" booth="7-C115">
+     <g>Overseers <note>€25; preorder</note></g>
+   </list>
+
+   <list name="TwoPlus Games" booth="7-D102/103">
+      <g>Cat Town <note>€20, with preorder available</note></g>
+   </list>
+
+   <list name="OKAZU Brand / Japon Brand" booth="7-E100">
+      <g>Yokohama <url>http://japonbrand.myshopify.com/collections/product2016</url></g>
+   </list>
+   <list name="しのうじょう (Shinojo) / Japon Brand" booth="7-E100">
+      <g>ALL GREEN <note>Simplified Mahjong w/ only one suite. €13. Need to preorder.</note></g>
+   </list>
+
+   <list name="Moaideas Game Design" booth="7-F101">
+     <g>Crabs! <note>14/12 EUR. Tricky set collection game</note></g>
+   </list>
+
+   <list name="Mr. B Games / Cloud Island" booth="7-F120">
+      <g>Days of Ire: Budapest 1956 <note>Can be played as Coop or Asymetrical</note></g>
+   </list>
+
+   <list name="(Self-Published)" booth="7-F123">
+      <g>Magecraft</g>
+   </list>
+
+
+   <!-- Hall ? -->
+
+   <list name="Ludically" booth="?">
+      <g>4 Gods <note>Tile-laying game where you decide halfway through what god you are</note></g>
+   </list>
+
+
+   <!-- Misc -->
+
+   <list name="Other games to watch out for">
+      <g>Fury of Dracula <note>FFG 3rd Edition is out.</note>
+                         <url><![CDATA[https://www.fantasyflightgames.com/en/news/2015/7/23/fury-of-dracula/]]></url></g>
+      <g>Pixel Tactics <note>Pixel Tactics 2 is the newest incarnation.</note></g>
+      <g>Kemet</g>
+      <g>The Duke <note>Chess-like abstract with cool movement.</note></g>
+      <g>Hawken Real-Time Card Game <note>Asymetrical Mecha combat</note></g>
+      <g>Hegemonic <note>4X</note></g>
+      <g>VivaJava: The Coffee Game – The Dice Game <note>Why can't I find this anywhere?</note></g>
+      <g>Fauna, Anachronism <note>Mentioned on DiceTower as being educating.</note></g>
+      <g>Fidelitas <note>Green Couch Games, Jason Kotarski. Missed Kickstarter (2014).</note></g>
+      <g>NanoBot Battle Arena <note>Derpy Games, LLC; Benji Michalek. Kickstarter (2014).</note></g>
+      <g>Omen: A Reign of War <note>2p card game.</note></g>
+      <g>Eruption <note>"Gateway" game.</note></g>
+   </list>
+
+   <list name="Unplayed highlights from Essen 2015">
+      <g p="Hobby World">Five Seals of Magic</g>
+      <g p="TMG">Dungeon of Fortune <note>Successor(?) to Dungeon Roll.</note></g>
+      <g p="TMG/Pegasus">My Village <note>Village meets Machi-Koro</note></g>
+      <g p="Stronghold Games">504 <note>That modular game by Friedemann Friese.</note></g>
+      <g p="Stronghold Games">Stronghold <note>"Battle of Helm's Deep - The Boardgame". Nice time mechanic. 2nd Edition.</note></g>
+      <g p="Portal Games">Imperial Settlers: Atlanteans</g>
+      <g p="Blackrock Games">Piratoons <note>Could be nice, seems to be quite chaotic</note></g>
+      <g p="Z-Man">Pandemic: Legacy <note>Not really a game you can try out, is it?</note></g>
+      <g p="Schwerkraft-Verlag/Elzra Corp.">Catacombs <note>Dungeon-delving disk-flicker. New Artwork.</note></g>
+      <g p="Gen42">Tatsu <note>Abstract with dragons from the same publisher as Hive</note></g>
+      <g p="Mirror Box Games">Chaosmos</g>
+      <g>Abyss: Kraken</g>
+      <g>Mysterium <note>Coop. Dixit+Clue.</note></g>
+   </list>
+
+</games>

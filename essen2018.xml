@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="#style" ?>
+<games>
+   <xsl:stylesheet id="style" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+
+      <xsl:output method="html" indent="yes"/>
+      <xsl:strip-space elements="*"/>
+
+      <xsl:template match="games">
+         <meta name="viewport" content="width=device-width"/>
+         <style>
+            section {
+               margin: 1%;
+               padding: 5px;
+               border: 1px dashed #05f;
+               background: #acf;
+            }
+            @media screen and (min-width: 480px) { section {
+               float: left;
+            } }
+            h2 { margin: 5px; }
+            li { padding: 5px; }
+            ul > li { list-style: none; }
+            section        { position: relative; }
+            a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
+            footer { clear: both; }
+            nav ul { padding: 0; }
+            nav li { float: left; }
+            nav a { color: gray; font-size: 60%; text-decoration: none; }
+            .unplayed { color: red; }
+            .preordered {
+               color: red;
+               position: absolute;
+               margin-left: -1.3em;
+            }
+            .note { font-size: 50%; }
+            .touch .note-indicator { display: none; }
+            .no-touch .note { display: none; }
+            a.url-indicator { color: black; text-decoration: none; }
+            .broken-off { list-style: none }
+            ul.expansions {
+               padding: 5px 0px 0px;
+               font-size: smaller;
+            }
+            ul.expansions > li {
+               padding-left: 0px;
+            }
+
+            @media print {
+               .note-indicator, .url-indicator { display: none; }
+               .note { display: inline ! important; }
+               nav, a[href='#nav'] { display: none; }
+               section { page-break-inside: avoid; }
+            }
+         </style>
+         <script>
+            /* Feature detection */
+            document.documentElement.className = ('ontouchstart' in window) ? 'touch' : 'no-touch';
+         </script>
+         <header><xsl:value-of select="count(//*[@booth]/g)"/> Games at <xsl:value-of select="count(//*[@booth])"/> booths</header>
+         <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
+         <footer><a id="nav"/><nav><ul>
+            <xsl:for-each select="//list">
+               <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
+            </xsl:for-each>
+         </ul></nav></footer>
+      </xsl:template>
+
+      <xsl:template match="list">
+         <section id="{position()}">
+            <a href="#nav" title="Go down to navigation">↓</a>
+            <h2>
+               <!-- Name of the list (Category/Publisher/...) -->
+               <xsl:value-of select="@name"/>
+               <!-- Booth number (if present) -->
+               <xsl:if test="@booth">
+                  <xsl:value-of select="concat(' [',@booth,']')"/>
+               </xsl:if>
+               <!-- Number of entries on this list -->
+               <xsl:variable name="n" select="count(current()/g)"/>
+               <xsl:value-of select="concat(' (',$n,')')"/>
+            </h2>
+            <xsl:if test="not(old)">
+               <ul>
+                  <xsl:apply-templates/>
+               </ul>
+            </xsl:if>
+         </section>
+      </xsl:template>
+
+      <!-- Highlight unplayed games -->
+      <xsl:attribute-set name="classes">
+         <xsl:attribute name="class">
+            <xsl:if test="unplayed">unplayed</xsl:if>
+         </xsl:attribute>
+      </xsl:attribute-set>
+
+      <xsl:template match="g|x">
+         <li title="{normalize-space(concat(note/text(), ' ', url/text()))}" xsl:use-attribute-sets="classes">
+            <xsl:if test="name()='x'">+ </xsl:if>
+            <!-- Highlight pre-ordered games -->
+            <xsl:if test="po"><span class='preordered'>😎</span></xsl:if>
+            <!-- Indicator for hover notes on desktop -->
+            <xsl:value-of select="text()"/>
+            <xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
+            <xsl:if test="url"><a class="url-indicator" href="{url/text()}"> 🔗</a></xsl:if>
+            <!-- Inline notes on mobile -->
+            <span class="note">
+               <xsl:value-of select="normalize-space(note/text())"/>
+            </span>
+            <xsl:if test="x">
+               <ul class="expansions">
+                  <xsl:apply-templates select="x"/>
+               </ul>
+            </xsl:if>
+         </li>
+      </xsl:template>
+
+   </xsl:stylesheet>
+
+   <!-- Hall 1 -->
+
+   <list name="Cranio Creations" booth="1-A118">
+      <g>Newton <note>Bit of a point-salad</note></g>
+   </list>
+
+   <list name="Pearl Games" booth="1-C101">
+      <g>Solenia <note>Day/Night cycle. Cards with holes in them. EUR 36.00</note></g>
+   </list>
+
+   <list name="Drawlab Entertainment" booth="1-C137">
+      <g>Witless Wizards <note>20€</note></g>
+   </list>
+
+   <list name="Renegade Game Studios" booth="1-C147">
+      <g>Arboretum <note>New Edition. 17€</note></g>
+   </list>
+
+   <list name="Queen Games" booth="1-D121/3-H116">
+      <g>Skylands <note>Mechanics look interesting, artwork meh. Maybe play</note></g>
+   </list>
+
+   <list name="Hobby World" booth="1-E151">
+      <g>Spyfall: Time Travel <note>Demo only. So maybe have a quick look at it.</note></g>
+   </list>
+
+   <list name="Space Cowboys" booth="1-F103">
+      <g>Orbis <note>Very nice looking God-game. Works well with 2p. Deeper than Splendor. 30€</note></g>
+   </list>
+
+   <list name="Stonemaier Games" booth="1-G139">
+      <g>Between Two Castles of Mad King Ludwig <note>Mash up! Rahdo says it's better than both. Also at 4-C11</note></g>
+   </list>
+
+
+   <!-- Hall 2 -->
+
+   <list name="Ankama" booth="2-B116">
+      <g>Brothers <note>Cute 2p game about laying tiles on top of tiles. Seems a good buy for 15€.</note></g>
+   </list>
+
+
+   <!-- Hall 3 -->
+
+   <list name="Kolossal Games Location" booth="3-E102">
+      <g>Kami-sama <note>Variable player powers, Rotating board. 45€</note></g>
+   </list>
+
+   <list name="Steffen-Spiele" booth="3-G10">
+      <g>Zwoggel <note>12.50€</note></g>
+   </list>
+
+   <list name="alea" booth="3-H110">
+      <g>Carpe Diem <note>Excellent looking Feld. 40€</note></g>
+   </list>
+
+   <list name="Alderac Entertainment Group" booth="3-K107">
+      <g>War Chest <note>Bag-building thematic abstract w/ poker chips. 40€ but may be worth it due to compoment quality</note></g>
+   </list>
+
+   <list name="Ludonaute" booth="3-K113">
+      <g>Colt Express: Bandits <note>30€ for all six.</note></g>
+   </list>
+
+   <list name="2F-Spiele" booth="3-L104">
+      <g>Fast Forward: FORTUNE <note>14€</note></g>
+      <g>Fine Sand <note>28€</note></g>
+      <g>Fool! <note>8€</note></g>
+      <g>Futuropia <note>45€</note></g>
+   </list>
+
+   <list name="Blue Orange (EU)" booth="3-M107">
+      <g>Planet <note>Gimmicky tile-stucking-to-a-planet game. 30€</note></g>
+   </list>
+
+   <list name="Pegasus Spiele" booth="3-M110/3-M105">
+      <g>Jump Drive <note>German version. EN by rio grande? RftG variant that is quick to play but still complex. 20€</note></g>
+      <g>Blackout: Hong Kong <note>English edition by eggertspiele</note></g>
+      <g>Reef <note>Next Move Games. 40€. German edition</note></g>
+   </list>
+
+   <list name="Starling Games (II)" booth="3-O111">
+      <g>Everdell <note>1-4p. Rahdo approved. 70€</note></g>
+   </list>
+
+   <list name="Schwerkraft-Verlag" booth="3-P114">
+      <g>Sub Terra <note>German edition</note></g>
+   </list>
+
+   <list name="KOSMOS" booth="3-Q104">
+      <g>Imhotep: Das Duell <note>Imhotep (Barges, Obelisks, Pyramids, ..) for 2p. Looks excellent. 17€</note></g>
+   </list>
+
+   <list name="Manikmaya Games" booth="3-Q106">
+      <g>? <note>Indonesian publisher, maybe check out some of their games</note></g>
+   </list>
+
+   <!-- Hall 4 -->
+
+   <list name="Feuerland Spiele" booth="4-C11">
+      <g>Between Two Castles of Mad King Ludwig <note>Also at 1-G139. 35€</note></g>
+   </list>
+
+   <list name="Nuts! Publishing" booth="4-D119">
+      <g>One Deck Dungeon: Forest of Shadows <note>Try to get the original game</note></g>
+   </list>
+
+   <list name="Flatlined Games" booth="4-F108">
+      <g>SteamRollers <note>A bit like Doodle City. 30€</note></g>
+   </list>
+
+   <list name="YAY Games" booth="4-F120">
+      <g>Ominoes: Hieroglyphs</g>
+   </list>
+
+   <list name="Sorry We Are French" booth="4-L104">
+      <g>Ganymede <note>Shipping game. "Lighter than Splendor" :/. Weird artwork. 25€</note></g>
+      <g>Immortal 8 <note>Different hidden ways of scoring. Probably doesn't work with 2p. Hard to tell if it's good. 30€</note></g>
+   </list>
+
+
+   <!-- Hall 5 -->
+
+   <list name="Black Box Adventures" booth="5-A121 / 5-D113">
+      <g>Itchy Monkey <note>Lice jumping from monkey to monkey</note></g>
+   </list>
+
+   <list name="Everything Epic Games" booth="5-C114">
+      <g>Big Trouble in Little China: The Game <note>Seems to be way "too much"</note></g>
+      <g>Rambo: The Board Game <note>Demo only. Probably too wargamey</note></g>
+   </list>
+
+   <list name="Capital Gains Studio" booth="5-C119">
+      <g>Cryptocurrency <note>Stock-trading game, maybe play</note></g>
+      <g>Debtzilla <note>Co-op</note></g>
+   </list>
+
+   <list name="Sunrise Tornado Game Studio" booth="5-C122">
+      <g>Cat Rescue <note>Co-op w/ cats. That cute British couple loved it. 8€</note></g>
+      <g>Promenade <note>Impressionist paintings. Demo only</note></g>
+   </list>
+
+   <list name="TWOPLUS Games" booth="5-C122/D123">
+      <g>Mystical Seeds <note>Looks nice</note></g>
+      <g>The Forgotten City <note>Looks nice</note></g>
+   </list>
+
+   <list name="The Wood Games" booth="5-E112">
+      <g>Small Islands <note>Could be nice. 30€</note></g>
+   </list>
+
+   <list name="Tetrahedron Games" booth="5-H127">
+      <g>Dodoresque <note>Demo only. Future KS?</note></g>
+   </list>
+
+   <!-- Hall ? -->
+
+   <!-- Misc -->
+
+   <list name="Other games to watch out for">
+      <g>Fury of Dracula <note>FFG 3rd Edition is out.</note>
+                         <url><![CDATA[https://www.fantasyflightgames.com/en/news/2015/7/23/fury-of-dracula/]]></url></g>
+      <g>Pixel Tactics <note>Pixel Tactics 2 is the newest incarnation.</note></g>
+      <g>Kemet</g>
+      <g>The Duke <note>Chess-like abstract with cool movement.</note></g>
+      <g>Hawken Real-Time Card Game <note>Asymetrical Mecha combat</note></g>
+      <g>Hegemonic <note>4X</note></g>
+      <g>Fauna, Anachronism <note>Mentioned on DiceTower as being educating.</note></g>
+      <g>Fidelitas <note>Green Couch Games, Jason Kotarski. Missed Kickstarter (2014).</note></g>
+      <g>NanoBot Battle Arena <note>Derpy Games, LLC; Benji Michalek. Kickstarter (2014).</note></g>
+      <g>Omen: A Reign of War <note>2p card game.</note></g>
+      <g>Eruption <note>"Gateway" game.</note></g>
+      <g p="Hobby World">Five Seals of Magic</g>
+      <g p="TMG/Pegasus">My Village <note>Village meets Machi-Koro</note></g>
+      <g p="Asmadi Games">One Deck Dungeon</g>
+   </list>
+
+   <list name="Games we are losing access to that I'll miss">
+      <g>Onirim <url><![CDATA[https://www.boardgamegeek.com/boardgame/156336/onirim-second-edition]]></url></g>
+      <g>Gaïa <url><![CDATA[https://www.boardgamegeek.com/boardgame/163920/gaia]]></url></g>
+      <g>Quadropolis <url><![CDATA[https://www.boardgamegeek.com/boardgame/176396/quadropolis]]></url></g>
+      <g>Castles of Mad King Ludwig <url><![CDATA[https://www.boardgamegeek.com/boardgame/155426/castles-mad-king-ludwig]]></url></g>
+      <g>Abyss <url><![CDATA[https://www.boardgamegeek.com/boardgame/155987/abyss]]></url></g>
+      <g>Oceanos <url><![CDATA[https://www.boardgamegeek.com/boardgame/192860/oceanos]]></url></g>
+      <g>Galaxy Trucker <url><![CDATA[https://www.boardgamegeek.com/boardgame/31481/galaxy-trucker]]></url></g>
+      <g>Valley of the Kings <url><![CDATA[https://www.boardgamegeek.com/boardgame/150999/valley-kings]]></url></g>
+      <g>Fungi/Morels <url><![CDATA[https://www.boardgamegeek.com/boardgame/122298/morels]]></url></g>
+      <g>Champions of Midgard <url><![CDATA[https://www.boardgamegeek.com/boardgame/172287/champions-midgard]]></url></g>
+      <g>Impulse <url><![CDATA[https://www.boardgamegeek.com/boardgame/144239/impulse]]></url></g>
+      <g>Seeland <url><![CDATA[https://www.boardgamegeek.com/boardgame/63759/seeland]]></url></g>
+      <g>Glen More <url><![CDATA[https://www.boardgamegeek.com/boardgame/66362/glen-more]]></url></g>
+      <g>La Isla <url><![CDATA[https://www.boardgamegeek.com/boardgame/154246/la-isla]]></url></g>
+      <g>Valdora <url><![CDATA[https://www.boardgamegeek.com/boardgame/40769/valdora]]></url></g>
+   </list>
+
+   <list name="Unplayed highlights from Essen 2017">
+      <g p="Queen Games">Immortals <note>Light/Dark side area control</note></g>
+      <g p="Bézier Games">The Palace of Mad King Ludwig</g>
+      <g p="Ludonova">Cosmogenesis <note>Throw rocks at your planets to make moons</note></g>
+      <g p="Greater Than Games">Fate of the Elder Gods <note>Like to play. Rather expensive with all the pointless miniatures though</note></g>
+      <g p="TMG">Harvest</g>
+   </list>
+
+</games>
