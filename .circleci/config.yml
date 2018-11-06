@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: mesosphere/aws-cli
+    steps:
+      - checkout
+      - run: aws s3 cp --acl public-read *.xml s3://erdwolf/
