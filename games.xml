@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="#style" ?>
+<games>
+   <xsl:stylesheet id="style" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+
+      <xsl:output method="html" indent="yes"/>
+      <xsl:strip-space elements="*"/>
+
+      <xsl:template match="games">
+         <meta name="viewport" content="width=device-width"/>
+         <style>
+            section {
+               margin: 1%;
+               padding: 5px;
+               border: 1px dashed #05f;
+               background: #acf;
+            }
+            @media screen and (min-width: 480px) { section {
+               float: left;
+            } }
+            h2 { margin: 5px; }
+            li { padding: 5px; }
+            ul > li { list-style: none; }
+            section        { position: relative; }
+            a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
+            footer { clear: both; }
+            nav ul { padding: 0; }
+            nav li { float: left; }
+            nav a { color: gray; font-size: 60%; text-decoration: none; }
+            .unplayed { color: red; }
+            .preordered {
+               color: red;
+               position: absolute;
+               margin-left: -1.3em;
+            }
+            .note { font-size: 50%; }
+            .touch .note-indicator { display: none; }
+            .no-touch .note { display: none; }
+            a.url-indicator { color: black; text-decoration: none; }
+            .broken-off { list-style: none }
+            ul.expansions {
+               padding: 5px 0px 0px;
+               font-size: smaller;
+            }
+            ul.expansions > li {
+               padding-left: 0px;
+            }
+
+            @media print {
+               .note-indicator, .url-indicator { display: none; }
+               .note { display: inline ! important; }
+               nav, a[href='#nav'] { display: none; }
+               section { page-break-inside: avoid; }
+            }
+         </style>
+         <script>
+            /* Feature detection */
+            document.documentElement.className = ('ontouchstart' in window) ? 'touch' : 'no-touch';
+         </script>
+         <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
+         <footer><a id="nav"/><nav><ul>
+            <xsl:for-each select="//list">
+               <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
+            </xsl:for-each>
+         </ul></nav></footer>
+      </xsl:template>
+
+      <xsl:template match="list">
+         <section id="{position()}">
+            <a href="#nav" title="Go down to navigation">↓</a>
+            <h2>
+               <!-- Name of the list (Category/Publisher/...) -->
+               <xsl:value-of select="@name"/>
+               <!-- Booth number (if present) -->
+               <xsl:if test="@booth">
+                  <xsl:value-of select="concat(' [',@booth,']')"/>
+               </xsl:if>
+               <!-- Number of entries on this list -->
+               <xsl:variable name="n" select="count(current()/g)"/>
+               <xsl:value-of select="concat(' (',$n,')')"/>
+            </h2>
+            <xsl:if test="not(old)">
+               <ul>
+                  <xsl:apply-templates/>
+               </ul>
+            </xsl:if>
+         </section>
+      </xsl:template>
+
+      <!-- Highlight unplayed games -->
+      <xsl:attribute-set name="classes">
+         <xsl:attribute name="class">
+            <xsl:if test="unplayed">unplayed</xsl:if>
+         </xsl:attribute>
+      </xsl:attribute-set>
+
+      <xsl:template match="g|x">
+         <li title="{normalize-space(concat(note/text(), ' ', url/text()))}" xsl:use-attribute-sets="classes">
+            <xsl:if test="name()='x'">+ </xsl:if>
+            <!-- Highlight pre-ordered games -->
+            <xsl:if test="po"><span class='preordered'>😎</span></xsl:if>
+            <!-- Indicator for hover notes on desktop -->
+            <xsl:value-of select="text()"/>
+            <xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
+            <xsl:if test="url"><a class="url-indicator" href="{url/text()}"> 🔗</a></xsl:if>
+            <!-- Inline notes on mobile -->
+            <span class="note">
+               <xsl:value-of select="normalize-space(note/text())"/>
+            </span>
+            <xsl:if test="x">
+               <ul class="expansions">
+                  <xsl:apply-templates select="x"/>
+               </ul>
+            </xsl:if>
+         </li>
+      </xsl:template>
+
+   </xsl:stylesheet>
+
+   <list name="Games owned">
+      <g>Android: Netrunner <x>Cyber Exodus</x><x>Honor and Profit</x></g>
+      <g>Arkham Horror <x>Innsmouth Expansion</x></g>
+      <g>Ghost Stories</g>
+      <g>Geschenkt / "No thanks!"</g>
+      <g>Hive: Pocket Edition</g>
+      <g>Smallworld
+         <x>Sky Islands <note>Bought at Essen 2017</note></x>
+      </g>
+      <g>Odins Raben</g>
+      <g>Lost Cities</g>
+      <g>Kahuna</g>
+      <g>Caesar und Cleopatra</g>
+      <g>Blitz und Donner</g>
+      <g>Babel</g>
+      <g>Alhambra</g>
+      <g>Kingdom Builder</g>
+      <g>Tash-Kalar
+         <x>Everfrost <note>with TK upgrade Kit for 15€.</note></x>
+         <x>Nethervoid <note>Bought for 10€ at Essen 2015.</note></x>
+         <x>Etherweave <note>Bought for 10€ at Essen 2017</note></x>
+      </g>
+      <g>Elder Sign</g>
+      <g>Seasons</g>
+      <g>Dominion <note>Both base games + Seaside</note></g>
+      <g>Revolver</g>
+      <g>Settlers of Catan <note>Two base games + Seefahrer + Städte und Ritter + HS: Cheops und Alexander</note></g>
+      <g>Catan Card Game</g>
+      <g>Catan Dice Game</g>
+      <g>Die guten und die bösen Geister <note>It's a bit simple, but so far I've found nothing similar to replace it with. Speakeasy maybe, but we gifted that one away.</note></g>
+      <g>Quarriors!</g>
+      <g>Warhammer: Invasion <note>+ all expansions except Legends, with some packs twice.</note>
+         <x>Verborgende Königreiche <unplayed/> <note>Bought for 10€(!) at Essen 2015.</note></x>
+         <x>Kataklysmus <unplayed/> <note>Bought for 10€(!) at Essen 2017.</note></x>
+      </g>
+      <g>Dixit <unplayed/></g>
+      <g>Star Wars LCG</g>
+      <g>Thor <note>Same as Botswana</note></g>
+      <g>Marvel Dice Masters</g>
+      <g>Strife: Legacy of the Eternals <note>Bought for 15€.</note></g>
+      <g>Strife: Shadows and Steam</g>
+      <g>Colt Express <note>Bought for 27€.</note>
+         <x>Bandits <unplayed/><note>Bought all six together at Essen 2018 for 30€.</note></x>
+      </g>
+      <g>Empire Engine <note>Bought for 5€ (in 2x deal) from AEG at Essen 2014.</note></g>
+      <g>Coup + Reformation (KS Edition)</g>
+      <g>Splendor <note>Bought for 26€.</note></g>
+      <g>Maximum Throwdown <unplayed/></g>
+      <g>Star Realms <note>+ Colony Wars (2nd Base set) + Storage Box</note></g>
+      <g>X-Wing <note>Two base sets + Millenium Falcon, XW, YW, BW, HWK, TIE, TIE-A, Imp. Aces (x2), Lambda</note></g>
+      <g>Eight-Minute Empire</g>
+      <g>Concept <note>german</note></g>
+      <g>Targi</g>
+      <!-- 2015 -->
+      <g>Harbour</g>
+      <g>Bullfrogs</g>
+      <g>Yedo</g>
+      <g>Mahjong <note>John Lewis edition</note></g>
+      <!-- Essen 2015 -->
+      <g>7 Wonders: Duel <note>2p version of 7 Wonders. Bought at Essen 2015.</note></g>
+      <g>Shuffle Heroes <note>Bought at Essen 2015 for 15€.</note></g>
+      <!--g> Tash-Kalar – Nethervoid </g-->
+      <g>Codenames <note>Bought at Essen 2015 for 15€.</note></g>
+      <g>Clacks: A Discworld Board Game <note>Similar to "The Signs Are Right!". Bought at Essen 2015.</note></g>
+      <g>...and then, we held hands. <note>Coop about a relationship. Bought at Essen 2015.</note></g>
+      <g>Cthulhu Realms <note>Bought at Essen 2015.</note></g>
+      <g>Specter Ops <note>Bought at Essen 2015 for 40€.</note></g>
+      <g>Friday</g>
+      <g>Ashes: Rise of the Phoenixborn <note>+ Expansion 1 &amp; 2</note>
+         <x>Expansion 3: The Song of Soaksend + The Laws of Lions <unplayed/></x>
+      </g>
+      <g>Taluva</g>
+      <g>Star Wars: Imperial Assault <unplayed/></g>
+      <g>Kodama: The Tree Spirits</g>
+      <g>Flip City</g>
+      <g>The Palaces of Carrara</g>
+      <g>El Grande <unplayed/></g>
+      <g>Bohnanza <unplayed/></g>
+      <g>For Sale <unplayed/></g>
+      <g>6 nimmt <unplayed/></g>
+      <g>Dreamwell</g>
+      <g>Thunderbirds <note>KS Edition</note></g>
+      <!-- Essen 2016 -->
+      <g>Potions Brew</g>
+      <g>Sponsio <note>€12 at Essen 2016.</note></g>
+      <g>Kingdomino</g>
+      <g>Tatsu</g>
+      <g>Cat Town <note>€20 at Essen 2016.</note></g>
+      <g>Crabs! <note>€10 at Essen 2016.</note></g>
+      <g>Wongamania <note>Ordered at Essen 2016</note></g>
+      <g>Ocracoke: Gold and Glory</g>
+      <g>KO Heroes</g>
+      <g>Hey, danke für den Fish! / "Hey, that's my fish!"<note>€7 at Essen 2016.</note></g>
+      <!-- /Essen 2016 -->
+      <g>Mississippi Queen <unplayed/></g>
+      <g>Zick-Zack ("What's my word")</g>
+      <g>Days of Ire: Budapest 1956</g>
+      <!-- Essen 2017 -->
+      <g>Terraforming Mars</g>
+      <g>Sol: Last Days of a Star</g>
+      <g>HATSUDEN <note>€15 at Essen 2017</note></g>
+      <g>Skyward</g>
+      <g>Entropy</g>
+      <g>Viral</g>
+      <g>VivaJava: The Coffee Game: The Dice Game</g>
+      <g>Stak Bots<note>€20 w/ both expansions at Essen 2017</note>
+        <x>Yellow Expansion</x>
+        <x>Red Expansion</x>
+      </g>
+      <g>Jaipur</g>
+      <!-- Small World: Sky Islands -->
+      <!-- /Essen 2017 -->
+      <g>Fast Forward: FLEE</g>
+      <g>Brutal Kingdom <note>Bought to play at work</note></g>
+      <g>Mai-Star <note>Bought to play at work</note></g>
+      <g>Gauntlet of Fools <note>Sleeved the cards and got an organizer for the tokens</note></g>
+      <g>4 Gods <note>£20 at EG</note></g>
+      <!-- 2018 -->
+      <g>Evolve: Lights of the Deep <note>KS</note></g>
+      <g>Potato Pirates <note>Preorder arrived Apr 26 2018.</note></g>
+      <g>Echidna Shuffle <note>KS</note></g>
+      <g>Summoner Wars: Phoenix Elves vs Tundra Orcs</g>
+      <g>Summoner Wars: Guild Dwarves vs Cave Goblins <unplayed/></g>
+      <!-- Essen 2018 -->
+      <g>Cat Rescue <note>Bought at Essen 2018 for 8€.</note></g>
+      <g>Itchy Monkey <note>Bought at Essen 2018 for 30€.</note></g>
+      <!--g>Colt Express: Bandits <unplayed/><note>Bought all six together at Essen 2018 for 30€.</note></g-->
+      <g>SteamRollers <note>Bought at Essen 2018 for 30€.</note></g>
+      <g>Petrichor <note>Bought at Essen 2018 for ?</note></g>
+      <g>Fast Forward: FORTUNE <note>Bought at Essen 2018 for 14€ (as a gift).</note></g>
+      <g>Brothers <note>Bought at Essen 2018 for 15€.</note></g>
+      <g>Kami-sama <note>Bought at Essen 2018 for 45€.</note></g>
+      <g>Debtzilla <note>Bought at Essen 2018 for 35€.</note></g>
+      <g>Sub Terra <note>English Edition. Bought at Essen 2018 for ?</note></g>
+      <g>Photosynthesis <note>Bought at Essen 2018 for ?</note></g>
+      <g>Versailles <note>Bought at Essen 2018 for 18€!</note></g>
+      <g>Gobi <note>Bought at Essen 2018 for 25€.</note></g>
+      <g>Gnomopolis <note>Bought at Essen 2018 for 40€.</note></g>
+      <!-- /Essen 2018 -->
+   </list>
+
+   <list name="New games played this year">
+      <g>Happy Salmon</g>
+      <g>Small World: Sky Islands</g>
+      <g>Evolve: Lights of the Deep</g>
+      <g>King of Tokyo</g>
+      <g>The Game</g>
+      <g>Spyfall 2</g>
+      <g>Brutal Kingdom</g>
+      <g>Summoner Wars: Phoenix Elves vs Tundra Orcs</g>
+      <!-- Essen 2018 -->
+      <!-- Day 1 / Thursday -->
+      <g p="TWOPLUS Games">The Forgotten City <note>Nice game and artwork, but confusing graphic design</note></g>
+      <g p="Black Box Adventures">Itchy Monkey</g>
+      <g p="Next Move Games">Reef <note>40€ at Essen 2018. German edition by Pegasus Spiele.</note></g>
+      <g p="Alderac Entertainment Group">War Chest <note>Was nice, but not 40€ nice.</note></g>
+      <g p="alea">Carpe Diem <note>Excellent Feld. 40€. Sold out at Essen 2018.</note></g>
+      <g p="Flatlined Games">SteamRollers</g>
+      <!-- Day 2 / Friday -->
+      <g>Petrichor</g>
+      <g p="Pearl Games">Solenia <note>Day/Night cycle. Cards with holes in them. 36€ at Essen 2018.</note></g>
+      <g p="Space Cowboys">Orbis <note>Nice God-game. Works well with 2p. Deeper than Splendor. 30€ at Essen 2018. Not as good as Gaïa, though.</note></g>
+      <g p="Stonemaier Games / Feuerland Spiele">Between Two Castles of Mad King Ludwig <note>35€ at Essen 2018. Better than B2C, but no replacement for 2p CoMKL. Good with bigger groups.</note></g>
+      <g p="YAY Games">Ominoes: Hieroglyphs</g>
+      <g p="Capital Gains Studio">Debtzilla <note>We just sort-of played a turn</note></g>
+      <!-- Hotel -->
+      <g p="Capital Gains Studio">Cryptocurrency <note>Stock-trading game. Surprisingly fun. Didn't like it as much as Wongamania or Hab und Gut.</note></g>
+      <!-- Day 3 / Saturday -->
+      <g>The Lady and the Tiger</g>
+      <g>Ghosts of the Moor</g>
+      <g>Athens <note>Crap game with some potential. They should have worked on improving it instead of publishing it.</note></g>
+      <g p="Sorry We Are French">Ganymede <note>Was called "Lighter than Splendor" but I don't think so. Would have been 25€ at Essen 2018 but was sold out.</note></g>
+      <g>Discovery: The Era of Voyage <note>I think this is a good game if you use the actual rules instead of the confusing nonsense that was explained to us.</note></g>
+      <g p="2F-Spiele">Fine Sand <note>Was ok, not not super exciting. 28€ at Essen 2018</note></g>
+      <!-- Day 4 / Sunday -->
+      <g p="2F-Spiele">Fast Forward: FORTUNE <note>Bought as a gift.</note></g>
+      <g p="KOSMOS">Imhotep: Das Duell <note>Excellent 2p adaption. 17€ at Essen 2018.</note></g>
+      <g>Roll for Adventure <note>Waaay to easy co-op. Won with many turns to spare and before the "big bad" even came out. None of the more "difficult" options looked like they fundamentally change something about the difficulty.</note></g>
+      <g>Gobi</g>
+      <g>Dice Town</g>
+      <g>Gùgōng</g>
+      <g>Gnomopolis</g>
+      <!-- /Essen 2018 -->
+      <g>Debtzilla</g>
+      <g>Kami-sama</g>
+   </list>
+
+   <list name="Outstanding Kickstarters">
+      <g>Seize the Bean <note>Funded. Sep 2018.</note><url><![CDATA[https://www.kickstarter.com/projects/qualitybeast/seize-the-bean-a-light-hearted-deck-builder-about]]></url></g>
+      <g p="Leder Games">Vast: The Crystal Caverns <note>50€. Ordered with Seize the Bean</note></g>
+   </list>
+
+   <list name="Not bought at Essen (but wanted to)">
+      <g p="Sorry We Are French">Ganymede <note>Was called "Lighter than Splendor" but I don't think so. Would have been 25€ at Essen 2018 but was sold out.</note></g>
+      <g p="KOSMOS">Imhotep: Das Duell <note>Excellent 2p adaption. 17€ at Essen 2018.</note></g>
+   </list>
+
+   <list name="Unplayed highlights from Essen 2018">
+      <g p="Tetrahedron Games">Dodoresque <note>Demo only. Future KS?</note></g>
+      <g p="2F-Spiele">Fool! <note>8€</note></g>
+      <g p="2F-Spiele">Futuropia <note>45€</note></g>
+      <g p="Pegasus Spiele">Jump Drive <note>German version. EN by rio grande? RftG variant that is quick to play but still complex. 20€</note></g>
+      <g p="Pegasus Spiele">Blackout: Hong Kong <note>English edition by eggertspiele</note></g>
+      <g p="Starling Games (II)">Everdell <note>1-4p. Rahdo approved. 70€</note></g>
+      <g p="TWOPLUS Games">Mystical Seeds <note>Looks nice</note></g>
+      <g p="Sorry We Are French">Immortal 8 <note>Different hidden ways of scoring. Probably doesn't work with 2p. Hard to tell if it's good. 30€</note></g>
+      <g p="The Wood Games">Small Islands <note>Could be nice. 30€</note></g>
+   </list>
+
+   <list name="Watchlist">
+      <g>Fury of Dracula <note>FFG 3rd Edition is out.</note>
+                         <url><![CDATA[https://www.fantasyflightgames.com/en/news/2015/7/23/fury-of-dracula/]]></url></g>
+      <g>Pixel Tactics <note>Pixel Tactics 2 is the newest incarnation.</note></g>
+      <g>Kemet</g>
+      <g>The Duke <note>Chess-like abstract with cool movement.</note></g>
+      <g>Hawken Real-Time Card Game <note>Asymetrical Mecha combat</note></g>
+      <g>Hegemonic <note>4X</note></g>
+      <g>Fauna, Anachronism <note>Mentioned on DiceTower as being educating.</note></g>
+      <g>Fidelitas <note>Green Couch Games, Jason Kotarski. Missed Kickstarter (2014).</note></g>
+      <g>NanoBot Battle Arena <note>Derpy Games, LLC; Benji Michalek. Kickstarter (2014).</note></g>
+      <g>Omen: A Reign of War <note>2p card game.</note></g>
+      <g>Eruption <note>"Gateway" game.</note></g>
+      <g p="Hobby World">Five Seals of Magic</g>
+      <g p="TMG/Pegasus">My Village <note>Village meets Machi-Koro</note></g>
+      <g p="Asmadi Games">One Deck Dungeon</g>
+      <g p="Queen Games">Immortals <note>Light/Dark side area control</note></g>
+      <g p="Ludonova">Cosmogenesis <note>Throw rocks at your planets to make moons</note></g>
+      <g p="TMG">Harvest</g>
+   </list>
+
+   <list name="Games at my parents'">
+      <g>Das verrückte Labyrinth</g>
+      <g>Speed</g>
+      <g>Siedler von Nürnberg</g>
+      <g>Das Gold der Maya</g>
+      <g>Kap Hoorn</g>
+      <g>Gipf mini</g>
+      <g>Katzenjammer Blues <note>Knizia</note></g>
+      <g>Janus</g>
+      <g>Nimms leich</g>
+   </list>
+
+   <list name="Games we are losing access to that I'll miss">
+      <g>Onirim <url><![CDATA[https://www.boardgamegeek.com/boardgame/156336/onirim-second-edition]]></url></g>
+      <g>Gaïa <url><![CDATA[https://www.boardgamegeek.com/boardgame/163920/gaia]]></url></g>
+      <g>Quadropolis <url><![CDATA[https://www.boardgamegeek.com/boardgame/176396/quadropolis]]></url></g>
+      <g>Castles of Mad King Ludwig <url><![CDATA[https://www.boardgamegeek.com/boardgame/155426/castles-mad-king-ludwig]]></url></g>
+      <g>Abyss <url><![CDATA[https://www.boardgamegeek.com/boardgame/155987/abyss]]></url></g>
+      <g>Oceanos <url><![CDATA[https://www.boardgamegeek.com/boardgame/192860/oceanos]]></url></g>
+      <g>Galaxy Trucker <url><![CDATA[https://www.boardgamegeek.com/boardgame/31481/galaxy-trucker]]></url></g>
+      <g>Valley of the Kings <url><![CDATA[https://www.boardgamegeek.com/boardgame/150999/valley-kings]]></url></g>
+      <g>Fungi/Morels <url><![CDATA[https://www.boardgamegeek.com/boardgame/122298/morels]]></url></g>
+      <g>Champions of Midgard <url><![CDATA[https://www.boardgamegeek.com/boardgame/172287/champions-midgard]]></url></g>
+      <g>Impulse <url><![CDATA[https://www.boardgamegeek.com/boardgame/144239/impulse]]></url></g>
+      <g>Seeland <url><![CDATA[https://www.boardgamegeek.com/boardgame/63759/seeland]]></url></g>
+      <g>Glen More <url><![CDATA[https://www.boardgamegeek.com/boardgame/66362/glen-more]]></url></g>
+      <g>La Isla <url><![CDATA[https://www.boardgamegeek.com/boardgame/154246/la-isla]]></url></g>
+      <g>Valdora <url><![CDATA[https://www.boardgamegeek.com/boardgame/40769/valdora]]></url></g>
+   </list>
+
+   <list name="Games I like but don't own">
+      <g>Village</g>
+      <g>Carcassonne</g>
+      <g>Hanabi</g>
+      <g>Nuns on the run</g>
+   </list>
+
+   <list name="New games played in 2017">
+      <old/>
+      <g>Arboretum</g>
+      <g>Qwirkle</g>
+      <g>Imhotep</g>
+      <g>Raptor</g>
+      <g>Indonesia</g>
+      <g>Pyramids</g>
+      <g>Mystic Vale</g>
+      <g>Hero Realms</g>
+      <g>Jaipur</g>
+      <g>Oceanos</g>
+      <g>Dreamwell</g>
+      <g>New York Slice</g>
+      <g>Batman Fluxx</g>
+      <g>Wits &amp; Wagers <note>Trivia game</note></g>
+      <g>Terra <note>Trivia game. Friedeman Friese</note></g>
+      <g>Drakon</g>
+      <g>Dixit</g>
+      <g>Epic</g>
+      <g>Unearth</g>
+      <g>Santorini</g>
+      <!-- Essen 2017 -->
+      <g>Dice Hospital</g>
+      <g>Seize the Bean</g>
+      <g>Echidna Shuffle</g>
+      <g>Ancient Aliens: Creators of Civilizations</g>
+      <g>Queendomino</g>
+      <g>Dr. Microbe</g>
+      <g>Mountains of Madness <note></note></g>
+      <g>Photosynthesis</g>
+      <g>Skyward</g>
+      <g>Entropy</g>
+      <g>Viral</g>
+      <g>Potato Pirates</g>
+      <g>Nisyros</g>
+      <g>Stak Bots</g>
+      <g>Muse <note></note></g>
+      <g>VivaJava: The Coffee Game: The Dice Game</g>
+      <!-- /Essen 2017 -->
+      <g>Saboteur</g>
+      <g>Exploding Kittens <note>Russian Roulette with silly cards</note></g>
+      <g>Skull <note>Bluffing game</note></g>
+      <g>Sub Terra</g>
+      <g>Secrets</g>
+      <g>Welcome Back to the Dungeon <note>Slight variant on WttD, still a sub-par dungeon crawler</note></g>
+      <g>Fast Forward: FLEE <note>Played it, bought it. :)</note></g>
+      <g>Bärenpark <note>Nice tile-laying game</note></g>
+      <g>The Resistance</g>
+      <g>Saboteur 2</g>
+      <g>The Resistance: Avalon</g>
+      <g>Red7</g>
+      <g>Sundae Split</g>
+      <g>Junggle</g>
+      <g>Istanbul: Das Würfelspiel</g>
+      <g>Felix: The Cat in the Sack</g>
+      <g>Fast Forward: FEAR</g>
+      <g>Dream Catchers</g>
+      <g>HATSUDEN</g>
+      <g>Meeple Circus</g>
+      <g>NMBR 9</g>
+      <g>Isla Dorada</g>
+      <g>Klondike</g>
+      <g>Who Should We Eat?</g>
+      <g>Sol: Last Days of a Star</g>
+   </list>
+
+   <list name="New games played in 2016">
+      <old/>
+      <g>Kodama: The Tree Spirits</g>
+      <g>Undermining</g>
+      <g>Haru Ichiban</g>
+      <g>Patchwork</g>
+      <g>Avignon: A Clash of Popes</g>
+      <g>Sorry! Sliders</g>
+      <g>Valley of the Kings</g>
+      <g>The Reef <note>Worst 2p KOSMOS game I've played so far.</note></g>
+      <g>Abraca...what? <note>Sort-of like a competative Hanabi.</note></g>
+      <g>Star Wars: Imperial Assault</g>
+      <g>Keep Talking and Nobody Explodes <note>https://videogamegeek.com/videogame/166503/keep-talking-and-nobody-explodes</note></g>
+      <g>The Isle of Doctor Necreaux <note>Nice coop. Won on second run.</note></g>
+      <g>Egizia</g>
+      <g>Sapiens <note>Quite a lot of downtime. Should try with 2p.</note></g>
+      <g>Dino Race <note>Silly racing game seemingly inspired by Odin's Raven.</note></g>
+      <g>Formula D</g>
+      <g>Cat Attack</g>
+      <g>CS Files / Deception: Murder in Hong Kong</g>
+      <g>Sandcastles</g>
+      <g>Ominoes</g>
+      <g>Thunderbirds</g>
+      <g>Russian Railroads</g>
+      <g>Quadropolis</g>
+      <g>Between Two Cities</g>
+      <g>Unexpected Treasures / Fundstücke</g>
+      <g>Tiny Epic Kingdoms <note>5p seemed too take too long. Tiny fiddly bits.</note></g>
+      <g>Lost Cities: The Board Game <note>The original game is better, and more thematic.</note></g>
+      <g>Welcome to the Dungeon <note>There are better Dungeon-Delvers.</note></g>
+      <g>Through the Desert <note>Knizia classic. I like Kingdom Builder better.</note></g>
+      <g>Carcassonne: Expansion 1 – Inns &amp; Cathedrals <note>One of the better expansions. Makes it more swingy, but also leads to some interesting decisions.</note></g>
+      <g>Nefarious <note>donaldx game about Mad Scientists (all male)</note></g>
+      <g p="TMG">Flip City <note>Deckbuilding Push-your-luck with double-sided cards. Good for 2p. Was on Kickstarter.</note></g>
+      <g>Burrows <note>A game about people complaining about gophers. Good mechanics, odd theme.</note></g>
+      <g>Medici vs Strozzi</g>
+      <g>Dice Crawl</g>
+      <g>Medina</g>
+      <g>Race for the Galaxy</g>
+      <g>Celestia <note>Light push-your-luck baloon racing</note></g>
+      <g>Onirim <note>addictive.</note></g>
+      <g>Atlantis Rising</g>
+      <g>Scarab Lords</g>
+      <g>Antidote <note>Deduction card-game</note></g>
+      <g>Titan Race</g>
+      <g>Codinca <note>Just play Clacks instead.</note></g>
+      <g>Ogre: Objective 218 <note>Card game version.</note></g>
+      <g>BraveRats <note>A bit like Strife, but less mind-melting.</note></g>
+      <g>Eldritch Horror</g>
+      <g>Isle of Skye: From Chieftain to King</g>
+      <g>The Big Book of Madness</g>
+      <g>Mansions of Madness: Second Edition</g>
+      <g>The Great Dalmuti</g>
+      <g>Suspend <note>Dexterity game</note></g>
+      <g>Strife: Shadows and Steam</g>
+      <!-- Essen 2016: Thursday -->
+      <g>Via Nebula</g>
+      <g>The Vampire, the Elf and the Cthulhu <note>Writers battling over the contents of a novel</note></g>
+      <g>Colony <note>Nice game, artwork not my cup of tea</note></g>
+      <g>Colt Express: Marshal &amp; Prisoners <note>€20 at Essen 2016</note></g>
+      <g>Evolution: Climate</g>
+      <g>Kingdomino</g>
+      <g>Fabled Fruit / "Fabelsaft" <note>Changes after each play</note></g>
+      <g>Dungeon of Fortune <note>German version. €20 at Essen 2016.</note></g>
+      <!-- Essen 2016: Friday -->
+      <g>Sponsio</g>
+      <g>Ninja Arena</g>
+      <g>Crabs!</g>
+      <g>Overseers</g>
+      <g>Vikings Gone Wild <note>More in-your face deck builder</note></g>
+      <g>Wongamania</g>
+      <g>Cat Town</g>
+      <!-- Essen 2016: Saturday -->
+      <g>Macroscope <note>Picture guessing game w/ interesting device and 400 pictures.</note></g>
+      <g>Days of Ire: Budapest 1956 <note>Can be played as Coop or Asymetrical</note></g>
+      <g>Tatsu</g>
+      <g>7 Wonders: Duel – Pantheon</g>
+      <g>Targi: Die Erweiterung</g>
+      <!-- Essen 2016: Sunday -->
+      <g>Ocracoke: Gold and Glory</g>
+      <g>Sweet Nose</g>
+      <g>KO Heroes</g>
+      <g>Terraforming Mars <note>Sold out at Essen 2016</note></g>
+      <!-- Back from Essen -->
+      <g>Potions Brew</g>
+      <g>Krakatoa <note>Strange dice-rolling game</note></g>
+      <g>Jórvík</g>
+      <g>HMS Dolores <note>Iterated Prisoner's Dilemma by Bruno Faidutti, Eric M. Lang</note></g>
+      <g>Cottage Garden <note>Development of Patchwork. 2-4p.</note></g>
+      <g>X nimmt!</g>
+      <g>4 Gods <note>Simultaneous tile-laying game where you decide what god you are during the game</note></g>
+      <g>Lanterns: The Harvest Festival</g>
+      <g>La Glace et le Ciel <note>Coop based on a documentary</note></g>
+      <g>Dice Stars</g>
+      <g>Cottage Garden</g>
+      <g>Omega Centauri</g>
+      <g>Incan Gold</g>
+      <g>Kanagawa</g>
+      <g>The 3 Commandments</g>
+      <g>Camel Up Cards</g>
+      <!-- Germany -->
+      <g>Zick-Zack ("What's my word")</g>
+   </list>
+
+   <list name="New games played in 2015">
+      <old/>
+      <g>Pagoda</g>
+      <!-- INDIA -->
+      <g>Sushi Go!</g>
+      <!-- Back from INDIA -->
+      <g>Robin <note>terrible...</note></g>
+      <g>Lost Legacy: The Starship</g>
+      <g>For Sale</g>
+      <g>Timeline</g>
+      <g>5 Tribes</g>
+      <g>Deus</g>
+      <g>Yedo</g>
+      <g>Bullfrogs</g>
+      <g>Trains <note>Deckbuilder with a board. Have to try to get Anne to play it.</note></g>
+      <g>Lost Legacy: Flying Garden <note>Played with 3p. Seemed more chaotic than "The Starship".</note></g>
+      <g>One Night Ultimate Werewolf</g>
+      <g>Castles of Mad King Ludwig</g>
+      <g>Lifeboats <note>Too much of a "social" game for my taste.</note></g>
+      <g>Betrayal at the House on the Hill</g>
+      <g>Hey, That's My Fish!</g>
+      <g>Armadöra <note>Ok little abstract. Execution seems lacking.</note></g>
+      <g>Völuspá <note>Very nice tile-laying game. Anne won, of course.</note></g>
+      <g>Fungi <note>Shrooms! With butter! Yummy! (Anne wasn't as impressed as I)</note></g>
+      <g>New Salem</g>
+      <g>Codenames</g>
+      <g>Star Fluxx <note>Pretty random. Huge downtime on other players turns.</note></g>
+      <g>Jolly Roger <note>2015. Very chaotic and swingy.</note></g>
+      <g>Friday</g>
+      <g>Riff Raff <note>Dexterity game. I won. :)</note></g>
+      <g>A Fistful of Penguins <note>Simple Push-Your-Luck dice (manipulation) game. Purple Penguins.</note></g>
+      <g>Tides of Time <note>2p drafting game with 18 cards.</note></g>
+      <g>Cheeky Monkey</g>
+      <!-- Essen 2015: Thursday -->
+      <g>Flick 'em Up <note>Dexterity Western game with tons of scenarios.</note></g>
+      <g>7 Wonders: Duel <note>2p version of 7 Wonders</note></g>
+      <g p="Ares Games">Odyssey: Wrath of Poseidon</g>
+      <g>Siggil</g>
+      <g>Pandemic: The Cure</g>
+      <g>Colt Express: Horses &amp; Stagecoach</g>
+      <g p="Grey Fox Games">Champions of Midgard <note>Mythical-Viking worker placement where your warriors are dice.</note></g>
+      <g>ExoPlanets <note>Kickstarter. Planets! Life! Multiple Chip Use! Hidden Goals!!! Oh my1!!1 (Rahdo thinks it's too aggressive). 35€ at Essen 2015.</note></g>
+      <!-- Essen 2015: Friday -->
+      <g>Parfum</g>
+      <g>Favor of the Pharaoh <note>Dice manipulation game. 45€ at Essen 2015.</note></g>
+      <g>Firefly <note>50€ at Essen 2015.</note></g>
+      <g>Om Nom Nom</g>
+      <g>Wolsung Steampunk Skirmish Game</g>
+      <!-- Essen 2015: Saturday -->
+      <g>Clacks: A Discworld Board Game</g>
+      <g>...and then, we held hands.</g>
+      <g>Cthulhu Realms</g>
+      <g p="AEG">Dice City <note>What the dice do changes based on the board. 35€ at Essen 2015.</note></g>
+      <g>Specter Ops</g>
+      <!-- Essen 2015: Sunday -->
+      <g>Carcassonne: Over Hill and Dale</g>
+      <g p="Plaid Hat Games">Ashes: Rise of the Phoenixborn<note>40€ at Essen 2015.</note></g>
+      <!-- Back from Essen -->
+      <g>Carcassonne: Hunters and Gatherers</g>
+      <g p="Z-Man">Cacao</g>
+      <g>Rokoko <note>Worked w/ 2p in under 60min.</note></g>
+      <g>Impulse <note>Horrific rulebook. Small 4X game. I liked it, Anne didn't. :(</note></g>
+      <g>OctoDice</g>
+      <g>Star Realms: Colony Wars</g>
+      <g>Biblios</g>
+      <g>Infiltration</g>
+      <g>Penguin <note>Reiner Knizia's typical troubles with theme. This is like "Westeros Intrique", but with a pointless dexterity component.</note></g>
+      <g>Gaïa <note>Very cool "God-game" with nice artwork.</note></g>
+      <g>Wrong Chemistry <note>Horrible execution, but the underlying game has potential.</note></g>
+      <g>Gum Gum Machine <note>Rube Goldberg machine produces gum gums. I had a hard time with the memory element.</note></g>
+      <g>Taluva</g>
+   </list>
+
+   <list name="New games played in 2014">
+      <old/>
+      <g>Arler Erde / Fields of Arle <note>Took ages but was very nice. Second play was quicker, especially the setup using labeled bags.</note></g>
+      <g>Castles of Burgundy <note>Very nice Euro where dice determine availale actions. Managable component count. Some downtime with 4p. Try 2p?</note></g>
+      <g>Ticket to Ride: Europe <note>Played with 5p.</note></g>
+      <g>Star Realms <note>Great Dominion-like 2p where you attack each other with space-ships. Quite different from Core Worlds.</note></g>
+      <g>Panic Station <note>Crap. Terrible theme, nothing makes sense. The game itself might be okayish with some proper explanation/rules. Not gonna give it another chance, though.</note></g>
+      <g>Witch's Brew <note>Role-selection, multiple card-use game about brewing potions. Some art is really nice, some hard to see. Reprint coming?</note></g>
+      <g>Dobble <note>Quick shape-matching game</note></g>
+      <g>Ascension: Cronicles of the Godslayer <note>Less strategic Dominion-clone. Rather play the original.</note></g>
+      <g>Black Fleet</g>
+      <g>Abyss</g>
+      <g>Imperial Settlers</g>
+      <g>Ninja Dice <note>Dungeon Roll is the better Push-your-luck, since it has tougher decisions.</note></g>
+      <g>Snake Oil <note>Fun party game about pitching utter nonsene to customers</note></g>
+      <g>Orléans</g>
+      <g>The Palaces of Carrara</g>
+      <g>La Isla</g>
+      <g>Roar-A-Saurus</g>
+      <g>Spellcasters <note>Captures some of the essence of Magic. Works with 2p or more.</note></g>
+      <g>Doodle City <note>15€ at Essen 1204</note></g>
+      <g>UFO Farmer <note>Memory + alien abductions</note></g>
+
+      <g>Strife</g>
+      <g>Colt Express</g>
+      <g>Versailles <note>Don't judge a game by its cover! Fast-flowing "worker-movement" game. 30€. Not bought.</note></g>
+      <g>Machi Koro <note>Build city, roll for income. I liked it. Christoph bought. Rahdo thinks not a good 2p.</note></g>
+      <g>Orongo <note>Nice theme (Moai-building) for a Knizia. 2-4p. 38€(?).</note></g>
+      <g>Alchemists <note>Publishing theories about alchemical ingredients. Uses a mobile phone to resolve randomized potion mixing. 40€ at Essen 2014. Not bought.</note></g>
+      <g>Viceroy <note>Building a pyramid of white guys. Kinda ok, but rather boring.</note></g>
+      <g>Progress: Evolution of Technology <note>The one with the multiple card uses reviewed by Rahdo. 35€.</note></g>
+      <g>Kingsport Festival <note>Kingsburg with HPL theme! Theme is a lot more fun than pseudo-fantasy Kingsburg. Not great, though. So maybe wait for the mechanic to crop up in a better game?</note></g>
+      <g>Höyük <note>Replaces Carc for Rahdo. We had a really bad explanation at Essen 2014 and didn't like it at all.</note></g>
+      <g>Bakerspeed <note>Crap. No deduction. Speed is way better at matching fast.</note></g>
+
+      <g>Boggle Flash <note>Good exercise for Scrabble :)</note></g>
+      <g>Agricola</g>
+      <g>Say Bye to the Villians</g>
+      <g>Red November <note>Drunken Gnomes trying to fix a submarine. 'Nuff said.</note></g>
+      <g>Infinite City <note>Crap. Very random tile-laying game. Offers nothing over Carc and Suburbia.</note></g>
+      <g>Glen More <note>Played without much explanation. Might still be good. Has an interesting Rondell-mechanic.</note></g>
+      <g>Splendor <note>Very nice heavy gem tokens. I need to get better to beat Anne.</note></g>
+      <g>Westeros Intrique <note>Nice tile-laying game, but like all Knizia's it's hardly connected to the theme.</note></g>
+      <g>Among the Stars</g>
+      <g>Coal Baron</g>
+      <g>Geistesblitz</g>
+      <g>Mercante <note>25€(!) at Essen 2014. Not bought. :(</note></g>
+      <g>Pandemic: Contagion <note>Pandemic-themed non-coop card-based area-control where you play as diseases.</note></g>
+      <g>Thor / Botswana <note>Both are the same game.</note></g>
+      <g>Marvel Dice Masters</g>
+      <g>Dracula <note>2 Player | KOSMOS</note></g>
+      <g>Dungeon Petz</g>
+      <g>SOS Titanic <note>Solo game</note></g>
+      <g>Lords of Waterdeep</g>
+      <g>Mai-Star <note>Should also work well with 2p.</note></g>
+      <g>Arcana <note>We only played the 1st edition. I would really like to take a look at the 2011 revised version by FFG</note></g>
+      <g>Camel Up!</g>
+      <g>Aber bitte mit Sahne!</g>
+      <g>Monkey Dash</g>
+      <g>Hanabi</g>
+      <g>Love Letter</g>
+      <g>Seeland</g>
+      <g>8 Minute Empire: Legends <note>Nicer art and pieces</note></g>
+      <g>Pirate Dice <note>Roborally Rip-Off</note></g>
+      <g>Core Worlds</g>
+      <g>Smash Up!</g>
+      <g>Innovation</g>
+      <g>Kingsburg</g>
+      <g>Libertalia</g>
+      <g>Jamaica</g>
+      <g>Coup</g>
+      <g>The Three Little Pigs<note>
+         Anne refuses to play this again.
+      </note></g>
+      <g>Mascarade</g>
+      <g>Suburbia</g>
+      <g>Gauntlet of Fools</g>
+      <g>Dungeon Roll</g>
+      <g>No Thanks!</g>
+      <g>King and Assassins</g>
+      <g>Yggdrasil</g>
+      <g>Carcassonne<note>
+         incl. Abbey and Mayor and ?
+      </note></g>
+      <g>Chaos in the Old World</g>
+      <g>Martian Dice</g>
+      <g>Concept</g>
+      <g>Confusion <note>We were underwhelmed... plus it's super-expensive</note></g>
+
+      <g>Pocket Imperium <note>Print'n'Play</note></g>
+      <g>The Empire Engine <note>First the Print'n'Play, then bought the edition by AEG at Essen.</note></g>
+      <g>Muses <note>Print'n'Play</note></g>
+      <g>Harbour <note>Print'n'Play. Ordered on Kickstarter.</note></g>
+      <g>Diamonds <note>Print'n'Play</note></g>
+   </list>
+</games>
