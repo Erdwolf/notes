@@ -155,6 +155,7 @@
       <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00</note></g>
    </list>
 
+
    <!-- Hall 2 -->
 
    <list name="Ankama" booth="2-A113">
@@ -175,7 +176,32 @@
       <g>Project L <note>Build up a pool up tetris blocks to complete bigger and bigger goals.</note></g>
    </list>
 
+   <list name="Board&amp;Dice" booth="2-C112">
+      <g>World Shapers <note>Drafting game with elements</note></g>
+      <g>Inuit: The Snow Folk <note>Seems really good. Nice Art. Designers not Inuit, but supposedly got input.</note></g>
+      <g>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP.</note></g>
+   </list>
+
+   <list name="Capstone Games" booth="2-C102">
+      <g>Ragusa <note>Worker*-placement. (*Houses, really). Also at: Giant Roc, 2-B114</note></g>
+
+   </list>
+
+   <list name="Giant Roc" booth="2-B114">
+      <g>Ragusa <note>Worker*-placement. (*Houses, really). Also at: Capstone Games, 2-C102</note></g>
+   </list>
+
+   <list name="Grimspire" booth="2-B114">
+      <g>Set a Watch <note>EUR 30.00</note></g>
+   </list>
+
+
    <!-- Hall 3 -->
+
+   <list name="2F-Spiele" booth="3-L104">
+      <g>Fast Sloths ("Faultier") <note>EUR 33.00</note></g>
+   </list>
+
 
    <!-- Hall 4 -->
 
