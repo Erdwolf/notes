@@ -118,18 +118,20 @@
 
    </xsl:stylesheet>
 
+
    <!-- Hall 1 -->
 
-   <list name="Bézier Games" booth="1-G139">
-      <g>Suburbia: Collector's Edition <note>EUR 135.00</note></g>
-   </list>
-
-   <list name="Brain Games" booth="1-F139">
-      <g>Pigasus <note>Quickly match various chimera</note></g>
+   <list name="Spielefaible" booth="1-B126">
+      <g>Airship City <note>EUR 40.00</note></g>
+      <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00</note></g>
    </list>
 
    <list name="Czech Board Games" booth="1-B137">
       <g>Spring on a String</g>
+   </list>
+
+   <list name="LudiCreations" booth="1-D129">
+      <g>So, You've Been Eaten.<note>Miner vs. Beast. 0-2p. EUR 20.00</note></g>
    </list>
 
    <list name="dlp games" booth="1-F133">
@@ -137,22 +139,20 @@
       <g>Orléans Stories <note>Sequel to Orléon? EUR 70.00</note></g>
    </list>
 
-   <list name="Frosted Games" booth="1-G124">
-      <g>Lux Aeterna <note>Solo game. Space station. Cool art.</note></g>
-   </list>
-
    <list name="Lookout Games" booth="1-F135">
       <g>Patchwork Doodle <note>EUR 10.00</note></g>
       <g>Expedition to Newdale <note>Campaign game. EUR 50.00</note></g>
    </list>
 
-   <list name="LudiCreations" booth="1-D129">
-      <g>So, You've Been Eaten.<note>Miner vs. Beast. 0-2p. EUR 20.00</note></g>
+   <list name="Brain Games" booth="1-F139">
+      <g>Pigasus <note>Quickly match various chimera</note></g>
    </list>
 
-   <list name="Spielefaible" booth="1-B126">
-      <g>Airship City <note>EUR 40.00</note></g>
-      <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00</note></g>
+   <list name="Bézier Games" booth="1-G139">
+      <g>Suburbia: Collector's Edition <note>EUR 135.00</note></g>
+   </list>
+   <list name="Frosted Games" booth="1-G124">
+      <g>Lux Aeterna <note>Solo game. Space station. Cool art.</note></g>
    </list>
 
 
@@ -164,12 +164,16 @@
       <g>Welkin <note>EUR 30.00</note></g>
    </list>
 
-   <list name="Awaken Realms Lite" booth="2-F123">
-      <g>Bees: The Secret Kingdom <note>Nice cards and bee facts - but good game? EUR 20.00</note></g>
+   <list name="Giant Roc" booth="2-B114">
+      <g>Ragusa <note>Worker*-placement. (*Houses, really). Also at: Capstone Games, 2-C102</note></g>
    </list>
 
-   <list name="Baloise Group" booth="2-F111">
-      <g>Sarah's Vision <note>Singularity. EUR 50.00</note></g>
+   <list name="Grimspire" booth="2-B114">
+      <g>Set a Watch <note>EUR 30.00</note></g>
+   </list>
+
+   <list name="Capstone Games" booth="2-C102">
+      <g>Ragusa <note>Worker*-placement. (*Houses, really). Also at: Giant Roc, 2-B114</note></g>
    </list>
 
    <list name="Boardcubator" booth="2-C144">
@@ -182,26 +186,35 @@
       <g>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP.</note></g>
    </list>
 
-   <list name="Capstone Games" booth="2-C102">
-      <g>Ragusa <note>Worker*-placement. (*Houses, really). Also at: Giant Roc, 2-B114</note></g>
-
+   <list name="Cosmodrome Games" booth="2-D113">
+      <g>Aquatica <note>Preorders end Oct 14. EUR 45.00</note></g>
    </list>
 
-   <list name="Giant Roc" booth="2-B114">
-      <g>Ragusa <note>Worker*-placement. (*Houses, really). Also at: Capstone Games, 2-C102</note></g>
+   <list name="Baloise Group" booth="2-F111">
+      <g>Sarah's Vision <note>Singularity. EUR 50.00</note></g>
    </list>
 
-   <list name="Grimspire" booth="2-B114">
-      <g>Set a Watch <note>EUR 30.00</note></g>
+   <list name="Awaken Realms Lite" booth="2-F123">
+      <g>Bees: The Secret Kingdom <note>Nice cards and bee facts - but good game? EUR 20.00</note></g>
    </list>
+
 
 
    <!-- Hall 3 -->
 
    <list name="2F-Spiele" booth="3-L104">
       <g>Fast Sloths ("Faultier") <note>EUR 33.00</note></g>
+      <g>Fire! ("Feuer frei!")  <note>EUR 12.00</note></g>
    </list>
 
+   <list name="Alderac Entertainment Group" booth="3-K107">
+      <g>Atelier: The Painter's Studio <note>Big Palettes. EUR 30.00</note></g>
+      <g>Valley of the Kings: Premium Edition  <note>EUR 50.00 </note></g>
+   </list>
+
+   <list name="Blue Orange (EU)" booth="3-M107">
+      <g>Kingdomino Duel <note>EUR 13.00</note></g>
+   </list>
 
    <!-- Hall 4 -->
 
