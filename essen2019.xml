@@ -183,7 +183,7 @@
    <list name="Board&amp;Dice" booth="2-C112">
       <g>World Shapers <note>Drafting game with elements</note></g>
       <g>Inuit: The Snow Folk <note>Seems really good. Nice Art. Designers not Inuit, but supposedly got input.</note></g>
-      <g>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP.</note></g>
+      <g>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP. Also at: Schwerkraft-Verlag, 3-P124</note></g>
    </list>
 
    <list name="Cosmodrome Games" booth="2-D113">
@@ -191,7 +191,7 @@
    </list>
 
    <list name="Baloise Group" booth="2-F111">
-      <g>Sarah's Vision <note>Singularity. EUR 50.00</note></g>
+      <g>Sarah's Vision <note>Singularity Coop w/ Jenga elements. EUR 50.00</note></g>
    </list>
 
    <list name="Awaken Realms Lite" booth="2-F123">
@@ -199,22 +199,53 @@
    </list>
 
 
-
    <!-- Hall 3 -->
 
-   <list name="2F-Spiele" booth="3-L104">
-      <g>Fast Sloths ("Faultier") <note>EUR 33.00</note></g>
-      <g>Fire! ("Feuer frei!")  <note>EUR 12.00</note></g>
+   <list name="KOSMOS" booth="3-B112">
+      <g>Catan: Starfarers <note>I don't think I want to buy it again but I want to have a look at the new ships. EUR 80.00</note></g>
+   </list>
+
+   <list name="OSTIA Spiele (@ ABACUSSPIELE)" booth="3-E114"> 
+      <g>Tee oder Kaffee <note>EUR 8.00</note></g>
    </list>
 
    <list name="Alderac Entertainment Group" booth="3-K107">
+      <g>Cat Lady: Premium Edition <note>EUR 20.00 </note></g>
       <g>Atelier: The Painter's Studio <note>Big Palettes. EUR 30.00</note></g>
-      <g>Valley of the Kings: Premium Edition  <note>EUR 50.00 </note></g>
+      <g>Valley of the Kings: Premium Edition <note>All standalone expansions combined w/ bigger cards. EUR 50.00</note></g>
+   </list>
+
+   <list name="Ludonaute" booth="3-K113">
+      <g>Yggdrasil Chronicles <note>Reimplements(?) Yggdrasil w/ a 3D tree. For Sale EUR 50.00. Preorder available</note></g>
+   </list>
+
+   <list name="2F-Spiele" booth="3-L104">
+      <g>Fast Sloths ("Faultier") <note>EUR 33.00. Also at: Stronghold Games, 3-O107</note></g>
+      <g>Fire! ("Feuer frei!") <note>EUR 12.00. Also at: Stronghold Games, 3-O107</note></g>
    </list>
 
    <list name="Blue Orange (EU)" booth="3-M107">
       <g>Kingdomino Duel <note>EUR 13.00</note></g>
    </list>
+
+   <list name="White Goblin Games" booth="3-M118">
+      <g>Claim: Reinforcements – {Magic,Maps,Mercenaries} <note>EUR 10.00 each</note></g>
+   </list>
+
+   <list name="Bankiiiz Editions (@ Blackrock Games)" booth="3-O106">
+      <g>Mū <note>Draft to build a beautiful water city. EUR 25.00</note></g>
+   </list>
+
+   <list name="Stronghold Games" booth="3-O107">
+      <g>Fast Sloths ("Faultier") <note>EUR 33.00. Also at: 2F-Spiele, 3-L104</note></g>
+      <g>Fire! ("Feuer frei!") <note>EUR 12.00. Also at: 2F-Spiele, 3-L104</note></g>
+   </list>
+
+   <list name="Schwerkraft-Verlag" booth="3-P124">
+      <g>Petrichor: Honeybee</g>
+      <g>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP. Also at: Board&amp;Dice, 2-C112</note></g>
+   </list>
+
 
    <!-- Hall 4 -->
 
