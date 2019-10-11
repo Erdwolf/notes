@@ -123,7 +123,7 @@
 
    <list name="Spielefaible" booth="1-B126">
       <g>Airship City <note>EUR 40.00</note></g>
-      <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00</note></g>
+      <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00. Also at: Bellwether Games, 5-J123</note></g>
    </list>
 
    <list name="Czech Board Games" booth="1-B137">
@@ -261,7 +261,15 @@
 
    <!-- Hall 5 -->
 
-   <!-- Hall ? -->
+   <list name="Capital Gains Studio" booth="5-D124">
+   </list>
+
+   <list name="Bellwether Games" booth="5-J123">
+      <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00. Also at: Spielefaible, 1-B126</note></g>
+   </list>
+
+
+   <!-- Hall 6 -->
 
    <list name="" booth="">
    </list>
