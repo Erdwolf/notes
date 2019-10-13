@@ -134,6 +134,10 @@
       <g>So, You've Been Eaten.<note>Miner vs. Beast. 0-2p. EUR 20.00</note></g>
    </list>
 
+   <list name="Pearl Games" booth="1-F103">
+      <g>Black Angel <note>EUR 70.00</note></g>
+   </list>
+
    <list name="dlp games" booth="1-F133">
       <g>Coffee Roaster <note>solitaire pool-building game. EUR 30.00</note></g>
       <g>Orléans Stories <note>Sequel to Orléon? EUR 70.00</note></g>
@@ -155,6 +159,7 @@
    <list name="Bézier Games" booth="1-G139">
       <g>Suburbia: Collector's Edition <note>EUR 135.00</note></g>
    </list>
+
 
 
    <!-- Hall 2 -->
@@ -324,29 +329,43 @@
       <g>The Magnificent <note>Draft dice to build the best circus. Preorder available</note></g>
    </list>
 
+
+   <list name="Little Future (リトルフューチャー) " booth="5-F110">
+      <g>ORC <note>Hidden movement Duke. EUR 25.00 </note></g>
+   </list>
+
+   <list name="Kolossal Games (@ Surfin' Meeple)" booth="5-G124">
+      <g>Omen Expansions <note>Play the base game?</note></g>
+   </list>
+
    <list name="Board Game Circus" booth="5-H116">
       <g>CuBirds <note>Set-collecting cubical birds. EUR 15.00. Preorder available</note></g>
    </list>
-
 
    <list name="Funtails" booth="5-H123">
       <g>Glen More II: Chronicles <note>Too much extra stuff... EUR 69.00</note></g>
    </list>
 
-
+   <list name="Wonderment Games" booth="5-H132">
+      <g>Quodd Heroes <note>EUR 90.00</note></g>
+   </list>
 
    <list name="Bellwether Games" booth="5-J123">
       <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00. Also at: Spielefaible, 1-B126</note></g>
    </list>
 
-
+   <list name="Mont Tàber" booth="5-L120">
+      <g>On the Origin of Species <note>EUR 32.00. Preorder available</note></g>
+   </list>
 
 
 
    <!-- Hall 6 -->
 
-   <list name="" booth="">
+   <list name="Gam'inBIZ" booth="6-L100">
+      <g>Rollecate <note>For Sale EUR 13.00 (EUR 25.00 w/ metal train). Preorder available</note></g>
    </list>
+
 
    <!-- Misc -->
 
