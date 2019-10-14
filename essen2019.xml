@@ -223,6 +223,7 @@
 
    <list name="Ludonaute" booth="3-K113">
       <g>Yggdrasil Chronicles <note>Reimplements(?) Yggdrasil w/ a 3D tree. For Sale EUR 50.00. Preorder available</note></g>
+      <g>Space Gate Odyssey <note>Might not be so good w/ 2p. EUR 50.00. Preorder available</note></g>
    </list>
 
    <list name="2F-Spiele" booth="3-L104">
@@ -238,8 +239,13 @@
       <g>Claim: Reinforcements – {Magic,Maps,Mercenaries} <note>EUR 10.00 each</note></g>
    </list>
 
-   <list name="Bankiiiz Editions (@ Blackrock Games)" booth="3-O106">
-      <g>Mū <note>Draft to build a beautiful water city. EUR 25.00</note></g>
+   <list name="R&amp;D Games" booth="3-O101">
+      <g>Key Market: Second edition <note>Rahdo really likes it. EUR 55.00</note></g>
+   </list>
+
+   <list name="Blackrock Games" booth="3-O106">
+      <g p="Bankiiiz Editions">Mū <note>Draft to build a beautiful water city. EUR 25.00</note></g>
+      <g p="La Boîte de Jeu">Nētā-Tanka <note>Worker-placement w/ linked locations. EUR 55.00. Preorder available</note></g>
    </list>
 
    <list name="Stronghold Games" booth="3-O107">
@@ -250,6 +256,8 @@
    <list name="Schwerkraft-Verlag" booth="3-P124">
       <g>Petrichor: Honeybee</g>
       <g>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP. Also at: Board&amp;Dice, 2-C112</note></g>
+      <g>Roam (German edition) <note>Ryan Laukat</note></g>
+      <g>Terror Below (German edition) <note>Steal eggs, don't get killed by monsters. Competitive. USD 45.00</note></g>
    </list>
 
 
@@ -356,7 +364,6 @@
    <list name="Mont Tàber" booth="5-L120">
       <g>On the Origin of Species <note>EUR 32.00. Preorder available</note></g>
    </list>
-
 
 
    <!-- Hall 6 -->
