@@ -122,7 +122,6 @@
    <!-- Hall 1 -->
 
    <list name="Spielefaible" booth="1-B126">
-      <g>Airship City <note>EUR 40.00</note></g>
       <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00. Also at: Bellwether Games, 5-J123</note></g>
    </list>
 
@@ -131,7 +130,8 @@
    </list>
 
    <list name="LudiCreations" booth="1-D129">
-      <g>So, You've Been Eaten.<note>Miner vs. Beast. 0-2p. EUR 20.00</note></g>
+      <g>So, You've Been Eaten. <note>Miner vs. Beast. 0-2p. EUR 20.00</note></g>
+      <g>On the Underground: London/Berlin (+ Solo expansion) <note>Double-sided map. Maybe too trainy for Anne? EUR 40.00 (+ EUR 10.00)</note></g>
    </list>
 
    <list name="Pearl Games" booth="1-F103">
@@ -139,7 +139,7 @@
    </list>
 
    <list name="dlp games" booth="1-F133">
-      <g>Coffee Roaster <note>solitaire pool-building game. EUR 30.00</note></g>
+      <g>Coffee Roaster <note>Solitaire pool-building game. Got the Android version. Have a look at the components of this version. EUR 30.00</note></g>
       <g>Orléans Stories <note>Sequel to Orléon? EUR 70.00</note></g>
    </list>
 
@@ -376,6 +376,7 @@
    <!-- Misc -->
 
    <list name="Other games to watch out for">
+      <g>Hostage Negotiator / Hostage Negotiator: Crime Wave <note>Solo</note></g>
       <g p="KOSMOS">Imhotep: Das Duell <note>Excellent 2p adaption. 17€ at Essen 2018.</note></g>
       <g>Fury of Dracula <note>FFG 3rd Edition is out.</note>
                          <url><![CDATA[https://www.fantasyflightgames.com/en/news/2015/7/23/fury-of-dracula/]]></url></g>
@@ -409,7 +410,6 @@
       <g>Fungi/Morels <url><![CDATA[https://www.boardgamegeek.com/boardgame/122298/morels]]></url></g>
       <g>Champions of Midgard <url><![CDATA[https://www.boardgamegeek.com/boardgame/172287/champions-midgard]]></url></g>
       <g>Impulse <url><![CDATA[https://www.boardgamegeek.com/boardgame/144239/impulse]]></url></g>
-      <g>Seeland <url><![CDATA[https://www.boardgamegeek.com/boardgame/63759/seeland]]></url></g>
       <g>Glen More <url><![CDATA[https://www.boardgamegeek.com/boardgame/66362/glen-more]]></url></g>
       <g>La Isla <url><![CDATA[https://www.boardgamegeek.com/boardgame/154246/la-isla]]></url></g>
       <g>Valdora <url><![CDATA[https://www.boardgamegeek.com/boardgame/40769/valdora]]></url></g>
