@@ -95,17 +95,20 @@
          </xsl:attribute>
       </xsl:attribute-set>
 
-      <xsl:template match="g|x">
+      <xsl:template match="g|x|G">
          <li title="{normalize-space(concat(note/text(), ' ', url/text()))}" xsl:use-attribute-sets="classes">
             <xsl:if test="name()='x'">+ </xsl:if>
             <!-- Highlight pre-ordered games -->
-            <xsl:if test="po"><span class='preordered'>😎</span></xsl:if>
-            <!-- Indicator for hover notes on desktop -->
+            <xsl:if test="pp"><span title="Prepaid [{pp/@code}]" class='prepaid'>💸</span></xsl:if>
+            <xsl:if test="po"><span title="Preordered" class='preordered'>😎</span></xsl:if>
+            <xsl:if test="name()='G'"><span class='preordered'>♥</span></xsl:if>
             <xsl:value-of select="text()"/>
+            <!-- Indicator for hover notes on desktop -->
             <xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
             <xsl:if test="url"><a class="url-indicator" href="{url/text()}"> 🔗</a></xsl:if>
             <!-- Inline notes on mobile -->
             <span class="note">
+               <xsl:if test="pp">Prepaid [<xsl:value-of select="pp/@code"/>].</xsl:if>
                <xsl:value-of select="normalize-space(note/text())"/>
             </span>
             <xsl:if test="x">
@@ -123,10 +126,11 @@
 
    <list name="Spielefaible" booth="1-B126">
       <g>Freshwater Fly <note>Flyfishing game w/ rondel. EUR 45.00. Also at: Bellwether Games, 5-J123</note></g>
+      <g>Wangdo / The Way of the Bear (German edition) <note>Really cute bear pieces. Turns too predictable? EUR 40.00</note></g>
    </list>
 
    <list name="Czech Board Games" booth="1-B137">
-      <g>Spring on a String</g>
+      <G>Spring on a String <note>Pulling laces through textile. "Perfect travel game".</note></G>
    </list>
 
    <list name="LudiCreations" booth="1-D129">
@@ -135,16 +139,16 @@
    </list>
 
    <list name="Pearl Games" booth="1-F103">
-      <g>Black Angel <note>EUR 70.00</note></g>
+      <G>Black Angel <note>EUR 70.00</note></G>
    </list>
 
    <list name="dlp games" booth="1-F133">
       <g>Coffee Roaster <note>Solitaire pool-building game. Got the Android version. Have a look at the components of this version. EUR 30.00</note></g>
-      <g>Orléans Stories <note>Sequel to Orléon? EUR 70.00</note></g>
+      <g>Orléans Stories <note>Sequel to Orléons? EUR 70.00</note></g>
    </list>
 
    <list name="Lookout Games" booth="1-F135">
-      <g>Patchwork Doodle <note>EUR 10.00</note></g>
+      <g>Patchwork Doodle <note>A "doodle" version of Patchwork. EUR 10.00</note></g>
       <g>Expedition to Newdale <note>Campaign game. EUR 50.00</note></g>
    </list>
 
@@ -153,20 +157,24 @@
    </list>
 
    <list name="Frosted Games" booth="1-G124">
-      <g>Lux Aeterna <note>Solo game. Space station. Cool art. Also at: Surprised Stare Games, 4-F121</note></g>
+      <g>Lux Aeterna <pp code="822708-R6X3C9"/><note>Solo game. Space station. Cool art. EUR 15.00. Also at: Surprised Stare Games, 4-F121</note></g>
    </list>
 
    <list name="Bézier Games" booth="1-G139">
       <g>Suburbia: Collector's Edition <note>EUR 135.00</note></g>
    </list>
 
+   <list name="White Wizard Games" booth="1-G140">
+      <g>Sorcerer <note>Shuffle-builder with a very gruesome theme. EUR 50.00</note></g>
+   </list>
+
 
    <!-- Hall 2 -->
 
    <list name="Ankama" booth="2-A113">
-      <g>Shadows of Macao <note>EUR 20.00</note></g>
+      <g>Shadows of Macao <note>Build your Triad from elongated character cards. EUR 20.00. German version at: Board Game Box, 4-I115</note></g>
       <g>Treasures of Cibola <note>EUR 15.00</note></g>
-      <g>Welkin <note>EUR 30.00. German version at: Board Game Box, 4-I115</note></g>
+      <G>Welkin <note>Order-fulfillment and market-manipulation with beautiful art. EUR 30.00. German version at: Board Game Box, 4-I115</note></G>
    </list>
 
    <list name="Giant Roc" booth="2-B114">
@@ -182,17 +190,17 @@
    </list>
 
    <list name="Boardcubator" booth="2-C144">
-      <g>Project L <note>Build up a pool up tetris blocks to complete bigger and bigger goals.</note></g>
+      <G>Project L <note>Build up a pool up tetris blocks to complete bigger and bigger goals.</note></G>
    </list>
 
    <list name="Board&amp;Dice" booth="2-C112">
       <g>World Shapers <note>Drafting game with elements</note></g>
       <g>Inuit: The Snow Folk <note>Seems really good. Nice Art. Designers not Inuit, but supposedly got input.</note></g>
-      <g>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP. Also at: Schwerkraft-Verlag, 3-P124</note></g>
+      <G>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP. Also at: Schwerkraft-Verlag, 3-P124</note></G>
    </list>
 
    <list name="Cosmodrome Games" booth="2-D113">
-      <g>Aquatica <note>Preorders end Oct 14. EUR 45.00</note></g>
+      <g>Aquatica <note>EUR 45.00</note></g>
    </list>
 
    <list name="Baloise Group" booth="2-F111">
@@ -215,15 +223,15 @@
    </list>
 
    <list name="Alderac Entertainment Group" booth="3-K107">
-      <g>Cat Lady: Premium Edition <note>EUR 20.00 </note></g>
+      <G>Cat Lady: Premium Edition<note>EUR 20.00 </note></G>
       <g>Atelier: The Painter's Studio <note>Big Palettes. EUR 30.00</note></g>
       <g>Valley of the Kings: Premium Edition <note>All standalone expansions combined w/ bigger cards. EUR 50.00</note></g>
       <g>Ecos: First Continent <note>Interesting tile-laying card-turning game with animals. Does it work w/ 2p?</note></g>
    </list>
 
    <list name="Ludonaute" booth="3-K113">
-      <g>Yggdrasil Chronicles <note>Reimplements(?) Yggdrasil w/ a 3D tree. For Sale EUR 50.00. Preorder available</note></g>
-      <g>Space Gate Odyssey <note>Might not be so good w/ 2p. EUR 50.00. Preorder available</note></g>
+      <G>Yggdrasil Chronicles <note>Successor to Yggdrasil w/ a rotating 3D tree. EUR 50.00</note></G>
+      <g>Space Gate Odyssey <note>Might not be so good w/ 2p. EUR 50.00</note></g>
    </list>
 
    <list name="2F-Spiele" booth="3-L104">
@@ -245,8 +253,8 @@
 
    <list name="Blackrock Games" booth="3-O106">
       <g p="Bankiiiz Editions">Mū <note>Draft to build a beautiful water city. EUR 25.00</note></g>
-      <g p="La Boîte de Jeu">It's a Wonderful World <note>1–5p. EUR 39.00</note></g>
-      <g p="La Boîte de Jeu">Nētā-Tanka <note>Worker-placement w/ linked locations. EUR 55.00. Preorder available</note></g>
+      <G p="La Boîte de Jeu">It's a Wonderful World <note>1–5p. EUR 39.00</note></G>
+      <g p="La Boîte de Jeu">Nētā-Tanka <note>Worker-placement w/ linked locations. EUR 55.00</note></g>
    </list>
 
    <list name="Stronghold Games" booth="3-O107">
@@ -256,16 +264,17 @@
 
    <list name="Schwerkraft-Verlag" booth="3-P124">
       <g>Petrichor: Honeybee</g>
-      <g>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP. Also at: Board&amp;Dice, 2-C112</note></g>
-      <g>Roam (German edition) <note>Ryan Laukat</note></g>
+      <G>Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP. Also at: Board&amp;Dice, 2-C112</note></G>
+      <G>Roam (German edition) <note>Ryan Laukat</note></G>
       <g>Terror Below (German edition) <note>Steal eggs, don't get killed by monsters. Competitive. USD 45.00</note></g>
+      <g>Katakomben: Kuben <note>Collect tetris-pieces to build 3d structures. There might be an optional playmat.</note></g>
    </list>
 
 
    <!-- Hall 4 -->
 
    <list name="Cranio Creations" booth="4-A117">
-      <g>Masters of Renaissance: Lorenzo Il Magnifico – The Card Game <note>Marbles! EUR 40.00. Preorder available</note></g>
+      <g>Masters of Renaissance: Lorenzo Il Magnifico – The Card Game <note>Marbles! EUR 40.00</note></g>
    </list>
 
    <list name="Crooked Tower" booth="4-A101">
@@ -281,19 +290,29 @@
       <g>A Fistful of Meeples <note>Wild West game w/ a Mancala-style mechanism. EUR 20.00</note></g>
    </list>
 
-   <list name="Explor8" booth="4-D119">
-      <g>Big Monster <note>Super-cute monsters, tile-drafting. EUR 25.00. Preorder available</note></g>
+   <list name="(French Village)" booth="4-D119">
+      <g p="Explor8">Big Monster <note>Super-cute monsters, tile-drafting. EUR 25.00</note></g>
+      <g p="Lumberjacks Studio">La Cour des Miracles</g>
    </list>
 
    <list name="Sylex" booth="4-D120">
-      <g>Dreamscape <note>Move around dreams to construct your personal dreamscape. 1–4p. EUR 45.00</note></g>
+      <G>Dreamscape <note>Move around dreams to construct your personal dreamscape. 1–4p. EUR 45.00</note></G>
+   </list>
+
+   <list name="Post Scriptum" booth="4-D121">
+      <g>Florenza Dice Game <note>Super-complex roll-and-write. EUR 19.00</note></g>
+   </list>
+
+   <list name="Ion Game Design" booth="4-D124">
+      <g>Pax Transhumanity <note>Positive outlook, interesting mechanics. EUR 44.00</note></g>
    </list>
 
    <list name="Tasty Minstrel Games" booth="4-F106">
       <g>Solar Draft <note>EUR 15.00</note></g>
    </list>
+
    <list name="Brain Picnic / Zacatrus (Games from Spain)" booth="4-F111">
-      <g>Draftosaurus <po/><note>819055-G3J8C6</note></g>
+      <g>Draftosaurus <pp code="819055-G3J8C6"/><note>EUR 20.00</note></g>
    </list>
 
    <list name="Surprised Stare Games" booth="4-F121">
@@ -305,15 +324,16 @@
    </list>
 
    <list name="Board Game Box" booth="4-I115">
-      <g>Welkin <note>EUR 30.00. English version at: Ankama, 2-A113</note></g>
+      <g>Shadows of Macao <note>Build your Triad from elongated character cards. EUR 20.00. English version at: Ankama, 2-A113</note></g>
+      <g>Welkin <note>Order-fulfillment and market-manipulation with beautiful art. EUR 30.00. English version at: Ankama, 2-A113</note></g>
    </list>
 
    <list name="Cinnamon Games" booth="4-J107">
-      <g>Oh, Fox! <note>Hidden roles, hidden movement. EUR 20.00. Preorders end Oct 14</note></g>
+      <g>Oh, Fox! <note>Hidden roles, hidden movement. EUR 20.00</note></g>
    </list>
 
    <list name="Pandasaurus Games" booth="4-J114">
-      <g>Wayfinders <note>Fly around establishing hangars, splendoresque. EUR 35.00. Preorder available</note></g>
+      <g>Wayfinders <note>Fly around establishing hangars, splendoresque. EUR 35.00</note></g>
    </list>
 
    <list name="itten" booth="4-J120">
@@ -327,6 +347,10 @@
 
    <!-- Hall 5 -->
 
+   <list name="Gaiagames" booth="5-C103">
+      <g>Ecogon <note>Habitats, Plants, Animals. Can be coop, unknown game length, advanced rules? EUR 28.00</note></g>
+   </list>
+
    <list name="Artana" booth="5-D110">
       <g>Lovelace &amp; Babbage <note>Real-time number-adding. I think only one person can play as Ada :(. EUR 20.00</note></g>
    </list>
@@ -335,11 +359,11 @@
    </list>
 
    <list name="Elf Creek Games" booth="5-D126">
-      <g>Atlantis Rising (second edition) <note>EUR 60.00. Preorders end Oct 18</note></g>
+      <g>Atlantis Rising (second edition) <note>EUR 60.00</note></g>
    </list>
 
    <list name="Aporta Games" booth="5-E128">
-      <g>The Magnificent <note>Draft dice to build the best circus. Preorder available</note></g>
+      <g>The Magnificent <note>Draft dice to build the best circus</note></g>
    </list>
 
    <list name="Little Future (リトルフューチャー) " booth="5-F110">
@@ -348,10 +372,19 @@
 
    <list name="Kolossal Games (@ Surfin' Meeple)" booth="5-G124">
       <g>Omen Expansions <note>Play the base game?</note></g>
+      <g>Terrors of London <note>2p deck-builder w/ unusual artwork. EUR 20.00</note></g>
+   </list>
+
+   <list name="Skellig Games" booth="5-H113">
+      <G>Ambrosia <note>Stacks of bees flying around in a circle! EUR 35.00</note></G>
    </list>
 
    <list name="Board Game Circus" booth="5-H116">
-      <g>CuBirds <note>Set-collecting cubical birds. EUR 15.00. Preorder available</note></g>
+      <G>CuBirds <note>Set-collecting cubical birds. EUR 15.00</note></G>
+   </list>
+
+   <list name="Wren Games" booth="5-H119">
+      <G>Sensor Ghosts <note>Space-themed Coop in a small box. Gameplay looks nice, but how hard is it?</note></G>
    </list>
 
    <list name="Funtails" booth="5-H123">
@@ -367,14 +400,14 @@
    </list>
 
    <list name="Mont Tàber" booth="5-L120">
-      <g>On the Origin of Species <note>EUR 32.00. Preorder available</note></g>
+      <G>On the Origin of Species <note>EUR 32.00</note></G>
    </list>
 
 
    <!-- Hall 6 -->
 
    <list name="Gam'inBIZ" booth="6-L100">
-      <g>Rollecate <note>For Sale EUR 13.00 (EUR 25.00 w/ metal train). Preorder available</note></g>
+      <g>Rollecate <note>EUR 13.00 (EUR 25.00 w/ metal train)</note></g>
    </list>
 
 
