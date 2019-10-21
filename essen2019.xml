@@ -28,7 +28,7 @@
             nav li { float: left; }
             nav a { color: gray; font-size: 60%; text-decoration: none; }
             .unplayed { color: red; }
-            .preordered {
+            .highlight-icon {
                color: red;
                position: absolute;
                margin-left: -1.3em;
@@ -99,9 +99,9 @@
          <li title="{normalize-space(concat(note/text(), ' ', url/text()))}" xsl:use-attribute-sets="classes">
             <xsl:if test="name()='x'">+ </xsl:if>
             <!-- Highlight pre-ordered games -->
-            <xsl:if test="pp"><span title="Prepaid [{pp/@code}]" class='prepaid'>💸</span></xsl:if>
-            <xsl:if test="po"><span title="Preordered" class='preordered'>😎</span></xsl:if>
-            <xsl:if test="name()='G'"><span class='preordered'>♥</span></xsl:if>
+            <xsl:if test="pp"><span title="Prepaid [{pp/@code}]" class='highlight-icon'>💰</span></xsl:if>
+            <xsl:if test="po"><span title="Preordered" class='highlight-icon'>😎</span></xsl:if>
+            <xsl:if test="name()='G'"><span class='highlight-icon'>♥</span></xsl:if>
             <xsl:value-of select="text()"/>
             <!-- Indicator for hover notes on desktop -->
             <xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
@@ -200,7 +200,7 @@
    </list>
 
    <list name="Cosmodrome Games" booth="2-D113">
-      <g>Aquatica <note>EUR 45.00</note></g>
+      <G>Aquatica <note>Building an undersea kingdom with a rising-cards mechanism. EUR 45.00</note></G>
    </list>
 
    <list name="Baloise Group" booth="2-F111">
