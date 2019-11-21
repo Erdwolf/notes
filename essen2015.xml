@@ -49,6 +49,7 @@
          <script>
             document.documentElement.className = ("ontouchstart" in document.documentElement) ? 'touch' : 'no-touch';
          </script>
+         <header><xsl:value-of select="count(//*[@booth]/g)"/> Games at <xsl:value-of select="count(//*[@booth])"/> booths</header>
          <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
          <footer><a id="nav"/><nav><ul>
             <xsl:for-each select="//toplist|list">
