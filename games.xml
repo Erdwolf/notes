@@ -152,9 +152,9 @@
          <x>Verborgende Königreiche <unplayed/> <note>Bought for 10€(!) at Essen 2015.</note></x>
          <x>Kataklysmus <unplayed/> <note>Bought for 10€(!) at Essen 2017.</note></x>
       </g>
-      <g>Dixit <unplayed/></g>
+      <!-- <g>Dixit <unplayed/></g> -->
       <g>Star Wars LCG</g>
-      <g>Thor <note>Same as Botswana</note></g>
+      <!-- <g>Thor <note>Same as Botswana</note></g> -->
       <g>Marvel Dice Masters</g>
       <g>Strife: Legacy of the Eternals <note>Bought for 15€.</note></g>
       <g>Strife: Shadows and Steam</g>
@@ -168,7 +168,7 @@
       <g>Star Realms <note>+ Colony Wars (2nd Base set) + Storage Box</note></g>
       <g>X-Wing <note>Two base sets + Millenium Falcon, XW, YW, BW, HWK, TIE, TIE-A, Imp. Aces (x2), Lambda</note></g>
       <g>Eight-Minute Empire</g>
-      <g>Concept <note>german</note></g>
+      <!-- <g>Concept <note>german</note></g> -->
       <g>Targi</g>
       <!-- 2015 -->
       <g>Harbour</g>
@@ -195,12 +195,15 @@
       <g>The Palaces of Carrara</g>
       <g>El Grande <unplayed/></g>
       <g>Bohnanza <unplayed/></g>
-      <g>For Sale <unplayed/></g>
+      <g>For Sale</g>
       <g>6 nimmt <unplayed/></g>
+      <g>Pass the Pigs</g>
+      <g>Zombie Dice</g>
+      <g>Musée <note>Print &amp; Play</note></g>
       <g>Dreamwell</g>
       <g>Thunderbirds <note>KS Edition</note></g>
       <!-- Essen 2016 -->
-      <g>Potions Brew</g>
+      <!-- <g>Potions Brew</g> -->
       <g>Sponsio <note>€12 at Essen 2016.</note></g>
       <g>Kingdomino</g>
       <g>Tatsu</g>
@@ -219,7 +222,7 @@
       <g>Sol: Last Days of a Star</g>
       <g>HATSUDEN <note>€15 at Essen 2017</note></g>
       <g>Skyward</g>
-      <g>Entropy</g>
+      <!-- <g>Entropy</g> -->
       <g>Viral</g>
       <g>VivaJava: The Coffee Game: The Dice Game</g>
       <g>Stak Bots<note>€20 w/ both expansions (Yellow, Red) at Essen 2017</note></g>
@@ -259,8 +262,7 @@
       <g p="Sorry We Are French">Ganymede <note>Would have been 25€ at Essen 2018 but was sold out. Ordered from publisher's website.</note></g>
       <g>Seeland <unplayed/><note>18.90€ on eBay.</note></g>
       <!-- 2019 -->
-      <g>Claim 1</g>
-      <g>Claim 2</g>
+      <g>Claim 1+2</g>
       <g>Root <note>Bought in Reading.</note></g>
       <g>Set a Watch <note>KS.</note></g>
       <g>The Royal Game of Ur <note>British Museum edition</note></g>
@@ -278,7 +280,7 @@
       <g p="La Boîte de Jeu">It's a Wonderful World <note>39€ at Essen 2019. French Edition.</note></g>
       <g>Potemkin Empire <unplayed/><note>Bought at Essen 2019</note></g>
       <g>Lux Aeterna <note>15€ at Essen 2019.</note></g>
-      <g>Spring on a String <unplayed/><note>Bought at Essen 2019.</note></g>
+      <g>Spring on a String <note>Bought at Essen 2019.</note></g>
       <!-- /Essen 2019 -->
       <g p="KOSMOS">Imhotep: Das Duell <note>13.59€ in sale.</note></g>
       <g>Kodama 3D <note>incl. playmat</note></g>
@@ -296,14 +298,33 @@
 
    <list name="Ordered/Backed">
       <g>Seize the Bean <note>Delayed again.</note><url><![CDATA[https://www.kickstarter.com/projects/qualitybeast/seize-the-bean-a-light-hearted-deck-builder-about]]></url></g>
-      <g>Potato Pirates 2: Enter The Spudnet<note>August 2020.</note><url><![CDATA[https://www.kickstarter.com/projects/codomo/potato-pirates-2-enter-the-spudnet]]></url></g>
+      <g>Potato Pirates 2: Enter The Spudnet <note>Failed to deliver during move.</note><url><![CDATA[https://www.kickstarter.com/projects/codomo/potato-pirates-2-enter-the-spudnet]]></url></g>
+      <g>MIND MGMT <note>Feb 2021</note></g>
+      <g>Atheneum: Mystic Library <note>£34.55 at boardgameguru.co.uk</note></g>
+      <g>Aquatica <note>£34.55 at boardgameguru.co.uk</note></g>
+      <g>Under Falling Skies <note>£22.55 at boardgameguru.co.uk</note></g>
+      <g>Seastead <note>£23.03 at boardgameguru.co.uk</note></g>
+      <g>Raiders of Scythia <note>£42.22 at boardgameguru.co.uk</note></g>
+      <g>Paleo <note>47.06€ at spiele-offensive.de</note></g>
+      <g>Obsthain <note>10.94€ at spiele-offensive.de</note></g>
+      <g>Under Falling Skies <note>32.78€ at spiele-offensive.de</note></g>
+      <g>Wildes Weltall <note>27.36€ at spiele-offensive.de</note></g>
+      <g>Project L <note>43.78€ at spiele-offensive.de</note></g>
    </list>
 
    <list name="Not bought at Essen (but wanted to)">
-      <g p="Cosmodrome Games">Aquatica <note>Building an undersea kingdom with a rising-cards mechanism. We would have bought it, but it was sold out. 45€ at Essen 2019.</note></g>
       <g p="itten">Moon Base <note>Cool looking 2p abstract where you place rings on top of each other. Sold out at Essen 2019. :(</note></g>
-      <g p="Boardcubator">Project L <note>Build up a pool up tetris blocks to complete bigger and bigger goals. They had no copies to sell at Essen 2019.</note></g>
       <g p="Pearl Games">Black Angel <note>Very nice. Much better use of the mechanic from Solenia last year. Quite pricy, but great components. We didn't buy it mostly because we alraeady had a lot of games at this point.</note></g>
+   </list>
+
+   <list name="Unplayed highlights from Essen 2019">
+      <g p="Hall Games">Bonfire <note>Stefan Feld</note></g>
+      <g p="Alderac Entertainment Group">Calico <note>Patchwork w/ cats</note></g>
+      <g p="Pandasaurus Games">Gods Love Dinosaurs <note>Dinos eat Lions eat Rabbits. Balance your ecosystem.</note></g>
+      <g p="Lookout Games">Hallertau <note>Uwe Rosenberg. Seems lighter than Arler Erde.</note></g>
+      <g p="Blue Orange Games">Cloud City <note>Build walkways between towers.</note></g>
+      <g p="25th Century Games">Jurassic Parts</g>
+      <g p="Czech Games Edition">Lost Ruins of Arnak <note>2020 hype.</note></g>
    </list>
 
    <list name="Unplayed highlights from Essen 2019">
