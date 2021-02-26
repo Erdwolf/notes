@@ -159,7 +159,7 @@
       <g>Strife: Legacy of the Eternals <note>Bought for 15€.</note></g>
       <g>Strife: Shadows and Steam</g>
       <g>Colt Express <note>Bought for 27€.</note>
-         <x>Bandits <unplayed/><note>Bought all six together at Essen 2018 for 30€.</note></x>
+         <x>Bandits<note>Bought all six together at Essen 2018 for 30€.</note></x>
       </g>
       <g>Empire Engine <note>Bought for 5€ (in 2x deal) from AEG at Essen 2014.</note></g>
       <g>Coup + Reformation (KS Edition)</g>
@@ -260,7 +260,7 @@
       <g>Gnomopolis <note>40€ at Essen 2018.</note></g>
       <!-- /Essen 2018 -->
       <g p="Sorry We Are French">Ganymede <note>Would have been 25€ at Essen 2018 but was sold out. Ordered from publisher's website.</note></g>
-      <g>Seeland <unplayed/><note>18.90€ on eBay.</note></g>
+      <g>Seeland<note>18.90€ on eBay.</note></g>
       <!-- 2019 -->
       <g>Claim 1+2</g>
       <g>Root <note>Bought in Reading.</note></g>
@@ -289,30 +289,23 @@
       <g>Paleo <note>47.06€ at spiele-offensive.de</note></g>
       <g>Wildes Weltall <note>27.36€ at spiele-offensive.de</note></g>
       <g>Potato Pirates 2: Enter The Spudnet</g>
+      <g>Atheneum: Mystic Library <note>£34.55 at boardgameguru.co.uk</note></g>
+      <g>Under Falling Skies <note>£22.55 at boardgameguru.co.uk</note></g>
    </list>
 
    <list name="New games played this year">
-      <g>Vast: The Crystal Caverns</g>
-      <g>Ligretto</g>
-      <g>Star Wars: Imperial Assault</g>
-      <g>Claim 2</g>
-      <g>Wingspan</g>
-      <g>Paleo <note>47.06€ at spiele-offensive.de</note></g>
-      <g>Wildes Weltall <note>27.36€ at spiele-offensive.de</note></g>
-      <g>Potato Pirates 2: Enter The Spudnet</g>
    </list>
 
    <list name="Ordered/Backed">
-      <g>Seize the Bean <note>Delayed again.</note><url><![CDATA[https://www.kickstarter.com/projects/qualitybeast/seize-the-bean-a-light-hearted-deck-builder-about]]></url></g>
+      <g>Seize the Bean <note>Jul 2021</note><url><![CDATA[https://www.kickstarter.com/projects/qualitybeast/seize-the-bean-a-light-hearted-deck-builder-about]]></url></g>
       <g>MIND MGMT <note>Feb 2021</note></g>
-      <g>Atheneum: Mystic Library <note>£34.55 at boardgameguru.co.uk</note></g>
       <g>Aquatica <note>£34.55 at boardgameguru.co.uk</note></g>
-      <g>Under Falling Skies <note>£22.55 at boardgameguru.co.uk</note></g>
       <g>Seastead <note>£23.03 at boardgameguru.co.uk</note></g>
       <g>Raiders of Scythia <note>£42.22 at boardgameguru.co.uk</note></g>
       <g>Obsthain <note>10.94€ at spiele-offensive.de</note></g>
       <g>Under Falling Skies <note>32.78€ at spiele-offensive.de</note></g>
       <g>Project L <note>43.78€ at spiele-offensive.de</note></g>
+      <g>Radlands <note>Backed on KS for CA$ 50.00. No address given. Sep 2021</note></g>
    </list>
 
    <list name="Not bought at Essen (but wanted to)">
@@ -400,6 +393,20 @@
       <g>Carcassonne</g>
       <g>Hanabi</g>
       <g>Nuns on the run</g>
+   </list>
+
+   <list name="New games played in 2020">
+      <old/>
+      <g>Vast: The Crystal Caverns</g>
+      <g>Ligretto</g>
+      <g>Star Wars: Imperial Assault</g>
+      <g>Claim 2</g>
+      <g>Wingspan</g>
+      <g>Paleo</g>
+      <g>Wildes Weltall</g>
+      <g>Potato Pirates 2: Enter The Spudnet</g>
+      <g>Atheneum: Mystic Library</g>
+      <g>Under Falling Skies</g>
    </list>
 
    <list name="New games played in 2019">
