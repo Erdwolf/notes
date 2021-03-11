@@ -5,4 +5,5 @@ jobs:
       - image: mesosphere/aws-cli
     steps:
       - checkout
+      - run: echo $AWS_ACCESS_KEY_ID
       - run: for f in *.xml; do aws s3 cp --acl public-read $f s3://erdwolf/; done
