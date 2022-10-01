@@ -320,9 +320,10 @@
       <g>Circle the Wagons <unplayed/></g>
       <g>Flamecraft <note>Backed on KS for $79.00.</note></g>
       <g>Café <unplayed/></g>
-      <g>So, You've Been Eaten <unplayed/><note>£26.91 at kienda.co.uk</note></g>
+      <g>So, You've Been Eaten <note>£26.91 at kienda.co.uk</note></g>
       <g>Meadow <unplayed/><note>£34.36 at kienda.co.uk</note></g>
       <!-- Essen 2022 -->
+      <!-- /Essen 2022 -->
    </list>
 
    <list name="New games played this year">
@@ -332,17 +333,24 @@
       <g>The Tea Dragon Society Card Game</g>
       <g>Sprawlopolis</g>
       <g>Flamecraft</g>
+      <g>So, You've Been Eaten</g>
+      <!-- Essen 2022 -->
+      <!-- Day 1 / Thursday -->
+      <!-- Day 2 / Friday -->
+      <!-- Day 3 / Saturday -->
+      <!-- Day 4 / Sunday -->
+      <!-- /Essen 2022 -->
    </list>
 
    <list name="Ordered/Backed">
       <g>The Fox Experiment <note>Backed on KS for $60.00. Jul 2023.</note></g>
    </list>
 
-   <list name="Not bought at Essen (but wanted to)">
-   </list>
+   <!-- <list name="Not bought at Essen (but wanted to)">
+   </list> -->
 
-   <list name="Watchlist">
-   </list>
+   <!-- <list name="Watchlist">
+   </list> -->
 
    <list name="Games at my parents'">
       <g>Das verrückte Labyrinth</g>

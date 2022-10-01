@@ -211,9 +211,9 @@
       <g>Galileo Project</g>
    </list>
 
-   <list name="Le Scorpion Masqué" booth="3-B111 (Hachette)">
+   <!-- <list name="Le Scorpion Masqué" booth="3-B111 (Hachette)">
       <g>Turing Machine <note>EUR 37</note></g>
-   </list>
+   </list> -->
 
    <!-- <list name="HUCH!" booth="3-D120">
       <g>Overbooking <note>EUR 22</note></g>
@@ -279,9 +279,9 @@
       <g>Décorum <note>Passive aggressive decoration. Could be great to play, but I don't think we need to have it. USD 45</note></g>
    </list>
 
-   <list name="Artana" booth="4-B105 (Genius Games)">
-      <!-- <g>First in Flight <note>Demo only.</note></g> -->
-   </list>
+   <!-- <list name="Artana" booth="4-B105 (Genius Games)">
+      <g>First in Flight <note>Demo only.</note></g>
+   </list> -->
 
    <!-- <list name="LudiCreations" booth="4-D111">
       <G>So, You've Been Eaten <note>USD 35</note></G>
@@ -375,9 +375,9 @@
 
    <!-- Misc -->
 
-   <list name="Studio Midhall" booth="S-K5108">
+   <!-- <list name="Studio Midhall" booth="S-K5108">
       <g>Beast <note>Hidden movement beast vs. hunters. USD 65</note></g>
-   </list>
+   </list> -->
 
    <list name="Other games to watch out for">
       <g p="Final Frontier Games">A Fistful of Meeples <note>Wild West game w/ a Mancala-style mechanism. 20€ at Essen 2019.</note></g>
