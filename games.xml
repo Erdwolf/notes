@@ -323,6 +323,17 @@
       <g>So, You've Been Eaten <note>£26.91 at kienda.co.uk</note></g>
       <g>Meadow <unplayed/><note>£34.36 at kienda.co.uk</note></g>
       <!-- Essen 2022 -->
+      <g>Zitrushain/"GROVE: A 9 card solitaire game" <unplayed/><note>€13 at Essen 2022.</note></g>
+      <g>Zwergendorf <note>Bought at Essen 2022.</note></g>
+      <g>Aleph Null <unplayed/><note>Awesome looking solo game. €20 at Essen 2022.</note></g>
+      <g>Bargain Basement Bathysphere <unplayed/><note>?? at Essen 2022.</note></g>
+      <g>Star Trek: Super-Skill Pinball <note></note></g>
+      <g>Stroganov <unplayed/></g>
+      <g>Plutocracy <unplayed/><note>€42 at Essen 2022.</note></g>
+      <g>Onirim <unplayed/></g>
+      <g>Verdant <note>€40 at Essen 2022.</note></g>
+      <g>Wormholes <note>€35 at Essen 2022.</note></g>
+      <!-- <g>Puzzle box</g> -->
       <!-- /Essen 2022 -->
    </list>
 
@@ -336,9 +347,34 @@
       <g>So, You've Been Eaten</g>
       <!-- Essen 2022 -->
       <!-- Day 1 / Thursday -->
+      <g>Super-Skill Pinball: 4-Cade <note>"Carniball" table</note></g>
+      <g>Vengeance: Roll &amp; Fight - Episode 1</g>
+      <g p="Steeped Games">Chai: Tea for 2 <note>Liked it, but it wasn't available to buy</note></g>
+      <g>Stroganov <note>Move further and further east to hunt, past villages and yurts.</note></g>
+      <g>Plutocracy</g>
+      <!-- Hotel -->
+      <g>Star Trek: Super-Skill Pinball</g>
       <!-- Day 2 / Friday -->
+      <g>Verdant</g>
+      <g>Wormholes</g>
+      <g>Welcome to the Moon</g>
+      <g p="Korea Boardgames">The Princes of Florence <note>Long awaited reprint. Better art and a bit more diversity. EUR 40 at Essen 2022.</note></g>
+      <!-- Hotel -->
+      <!-- <g>Wormholes</g> -->
       <!-- Day 3 / Saturday -->
+      <g>Pengo Jump <note>Very easy kid's game that was fun to play once.</note></g>
+      <g p="Game Brewer">Hippocrates <note>Nice game but incredibly confusing colour-choices and too little information on board/aids.</note></g>
+      <g>Ice Floes &amp; Foes <note>Needs a serious amount of rules and/or physical restrictions to be baseline playable. Pengo Jump does that a lot better.</note></g>
+      <!-- Hotel -->
+      <!-- <g>Verdant</g> -->
       <!-- Day 4 / Sunday -->
+      <g p="Red Cat Games">Time Capsules <note>I really liked it, but Anne didn't. Sold out at Essen 2022.</note></g>
+      <g>Brew <note>Cute dice-placement game.</note></g>
+      <g>Skymines <note>Seemed fun with 4p, not sure about 2p.</note></g>
+      <g>Tokaido Duo <note>Probably would've bought if not for the dice-colour confusion issue.</note></g>
+      <!-- <g>Puzzle box</g> -->
+      <!-- Hotel -->
+      <g>Zwergendorf <note>A whimsical draft-and-write on large paper sheets.</note></g>
       <!-- /Essen 2022 -->
    </list>
 
@@ -346,11 +382,34 @@
       <g>The Fox Experiment <note>Backed on KS for $60.00. Jul 2023.</note></g>
    </list>
 
-   <!-- <list name="Not bought at Essen (but wanted to)">
-   </list> -->
+   <list name="Not bought at Essen (but wanted to)">
+      <g p="Devir">Mazescape XP: Cryo-C <note>I want to get one of these and this is supposedly the hardest. EUR 10. Sold out at Essen 2022.</note></g>
+   </list>
 
-   <!-- <list name="Watchlist">
-   </list> -->
+   <list name="Unplayed highlights from Essen 2022">
+      <g p="Giochix.it">Città-Stato <note>EUR 50</note></g>
+      <g p="Irongames">Discordia <note>Dice un-placement and workers moving around. EUR 55</note></g>
+      <g p="Sorry We Are French">Galileo Project</g>
+      <g p="Floodgate Games">Décorum <note>Passive aggressive decoration. Could be great to play, but I don't think we need to have it. USD 45</note></g>
+      <g p="Mighty Boards">Hamlet: The Village Building Game <note>Is this Demo only? EUR 65</note></g>
+      <g p="Aporta Games">Revive <note>Hype monster, would need to get it first thing. EUR 80</note></g>
+      <g p="Horrible Guild">Tiny Turbo Cars <note>RoboRally + Sliding Puzzles = Fun. EUR 40</note></g>
+      <g p="Bellwether Games">Lions of Lydia <note>Unusual bag-"builder". EUR 40</note></g>
+      <g p="Alley Cat Games">Autobahn <note>EUR 60</note></g>
+      <g p="Mindclash Games">Voidfall, Septima, Astra<note>Huge queue even for the signup to play at Essen 2022.</note></g>
+      <g p="Game Brewer">Oak <note>EUR 55</note></g>
+      <g p="Kobold Spieleverlag">Akropolis <note>Taluva-shaped tile-placement. EUR 30</note></g>
+      <g p="Kobold Spieleverlag">Buru <note>EUR 55</note></g>
+      <g p="Strohmann Games">Virtù <note>EUR 60</note></g>
+      <g p="Fractal Juegos">Sanssouci <note>Reprint of the 2014 Ravensburger edition. EUR 40</note></g>
+   </list>
+
+   <list name="Watchlist">
+      <g p="itten">Moon Base <note>Cool looking 2p abstract where you place rings on top of each other. Sold out at Essen 2019. No games for sale at Essen 2022. :(</note></g>
+      <g p="Final Frontier Games">A Fistful of Meeples <note>Wild West game w/ a Mancala-style mechanism. 20€ at Essen 2019.</note></g>
+      <g p="Board&amp;Dice/Schwerkraft-Verlag">Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP.</note></g>
+      <g>Hostage Negotiator / Hostage Negotiator: Crime Wave <note>Solo</note></g>
+   </list>
 
    <list name="Games at my parents'">
       <g>Das verrückte Labyrinth</g>
