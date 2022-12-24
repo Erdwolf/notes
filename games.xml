@@ -317,19 +317,19 @@
       <g>Gaïa</g>
       <g>PARKS</g>
       <g>Sprawlopolis</g>
-      <g>Circle the Wagons <unplayed/></g>
+      <g>Circle the Wagons</g>
       <g>Flamecraft <note>Backed on KS for $79.00.</note></g>
-      <g>Café <unplayed/></g>
+      <g>Café</g>
       <g>So, You've Been Eaten <note>£26.91 at kienda.co.uk</note></g>
-      <g>Meadow <unplayed/><note>£34.36 at kienda.co.uk</note></g>
+      <g>Meadow <note>£34.36 at kienda.co.uk</note></g>
       <!-- Essen 2022 -->
-      <g>Zitrushain/"GROVE: A 9 card solitaire game" <unplayed/><note>€13 at Essen 2022.</note></g>
+      <g>Zitrushain/"GROVE: A 9 card solitaire game" <note>€13 at Essen 2022.</note></g>
       <g>Zwergendorf <note>Bought at Essen 2022.</note></g>
-      <g>Aleph Null <unplayed/><note>Awesome looking solo game. €20 at Essen 2022.</note></g>
-      <g>Bargain Basement Bathysphere <unplayed/><note>?? at Essen 2022.</note></g>
+      <g>Aleph Null <note>Awesome looking solo game. €20 at Essen 2022.</note></g>
+      <g>Bargain Basement Bathysphere <note>?? at Essen 2022.</note></g>
       <g>Star Trek: Super-Skill Pinball <note></note></g>
       <g>Stroganov <unplayed/></g>
-      <g>Plutocracy <unplayed/><note>€42 at Essen 2022.</note></g>
+      <g>Plutocracy <note>€42 at Essen 2022.</note></g>
       <g>Onirim <unplayed/></g>
       <g>Verdant <note>€40 at Essen 2022.</note></g>
       <g>Wormholes <note>€35 at Essen 2022.</note></g>
@@ -376,6 +376,12 @@
       <!-- Hotel -->
       <g>Zwergendorf <note>A whimsical draft-and-write on large paper sheets.</note></g>
       <!-- /Essen 2022 -->
+      <g>Aleph Null</g>
+      <g>Zitrushain/"GROVE: A 9 card solitaire game"</g>
+      <g>Café</g>
+      <g>Bargain Basement Bathysphere</g>
+      <g>Meadow</g>
+      <g>Circle the Wagons</g>
    </list>
 
    <list name="Ordered/Backed">
