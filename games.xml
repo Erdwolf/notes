@@ -121,7 +121,7 @@
       <g>Android: Netrunner <x>Cyber Exodus</x><x>Honor and Profit</x></g>
       <g>Arkham Horror <x>Innsmouth Expansion</x></g>
       <g>Ghost Stories</g>
-      <g>Geschenkt / "No thanks!"</g>
+      <g>Geschenkt / "No thanks!" <note>German version with missing cards + compatible Italian version</note></g>
       <g>Hive: Pocket Edition</g>
       <g>Smallworld
          <x>Sky Islands <note>Bought at Essen 2017</note></x>
@@ -278,7 +278,7 @@
       <g>Oh, Fox! <note>20€ at Essen 2019.</note></g>
       <g>Crimson Company <note>25€ at Essen 2019.</note></g>
       <g p="La Boîte de Jeu">It's a Wonderful World <note>39€ at Essen 2019. French Edition.</note></g>
-      <g>Potemkin Empire <unplayed/><note>Bought at Essen 2019</note></g>
+      <g>Potemkin Empire <note>Bought at Essen 2019</note></g>
       <g>Lux Aeterna <note>15€ at Essen 2019.</note></g>
       <g>Spring on a String <note>Bought at Essen 2019.</note></g>
       <!-- /Essen 2019 -->
@@ -328,7 +328,7 @@
       <g>Aleph Null <note>Awesome looking solo game. €20 at Essen 2022.</note></g>
       <g>Bargain Basement Bathysphere <note>?? at Essen 2022.</note></g>
       <g>Star Trek: Super-Skill Pinball <note></note></g>
-      <g>Stroganov <unplayed/></g>
+      <g>Stroganov</g>
       <g>Plutocracy <note>€42 at Essen 2022.</note></g>
       <g>Onirim <unplayed/></g>
       <g>Verdant <note>€40 at Essen 2022.</note></g>
@@ -338,50 +338,8 @@
    </list>
 
    <list name="New games played this year">
-      <g>The Isle of Cats</g>
-      <g>PARKS</g>
-      <g>PARKS Memories: Mountaineer</g>
-      <g>The Tea Dragon Society Card Game</g>
-      <g>Sprawlopolis</g>
-      <g>Flamecraft</g>
-      <g>So, You've Been Eaten</g>
-      <!-- Essen 2022 -->
-      <!-- Day 1 / Thursday -->
-      <g>Super-Skill Pinball: 4-Cade <note>"Carniball" table</note></g>
-      <g>Vengeance: Roll &amp; Fight - Episode 1</g>
-      <g p="Steeped Games">Chai: Tea for 2 <note>Liked it, but it wasn't available to buy</note></g>
-      <g>Stroganov <note>Move further and further east to hunt, past villages and yurts.</note></g>
-      <g>Plutocracy</g>
-      <!-- Hotel -->
-      <g>Star Trek: Super-Skill Pinball</g>
-      <!-- Day 2 / Friday -->
-      <g>Verdant</g>
-      <g>Wormholes</g>
-      <g>Welcome to the Moon</g>
-      <g p="Korea Boardgames">The Princes of Florence <note>Long awaited reprint. Better art and a bit more diversity. EUR 40 at Essen 2022.</note></g>
-      <!-- Hotel -->
-      <!-- <g>Wormholes</g> -->
-      <!-- Day 3 / Saturday -->
-      <g>Pengo Jump <note>Very easy kid's game that was fun to play once.</note></g>
-      <g p="Game Brewer">Hippocrates <note>Nice game but incredibly confusing colour-choices and too little information on board/aids.</note></g>
-      <g>Ice Floes &amp; Foes <note>Needs a serious amount of rules and/or physical restrictions to be baseline playable. Pengo Jump does that a lot better.</note></g>
-      <!-- Hotel -->
-      <!-- <g>Verdant</g> -->
-      <!-- Day 4 / Sunday -->
-      <g p="Red Cat Games">Time Capsules <note>I really liked it, but Anne didn't. Sold out at Essen 2022.</note></g>
-      <g>Brew <note>Cute dice-placement game.</note></g>
-      <g>Skymines <note>Seemed fun with 4p, not sure about 2p.</note></g>
-      <g>Tokaido Duo <note>Probably would've bought if not for the dice-colour confusion issue.</note></g>
-      <!-- <g>Puzzle box</g> -->
-      <!-- Hotel -->
-      <g>Zwergendorf <note>A whimsical draft-and-write on large paper sheets.</note></g>
-      <!-- /Essen 2022 -->
-      <g>Aleph Null</g>
-      <g>Zitrushain/"GROVE: A 9 card solitaire game"</g>
-      <g>Café</g>
-      <g>Bargain Basement Bathysphere</g>
-      <g>Meadow</g>
-      <g>Circle the Wagons</g>
+      <g>Tem-Purr-A</g>
+      <g>L.L.A.M.A.</g>
    </list>
 
    <list name="Ordered/Backed">
@@ -430,7 +388,7 @@
    </list>
 
    <list name="Games we lost access to that I miss">
-      <g>Onirim <url><![CDATA[https://www.boardgamegeek.com/boardgame/156336/onirim-second-edition]]></url></g>
+      <g>Suburbia <url><![CDATA[https://boardgamegeek.com/boardgame/123260/suburbia]]></url></g>
       <g>Quadropolis <url><![CDATA[https://www.boardgamegeek.com/boardgame/176396/quadropolis]]></url></g>
       <g>Castles of Mad King Ludwig <url><![CDATA[https://www.boardgamegeek.com/boardgame/155426/castles-mad-king-ludwig]]></url></g>
       <g>Abyss <url><![CDATA[https://www.boardgamegeek.com/boardgame/155987/abyss]]></url></g>
@@ -449,6 +407,54 @@
       <g>Carcassonne</g>
       <g>Hanabi</g>
       <g>Nuns on the run</g>
+   </list>
+
+   <list name="New games played in 2022">
+      <old/>
+      <g>The Isle of Cats</g>
+      <g>PARKS</g>
+      <g>PARKS Memories: Mountaineer</g>
+      <g>The Tea Dragon Society Card Game</g>
+      <g>Sprawlopolis</g>
+      <g>Flamecraft</g>
+      <g>So, You've Been Eaten</g>
+      <!-- Essen 2022 -->
+      <!-- Day 1 / Thursday -->
+      <g>Super-Skill Pinball: 4-Cade <note>"Carniball" table</note></g>
+      <g>Vengeance: Roll &amp; Fight - Episode 1</g>
+      <g p="Steeped Games">Chai: Tea for 2 <note>Liked it, but it wasn't available to buy</note></g>
+      <g>Stroganov <note>Move further and further east to hunt, past villages and yurts.</note></g>
+      <g>Plutocracy</g>
+      <!-- Hotel -->
+      <g>Star Trek: Super-Skill Pinball</g>
+      <!-- Day 2 / Friday -->
+      <g>Verdant</g>
+      <g>Wormholes</g>
+      <g>Welcome to the Moon</g>
+      <g p="Korea Boardgames">The Princes of Florence <note>Long awaited reprint. Better art and a bit more diversity. EUR 40 at Essen 2022.</note></g>
+      <!-- Hotel -->
+      <!-- <g>Wormholes</g> -->
+      <!-- Day 3 / Saturday -->
+      <g>Pengo Jump <note>Very easy kid's game that was fun to play once.</note></g>
+      <g p="Game Brewer">Hippocrates <note>Nice game but incredibly confusing colour-choices and too little information on board/aids.</note></g>
+      <g>Ice Floes &amp; Foes <note>Needs a serious amount of rules and/or physical restrictions to be baseline playable. Pengo Jump does that a lot better.</note></g>
+      <!-- Hotel -->
+      <!-- <g>Verdant</g> -->
+      <!-- Day 4 / Sunday -->
+      <g p="Red Cat Games">Time Capsules <note>I really liked it, but Anne didn't. Sold out at Essen 2022.</note></g>
+      <g>Brew <note>Cute dice-placement game.</note></g>
+      <g>Skymines <note>Seemed fun with 4p, not sure about 2p.</note></g>
+      <g>Tokaido Duo <note>Probably would've bought if not for the dice-colour confusion issue.</note></g>
+      <!-- <g>Puzzle box</g> -->
+      <!-- Hotel -->
+      <g>Zwergendorf <note>A whimsical draft-and-write on large paper sheets.</note></g>
+      <!-- /Essen 2022 -->
+      <g>Aleph Null</g>
+      <g>Zitrushain/"GROVE: A 9 card solitaire game"</g>
+      <g>Café</g>
+      <g>Bargain Basement Bathysphere</g>
+      <g>Meadow</g>
+      <g>Circle the Wagons</g>
    </list>
 
    <list name="New games played in 2021">
