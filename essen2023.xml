@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="#style" ?>
+<games>
+   <xsl:stylesheet id="style" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+
+      <xsl:output method="html" indent="yes"/>
+      <xsl:strip-space elements="*"/>
+
+      <xsl:template match="games">
+         <meta name="viewport" content="width=device-width"/>
+         <style>
+            section {
+               margin: 1%;
+               padding: 5px;
+               border: 1px dashed #05f;
+               background: #acf;
+            }
+            @media screen and (min-width: 480px) { section {
+               float: left;
+            } }
+            h2 { margin: 5px; }
+            li { padding: 5px; }
+            ul > li { list-style: none; }
+            section        { position: relative; }
+            a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
+            footer { clear: both; }
+            nav ul { padding: 0; }
+            nav li { float: left; }
+            nav a { color: gray; font-size: 60%; text-decoration: none; }
+            .unplayed { color: red; }
+            .highlight-icon {
+               color: red;
+               position: absolute;
+               margin-left: -1.3em;
+            }
+            .note { font-size: 50%; }
+            .touch .note-indicator { display: none; }
+            .no-touch .note { display: none; }
+            a.url-indicator { color: black; text-decoration: none; }
+            .broken-off { list-style: none }
+            ul.expansions {
+               padding: 5px 0px 0px;
+               font-size: smaller;
+            }
+            ul.expansions > li {
+               padding-left: 0px;
+            }
+
+            @media print {
+               .note-indicator, .url-indicator { display: none; }
+               .note { display: inline ! important; }
+               nav, a[href='#nav'] { display: none; }
+               section { page-break-inside: avoid; }
+            }
+         </style>
+         <script>
+            /* Feature detection */
+            document.documentElement.className = ('ontouchstart' in window) ? 'touch' : 'no-touch';
+         </script>
+         <header><xsl:value-of select="count(//*[@booth]/g)"/> Games at <xsl:value-of select="count(//*[@booth])"/> booths</header>
+         <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
+         <footer><a id="nav"/><nav><ul>
+            <xsl:for-each select="//list">
+               <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
+            </xsl:for-each>
+         </ul></nav></footer>
+      </xsl:template>
+
+      <xsl:template match="list">
+         <section id="{position()}">
+            <a href="#nav" title="Go down to navigation">↓</a>
+            <h2>
+               <!-- Name of the list (Category/Publisher/...) -->
+               <xsl:value-of select="@name"/>
+               <!-- Booth number (if present) -->
+               <xsl:if test="@booth">
+                  <xsl:value-of select="concat(' [',@booth,']')"/>
+               </xsl:if>
+               <!-- Number of entries on this list -->
+               <xsl:variable name="n" select="count(current()/g)"/>
+               <xsl:value-of select="concat(' (',$n,')')"/>
+            </h2>
+            <xsl:if test="not(old)">
+               <ul>
+                  <xsl:apply-templates/>
+               </ul>
+            </xsl:if>
+         </section>
+      </xsl:template>
+
+      <!-- Highlight unplayed games -->
+      <xsl:attribute-set name="classes">
+         <xsl:attribute name="class">
+            <xsl:if test="unplayed">unplayed</xsl:if>
+         </xsl:attribute>
+      </xsl:attribute-set>
+
+      <xsl:template match="g|x|G">
+         <li title="{normalize-space(concat(note/text(), ' ', url/text()))}" xsl:use-attribute-sets="classes">
+            <xsl:if test="name()='x'">+ </xsl:if>
+            <!-- Highlight pre-ordered games -->
+            <xsl:if test="pp"><span title="Prepaid [{pp/@code}]" class='highlight-icon'>💰</span></xsl:if>
+            <xsl:if test="po"><span title="Preordered" class='highlight-icon'>😎</span></xsl:if>
+            <xsl:if test="name()='G'"><span class='highlight-icon'>♥</span></xsl:if>
+            <xsl:value-of select="text()"/>
+            <!-- Indicator for hover notes on desktop -->
+            <xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
+            <xsl:if test="url"><a class="url-indicator" href="{url/text()}"> 🔗</a></xsl:if>
+            <!-- Inline notes on mobile -->
+            <span class="note">
+               <xsl:if test="pp">Prepaid [<xsl:value-of select="pp/@code"/>].</xsl:if>
+               <xsl:value-of select="normalize-space(note/text())"/>
+            </span>
+            <xsl:if test="x">
+               <ul class="expansions">
+                  <xsl:apply-templates select="x"/>
+               </ul>
+            </xsl:if>
+         </li>
+      </xsl:template>
+
+   </xsl:stylesheet>
+
+
+   <!-- Hall 1 -->
+
+   <!-- RPGs, etc...-->
+
+
+   <!-- Hall 2 -->
+
+   <list name="iDventure" booth="2-A141">
+      <G>Cluebox: * <note>Get another puzzle-box!</note></G>
+   </list>
+
+   <list name="Kobold Spieleverlag" booth="2-A150">
+      <g>Buru <note>Looks nice but sounds pretty unvaried and also needs a Dirk ("Lanwan") EUR 55</note></g>
+      <!-- <g>Steam Up: A Feast of Dim Sum <note>EUR 50</note></g> -->
+   </list>
+
+   <list name="Giant Roc" booth="2-B150">
+      <g>Barcelona <note>English version at 3-H110 (Board&amp;Dice) EUR 60</note></g>
+      <g>Books of Time <note>English version at 3-H110 (Board&amp;Dice) EUR 55</note></g>
+      <g>Crescent Moon <note>Similar to Root, it can only be played with more players. EUR 65</note></g>
+   </list>
+
+   <!-- <list name="Fractal Juegos" booth="2-C137"> -->
+      <!-- <g>Nebula <note>EUR 35</note></g> -->
+   <!-- </list> -->
+
+   <list name="Korea Boardgames Co., Ltd." booth="2-C148">
+      <g>Terra Pyramides <note>Demo only.</note></g>
+      <!-- <g>Venture <note>Demo only.</note></g> -->
+   </list>
+
+   <list name="Saashi &amp; Saashi" booth="2-E116">
+      <g>Come Sail Away! <note>Looks beautiful. Maybe to light? Shared booth with itten and Oink EUR 50</note></g>
+   </list>
+
+   <!-- <list name="Arcane Wonders" booth="2-E120"> -->
+      <!-- <g>Neotopia <note>EUR 45</note></g> -->
+   <!-- </list> -->
+
+   <list name="Liberation Game Design" booth="2-E160">
+      <g>Dutch Resistance: Orange Shall Overcome! <note>EUR 65</note></g>
+   </list>
+
+   <list name="Tiny Tami" booth="2-E164">
+      <g>Tiny Woodys <note>Really cute. Collecting your secret type of Woodys while going through the seasons. EUR 20</note></g>
+   </list>
+
+
+   <!-- Hall 3 -->
+
+   <list name="Ares Games" booth="3-A105">
+      <g>The Rich and the Good <note>Hab &amp; Gut reprint EUR 40</note></g>
+   </list>
+
+   <list name="R&amp;D Games" booth="3-A112">
+      <g>The Glade <note>Scrabble-like abstract. Very slow explanation. EUR 50</note></g>
+   </list>
+
+   <list name="Deep Print Games" booth="3-B116">
+      <g>Match of the Century <note>Simulating a chess match by not playing chess. EUR 25</note></g>
+      <g>Skymines <note>Didn't play last year. EUR 50</note></g>
+      <!-- <g>Moorland <note>EUR 30</note></g> -->
+   </list>
+
+   <list name="Skellig Games" booth="3-C120">
+      <G>Septima <note>German version. EUR 66</note></G>
+      <g>Décorum <note>EUR 50</note></g>
+      <!-- <g>Earth <note>EUR 55</note></g> -->
+      <!-- <g>Rauha <note>EUR 45</note></g> -->
+   </list>
+
+   <list name="Kolossal Games" booth="3-D100 (Matagot and Friends)">
+      <g>Almost Innocent <note>Co-op deduction. Seems to have multiple scenarios. How hard is it tho? EUR 34</note></g>
+      <g>Lost Empires: War for the New Sun <note>2p sci-fi duel. Moving between objectives. EUR 36</note></g>
+   </list>
+
+   <list name="Gen-X Games" booth="3-D102">
+      <g>SticX Games: * <note>They have these low-profile "stick" games. €6.00</note></g>
+   </list>
+
+   <list name="Devir" booth="3-D129">
+      <G p="Devir">Mazescape XP: Cryo-C <note>I want to get one of these and this is supposedly the hardest. EUR 10. Sold out at Essen 2022.</note></G>
+      <g>The White Castle <note>Dice worker placement. Rahdo likes it. German version at Kosmos (6-?). EUR 30</note></g>
+   </list>
+
+   <list name="Aporta Games / Matagot" booth="3-F102">
+      <g>Tucana Builders <note>Build paths between animals and huts. Play with Achievement Cards immediately? EUR 35</note></g>
+      <!-- <g>Le Roy des Ribauds <note>2p wallet game EUR 9</note></g> -->
+   </list>
+
+   <list name="Mindclash Games" booth="3-F103">
+      <G>Septima <note>Demo only.</note></G>
+      <G>Voidfall <note>EUR 200</note></G>
+      <g>Astra <note>Last year: EUR 36</note></g>
+   </list>
+
+   <list name="The Op" booth="3-G120">
+      <g>The A.R.T. Project <note>Coop. How hard? French version at Lumberjacks Studio (6-F400) USD 43</note></g>
+      <!-- <g>The Perfect Wave <note>USD 35</note></g> -->
+   </list>
+
+   <list name="2F-Spiele" booth="3-G128">
+      <g>Black Friday <note>Reprint of a classic stock-market game that might work well with 2p. EUR 45</note></g>
+   </list>
+
+   <list name="dlp games" booth="3-G130">
+      <g>The Cathedral of Orléans <note>A co-op Orléon‽ Have to see how hard it is tho... EUR 30</note></g>
+   </list>
+
+   <list name="Nanox Games" booth="3-G130 (dlp games)">
+      <g>Evenfall <note>Nice art, interesting scoring mechanic, and Rahdo likes it. EUR 55</note></g>
+   </list>
+
+   <list name="Board&amp;Dice" booth="3-H110">
+      <G>Barcelona <note>German version at 2-A152, 2-A154 (Giant Roc) EUR 60</note></G>
+      <g>Books of Time <note>German version at 2-A152, 2-A154 (Giant Roc) EUR 50</note></g>
+      <g>Nucleum <note>Not sure the theme really comes through. Maybe play? EUR 70</note></g>
+   </list>
+
+   <!-- <list name="Peacock Tabletops" booth="3-H124"> -->
+      <!-- <g>Materia Prima: The Inquisition Expansion <note>EUR 45</note></g> -->
+   <!-- </list> -->
+
+   <list name="Mighty Boards" booth="3-L120">
+      <G>Hamlet: The Village Building Game <note>EUR 49</note></G>
+   </list>
+
+   <list name="CrowD Games" booth="3-M124">
+      <g>Portals <note>Really cool muli-step pattern/adjacency placement abstract. Probably tightest w/ 2p. EUR 45</note></g>
+   </list>
+
+   <list name="Boardgame Racoon" booth="3-N130">
+      <g>Between Light &amp; Shadow <note>Solo adventure EUR 25</note></g>
+   </list>
+
+   <list name="Pegasus Spiele" booth="3-P102">
+      <g>Revive <note>Hype-monster from last year. EUR 80</note></g>
+   </list>
+
+   <list name="Game Brewer" booth="3-Q102">
+      <g>Amygdala <note>Abstract with great pedigree. Beautiful board. EUR 60</note></g>
+      <g p="Game Brewer">Oak <note>Last year: EUR 55</note></g>
+   </list>
+
+   <list name="Treecer" booth="3-R110">
+      <g>Zoo Tycoon: The Board Game <note>More focused on the animals than Ark Nova. Tons of animeeples. EUR 89</note></g>
+   </list>
+
+   <!-- <list name="Funtails" booth="3-R124"> -->
+      <!-- <g>Comet <note>EUR 40</note></g> -->
+   <!-- </list> -->
+
+   <list name="2Tomatoes Games" booth="3-S102">
+      <g>Islet <note>Birds EUR 35</note></g>
+   </list>
+
+   <!-- <list name="Invedars" booth="3-S102 (2Tomatoes)"> -->
+      <!-- <g>Necronomicon <note>USD 20</note></g> -->
+   <!-- </list> -->
+
+   <!-- <list name="Fantasia Games" booth="3-S110">
+      <g>Unconscious Mind <note>Demo only.</note></g>
+   </list> -->
+
+   <list name="Lucky Duck Games" booth="3-S124">
+      <G>Cosmoctopus <note>So cute. Is it good? I don't know! Already available for £38.95</note></G>
+      <g>Senjutsu: Battle For Japan <note>Samurai duelling game</note></g>
+   </list>
+
+   <list name="Stonemaier Games / Inside Up Games" booth="3-T124">
+      <g>Apiary <note>Bees in space. Asymmetric hives.</note></g>
+      <g>Earth <note>EUR 47</note></g>
+   </list>
+
+   <list name="Irongames" booth="3-U100">
+      <g>Discordia <note>Dice un-placement and workers moving around. EUR 55 at Essen '22</note></g>
+   </list>
+
+   <!-- <list name="Nuts! Publishing" booth="3-U124"> -->
+      <!-- <g>Diluvium <note>Demo only.</note></g> -->
+   <!-- </list> -->
+
+   <list name="Wonderbow Games" booth="3-V101">
+      <G>Kelp <note>Demo only. Asymmetrical 2p. Shark vs. Octopus. Coming to Kickstarter by the end of 2023.</note></G>
+   </list>
+
+   <list name="Stronghold Games" booth="3-V103">
+      <g>Riverside <note>Roll&amp;write along the fjords.
+Already available for £27.54</note></g>
+   </list>
+
+   <list name="Ion Game Design" booth="3-W111">
+      <G>Stationfall <note>Player-driven chaos on a de-orbiting space station. Components/Price tho? EUR 80</note></G>
+      <g>Vendel to Viking <note>Demo only. Prequel to Pax Viking which is already available.
+
+Pax Viking: Round sagas.</note></g>
+      <!-- <g>Interstellar <note>Demo only.</note></g> -->
+      <!-- <g>StegegetS <note>Demo only.</note></g> -->
+      <!-- <g>StegegetS Moomin <note>EUR 20</note></g> -->
+   </list>
+
+   <list name="Geek Attitude Games" booth="3-W120">
+      <g>Bruxelles 1893: Belle Epoque <note>Reprint EUR 65</note></g>
+   </list>
+
+   <list name="Cranio Creations" booth="3-W124">
+      <g>Rats of Wistar <note>Rats take over a house. Cute art. EUR 60</note></g>
+   </list>
+
+   <!-- <list name="Blue Cocker Games" booth="3-Y120">
+      <g>Welcome To... Collector's Edition <note>EUR 42</note></g>
+   </list> -->
+
+
+   <!-- Hall 4 -->
+
+   <list name="Chaosium" booth="4-C108">
+      <G>Horror on the Orient Express: The Board Game <note>Demo only. Demo only, but looks like a promising coop I'd like to play. KS March 2024</note></G>
+   </list>
+
+   <list name="DiceTree Games" booth="4-F105">
+      <g>Leonardo da Vinci's Codex Leicester <note>Reprint/Reimplementation/Deluxe version. They have a whole series of classics in their "Book Box" series. https://boardgamegeek.com/boardgamefamily/71084/series-book-box-dicetree EUR 60</note></g>
+   </list>
+
+   <list name="Playte" booth="4-F120">
+      <G>Kreta <note>Reprint of "Kreta (2005)" by  Stefan Dorra. Should be language-independent. Grab this (if they have it).</note></G>
+      <g>Pueblo <note>Reprint of "Pueblo (2002)" by Kiesling+Kramer. 30 EUR sounds like a steal for the amount of components (3d plastic blocks). Forward/Backward modes. Ask if they tweaked any of the rules. EUR 30</note></g>
+   </list>
+
+   <!-- <list name="Bright Eye Games" booth="4-G105"> -->
+      <!-- <g>Battle Dentale <note>Demo only.</note></g> -->
+   <!-- </list> -->
+
+   <!-- <list name="Shelf Buster Games" booth="4-H106"> -->
+      <!-- <g>Magical Friends and How to Summon Them <note>EUR 80</note></g> -->
+   <!-- </list> -->
+
+   <list name="Perro Loko Games" booth="4-J111">
+      <g>Satori <note>Worker placement. Looks beautiful. EUR 55</note></g>
+   </list>
+
+
+   <!-- Hall 5 -->
+
+
+   <!-- <list name="Trefl" booth="5-D102"> -->
+      <!-- <g>Five Peaks <note>EUR 40</note></g> -->
+   <!-- </list> -->
+
+   <!-- <list name="MEBO Games" booth="5-D125"> -->
+      <!-- <g>Neotopia <note>EUR 35</note></g> -->
+   <!-- </list> -->
+
+   <list name="Horrible Guild" booth="5-G112">
+      <g>Quicksand <note>Real-time co-op. Could be fun. EUR 22</note></g>
+   </list>
+
+   <list name="inPatience" booth="5-K121">
+      <g>Skoventyr <note>Co-op based on Danish folklore. How difficult can you make it? EUR 23</note></g>
+   </list>
+
+   <list name="Allplay" booth="5-L-112">
+      <g>Chomp <note>Fun filler, very quick. Maybe too similar to games we have?</note></g>
+      <g>Pollen <note>Knizia + theme that makes sense. Lush illustrations, metallic meeples. "The bumblebees look fuzzy!"</note></g>
+      <g>Sail <note>2p coop trick-taking. Can't find any rules. Difficulty seems to be adjusted by track-length?</note></g>
+      <!-- <g>Mind Space</g> -->
+   </list>
+
+   <list name="Crimson Company" booth="5-N123">
+      <g>Earth 2053: Tipping Point <note>Demo only. Literally tipping board. "Semi"-coop tho :/</note></g>
+   </list>
+
+
+   <!-- Hall 6 -->
+
+   <list name="HUCH!" booth="6-B300">
+      <!-- <G>Bag of Chips <note>Crunchy push-your-luck in a VERY cool presentation. English edition already available. https://boardgameprices.eu/item/show/43120/bag-of-chips EUR 13</note></G> -->
+      <g>Terra Pyramides <note>Demo only.</note></g>
+   </list>
+
+   <list name="KOSMOS" booth="6-B400, 6-B401, 6-C300">
+      <g>The White Castle <note>Dice worker placement. Rahdo likes it. English version at Devir (3-D129). EUR 33</note></g>
+   </list>
+
+   <list name="Blue Orange (EU)" booth="6-D300">
+      <g>Next Station: Tokyo <note>Flip and write. Standalone expansion to Next Station: London. EUR 18</note></g>
+      <g>Volto <note>Similar to Stratego/Speakeasy. EUR 22</note></g>
+   </list>
+
+   <!-- <list name="Zoch Verlag" booth="6-F102"> -->
+      <!-- <g>Maldivia</g> -->
+      <!-- <g>Volles Fass voraus</g> -->
+   <!-- </list> -->
+
+   <list name="Drei Magier Spiele" booth="6-F200">
+      <g>Lecker Lava <note>Pushing lava into your mouth. May be fun to play. EUR 33</note></g>
+   </list>
+
+   <!-- <list name="Studio H" booth="6-F303"> -->
+      <!-- <g>Virtual Revolution <note>EUR 52</note></g> -->
+   <!-- </list> -->
+
+   <list name="Lumberjacks Studio / La Boîte de Jeu" booth="6-F400">
+      <g>The A.R.T. Project <note>Coop. How hard? English version at The Op (3-G120). "English rules can be provided at purchase." EUR 38</note></g>
+      <g>From the Moon <note>Nice-looking worker-placement with 3d-printed rovers. Surely, 80 EUR is for some sort of deluxe edition? EUR 80</note></g>
+      <!-- <g>Evil Corp. <note>EUR 40</note></g> -->
+   </list>
+
+
+   <!-- Hall 7 -->
+
+   <list name="General trade area (Friday 14:45)" booth="7">
+      <g>Abyss <note>€15</note></g>
+      <g>Suburbia <note>20€</note></g>
+      <g>Castles of Mad King Ludwig <note>€27</note></g>
+      <g>Valdora <note>€15</note></g>
+      <g>Valley of the Kings <note>10 EUR</note></g>
+   </list>
+
+   <list name="Other games to watch out for">
+      <g p="Kobold Spieleverlag / Osprey Games">Village Green</g>
+      <g p="Final Frontier Games">A Fistful of Meeples <note>Wild West game w/ a Mancala-style mechanism. 20€ at Essen 2019.</note></g>
+      <g p="Board&amp;Dice/Schwerkraft-Verlag">Sierra West <note>Cool action selection mechanic. Sweet spot at 2p due to AP.</note></g>
+      <g>Hostage Negotiator / Hostage Negotiator: Crime Wave <note>Solo</note></g>
+   </list>
+
+   <list name="Games we lost access to that I miss">
+      <g>Quadropolis <url><![CDATA[https://www.boardgamegeek.com/boardgame/176396/quadropolis]]></url></g>
+      <g>Oceanos <url><![CDATA[https://www.boardgamegeek.com/boardgame/192860/oceanos]]></url></g>
+      <g>Galaxy Trucker <url><![CDATA[https://www.boardgamegeek.com/boardgame/31481/galaxy-trucker]]></url></g>
+      <g>Champions of Midgard <url><![CDATA[https://www.boardgamegeek.com/boardgame/172287/champions-midgard]]></url></g>
+      <g>Impulse <url><![CDATA[https://www.boardgamegeek.com/boardgame/144239/impulse]]></url></g>
+      <g>Glen More <url><![CDATA[https://www.boardgamegeek.com/boardgame/66362/glen-more]]></url></g>
+      <g>La Isla <url><![CDATA[https://www.boardgamegeek.com/boardgame/154246/la-isla]]></url></g>
+   </list>
+
+</games>
