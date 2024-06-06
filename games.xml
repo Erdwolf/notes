@@ -338,24 +338,28 @@
       <!-- <g>Puzzle box</g> -->
       <!-- /Essen 2022 -->
       <!-- 2023 -->
-      <g p="itten">Moon Base <unplayed/><note>24.85€ at ludifolie.com.</note></g>
+      <g p="itten">Moon Base <note>24.85€ at ludifolie.com.</note></g>
       <g>Pentaquest <note>Print &amp; Play</note></g>
       <g>After Us</g>
       <!-- Essen 2023 -->
-      <g>Islet <unplayed/><note>EUR 35</note></g>
+      <g>Islet <note>EUR 35</note></g>
       <g>Cosmoctopus</g>
-      <g>Portals <unplayed/><note>EUR 45</note></g>
+      <g>Portals <note>EUR 45</note></g>
       <g p="Devir">Mazescape XP: Cryo-C <unplayed/><note>EUR 10.</note></g>
-      <g>Voidfall <unplayed/><note>Retail edition. 120 EUR.</note></g>
+      <g>Voidfall<note>Retail edition. 120 EUR.</note></g>
       <g>Skoventyr</g>
       <g>Mirror Garden</g>
-      <g>Abyss <unplayed/><note>€15</note></g>
-      <g>Suburbia <unplayed/><note>20€</note></g>
-      <g>Castles of Mad King Ludwig <unplayed/><note>€27</note></g>
+      <g>Abyss <note>€15</note></g>
+      <g>Suburbia<note>20€</note></g>
+      <g>Castles of Mad King Ludwig<note>€27</note></g>
       <g>Valdora <unplayed/><note>+ Valdora Extra + Special board 19 + Special board 20. €15.</note></g>
-      <g>Valley of the Kings <unplayed/><note>10 EUR</note></g>
-      <g>Puzzle box <unplayed/></g>
+      <g>Valley of the Kings <note>10 EUR</note></g>
+      <g>Puzzle box</g>
       <!-- /Essen 2022 -->
+      <g>Galaxy Trucker <note>Second Edition</note></g>
+      <g>Hideous Abomination <note>KS</note></g>
+      <g>The Fox Experiment <note>Backed on KS for $60.00.</note></g>
+      <g>Sky Team <unplayed/></g>
    </list>
 
    <list name="New games played this year">
@@ -378,21 +382,33 @@
       <g>Come sail away!</g>
       <!-- /Essen 2023 -->
       <g>Cosmoctopus</g>
+      <g>Hideous Abomination</g>
+      <g>The Fox Experiment</g>
    </list>
 
    <list name="Ordered/Backed">
-      <g>The Fox Experiment <note>Backed on KS for $60.00. Delayed to Sep-Oct 2023.</note></g>
+      <g>Dutch Resistance: Orange Shall Overcome! <note>Backed on KS. No shipping paid &amp; no address given. Expected delivery Dec 2024</note></g>
    </list>
 
    <list name="Not bought at Essen (but wanted to)">
       <g>Septima <note>Wait for retail edition.</note></g>
       <g>Between Light &amp; Shadow <note>Solo adventure. EUR 25 at Essen 2023.</note></g>
+      <g p="Playte">Kreta <note>Didn't have it at Essen 2023. Reprint of "Kreta (2005)" by  Stefan Dorra. Should be language-independent. Grab this (if they have it).</note></g>
+      <g p="Playte">Pueblo <note>Didn't have it at Essen 2023. Reprint of "Pueblo (2002)" by Kiesling+Kramer. 30 EUR sounds like a steal for the amount of components (3d plastic blocks). Forward/Backward modes. Ask if they tweaked any of the rules. EUR 30</note></g>
+   </list>
+
+   <list name="Unplayed highlights from Essen 2023">
+      <g>Kelp <note>Asymmetrical 2p. Shark vs. Octopus. Missed KS.</note><url><![CDATA[https://kelpgame.com/]]></url></g>
+      <g p="Stonemaier Games / Inside Up Games">Apiary <note>Bees in space. Asymmetric hives.</note></g>
+      <g p="Ion Game Design">Stationfall <note>Player-driven chaos on a de-orbiting space station. Components/Price tho? EUR 80</note></g>
+      <g p="Board&amp;Dice / Giant Roc">Barcelona <note>EUR 60 at Essen 2023</note></g>
    </list>
 
    <list name="Watchlist">
       <g>Worms: The Board Game (2024) <notes>waiting for the retail version</notes></g>
       <g>Everdell</g>
       <g>Ark Nova</g>
+      <g p="Mighty Boards">Hamlet: The Village Building Game <note>EUR 49 at Essen 2023</note></g>
    </list>
 
    <list name="Games at my parents'">
@@ -410,7 +426,6 @@
    <list name="Games we lost access to that I miss">
       <g>Quadropolis <url><![CDATA[https://www.boardgamegeek.com/boardgame/176396/quadropolis]]></url></g>
       <g>Oceanos <url><![CDATA[https://www.boardgamegeek.com/boardgame/192860/oceanos]]></url></g>
-      <g>Galaxy Trucker <url><![CDATA[https://www.boardgamegeek.com/boardgame/31481/galaxy-trucker]]></url></g>
       <g>Champions of Midgard <url><![CDATA[https://www.boardgamegeek.com/boardgame/172287/champions-midgard]]></url></g>
       <g>Impulse <url><![CDATA[https://www.boardgamegeek.com/boardgame/144239/impulse]]></url></g>
       <g>Glen More <url><![CDATA[https://www.boardgamegeek.com/boardgame/66362/glen-more]]></url></g>
