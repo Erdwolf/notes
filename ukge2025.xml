@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="#style" ?>
+<games>
+   <xsl:stylesheet id="style" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+
+      <xsl:output method="html" indent="yes"/>
+      <xsl:strip-space elements="*"/>
+
+      <xsl:template match="games">
+         <meta name="viewport" content="width=device-width"/>
+         <style>
+            section {
+               margin: 1%;
+               padding: 5px;
+               border: 1px dashed #05f;
+               background: #acf;
+            }
+            @media screen and (min-width: 480px) { section {
+               float: left;
+            } }
+            h2 { margin: 5px; }
+            li { padding: 5px; }
+            ul > li { list-style: none; }
+            section        { position: relative; }
+            a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
+            footer { clear: both; }
+            nav ul { padding: 0; }
+            nav li { float: left; }
+            nav a { color: gray; font-size: 60%; text-decoration: none; }
+            .unplayed { color: red; }
+            .last-year { color: gray; }
+            .highlight-icon {
+               color: red;
+               position: absolute;
+               margin-left: -1.3em;
+            }
+            .note { font-size: 50%; }
+            .touch .note-indicator { display: none; }
+            .no-touch .note { display: none; }
+            a.url-indicator { color: black; text-decoration: none; }
+            .broken-off { list-style: none }
+            ul.expansions {
+               padding: 5px 0px 0px;
+               font-size: smaller;
+            }
+            ul.expansions > li {
+               padding-left: 0px;
+            }
+
+            @media print {
+               .note-indicator, .url-indicator { display: none; }
+               .note { display: inline ! important; }
+               nav, a[href='#nav'] { display: none; }
+               section { page-break-inside: avoid; }
+            }
+         </style>
+         <script>
+            /* Feature detection */
+            document.documentElement.className = ('ontouchstart' in window) ? 'touch' : 'no-touch';
+         </script>
+         <header><xsl:value-of select="count(//*[@booth]/g)"/> Games at <xsl:value-of select="count(//*[@booth])"/> booths</header>
+         <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
+         <footer><a id="nav"/><nav><ul>
+            <xsl:for-each select="//list">
+               <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
+            </xsl:for-each>
+         </ul></nav></footer>
+      </xsl:template>
+
+      <xsl:template match="list">
+         <section id="{position()}">
+            <a href="#nav" title="Go down to navigation">↓</a>
+            <h2>
+               <!-- Name of the list (Category/Publisher/...) -->
+               <xsl:value-of select="@name"/>
+               <!-- Booth number (if present) -->
+               <xsl:if test="@booth">
+                  <xsl:value-of select="concat(' [',@booth,']')"/>
+               </xsl:if>
+               <!-- Number of entries on this list -->
+               <xsl:variable name="n" select="count(current()/g)"/>
+               <xsl:value-of select="concat(' (',$n,')')"/>
+            </h2>
+            <xsl:if test="not(old)">
+               <ul>
+                  <xsl:apply-templates/>
+               </ul>
+            </xsl:if>
+         </section>
+      </xsl:template>
+
+      <xsl:attribute-set name="classes">
+         <xsl:attribute name="class">
+            <!-- Highlight unplayed games -->
+            <xsl:if test="unplayed">unplayed</xsl:if>
+            <!-- Gray out games from last year -->
+            <xsl:if test="ly">last-year</xsl:if>
+         </xsl:attribute>
+      </xsl:attribute-set>
+
+      <xsl:template match="g|x|G">
+         <li title="{normalize-space(concat(note/text(), ' ', url/text()))}" xsl:use-attribute-sets="classes">
+            <xsl:if test="name()='x'">+ </xsl:if>
+            <!-- Highlight pre-ordered games -->
+            <xsl:if test="pp"><span title="Prepaid [{pp/@code}]" class='highlight-icon'>💰</span></xsl:if>
+            <xsl:if test="po"><span title="Preordered" class='highlight-icon'>😎</span></xsl:if>
+            <xsl:if test="name()='G'"><span class='highlight-icon'>♥</span></xsl:if>
+            <xsl:value-of select="text()"/>
+            <!-- Indicator for hover notes on desktop -->
+            <xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
+            <xsl:if test="url"><a class="url-indicator" href="{url/text()}"> 🔗</a></xsl:if>
+            <!-- Inline notes on mobile -->
+            <span class="note">
+               <xsl:if test="pp">Prepaid [<xsl:value-of select="pp/@code"/>].</xsl:if>
+               <xsl:value-of select="normalize-space(note/text())"/>
+            </span>
+            <xsl:if test="x">
+               <ul class="expansions">
+                  <xsl:apply-templates select="x"/>
+               </ul>
+            </xsl:if>
+         </li>
+      </xsl:template>
+
+   </xsl:stylesheet>
+
+   <list name="La Boîte de Jeu" booth="2-416 (Hachette UK)">
+      <g>The Architects of Amytis <note>Tic-Tac-Toe, Pattern building, Set collection. Not very thematic.</note></g>
+   </list>
+
+   <list name="Yay Games" booth="2-646">
+      <G>?</G>
+   </list>
+
+   <list name="Sinister Fish Games" booth="2-724">
+      <g>Yonder <note>Demo only. Looks nice</note></g>
+   </list>
+
+   <list name="The Great Nothing Games" booth="2-915">
+      <g>The War of the Worlds: One More Day <note>Demo only. Solo deckbuilder. Demo only.</note></g>
+   </list>
+
+   <list name="Archona Games / Red Raven Games" booth="3-402">
+      <g>Pest <note>Moving around a plaque-ridden landscape trying to heal people. GBP 59</note></g>
+      <g>Creature Caravan</g>
+   </list>
+
+   <list name="Playte" booth="3-745">
+      <g>Orapa Mine <note>Deduct the position of prisms by coloured light reflecting through them. GBP 18</note></g>
+   </list>
+
+   <list name="Tettix Games" booth="3-767">
+      <G>Even Deeper Regrets <note>Demo only.</note></G>
+   </list>
+
+   <list name="Rebel Studio" booth="3-946">
+      <g>Pergola <note>Looks amazing</note></g>
+   </list>
+
+   <list name="Win-Win Board Games" booth="3-962">
+      <g>Four Horsemen <note>Coop. Too bland.</note></g>
+   </list>
+
+   <list name="Party Tails" booth="3A-102">
+      <g>Timelancers <note>GBP 56</note></g>
+   </list>
+
+   <list name="Incredible Dream Studios" booth="3A-102 (All About Games Consulting)">
+      <g>A Gentle Rain <note>Coop/Solo. Hard enough? "Less complex than Buttonshy games" GBP 22</note></g>
+   </list>
+
+   <list name="Iconiq Studios" booth="3A-170">
+      <g>Stokerverse <note>Maybe play. GBP 15</note></g>
+   </list>
+
+   <list name="Paverson Games" booth="3A-418">
+      <g>Luthier <note>Reminds me of Rococo. So I'm probably gonna lose ;)</note></g>
+   </list>
+
+   <list name="Osprey Games" booth="3A-448">
+      <g>Ofrenda <note>GBP 45</note></g>
+   </list>
+
+   <list name="The Op Games" booth="4-502">
+      <g>Tacta</g>
+   </list>
+
+   <list name="Not bought at Essen (but wanted to)">
+      <g p="Geek Attitude Games">Babylon <note>UK retail release in Nov'24. Ordered at Meeple World but doesn't seem to come in.</note></g>
+      <g p="Ion Game Design">Stationfall <note>Player-driven chaos on a de-orbiting space station. Components/Price tho? EUR 80 at Essen 2023</note></g>
+      <g p="Wonderbow Games">Kelp: Shark vs Octopus <note>Asymmetrical 2p. Shark vs. Octopus. Sold out for EUR 46 at Essen 2024</note></g>
+   </list>
+   
+</games>

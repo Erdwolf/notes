@@ -7,6 +7,8 @@
       <xsl:strip-space elements="*"/>
 
       <xsl:template match="games">
+         <html>
+         <meta charset="utf-8"/>
          <meta name="viewport" content="width=device-width"/>
          <style>
             section {
@@ -63,6 +65,7 @@
                <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
             </xsl:for-each>
          </ul></nav></footer>
+         </html>
       </xsl:template>
 
       <xsl:template match="list">
@@ -359,26 +362,38 @@
       <g>Galaxy Trucker <note>Second Edition</note></g>
       <g>Hideous Abomination <note>KS</note></g>
       <g>The Fox Experiment <note>Backed on KS for $60.00.</note></g>
-      <g>Sky Team <unplayed/></g>
+      <g>Sky Team</g>
       <!-- Essen 2024 -->
-      <g>Septima <unplayed/><note>Retail edition. EUR 65 at Essen 2024</note></g>
-      <g>Friedrich Ebert: Der Weg zur Demokratie <unplayed/><note>EUR 30 at Essen 2024</note></g>
+      <g>Septima <note>Retail edition. EUR 65 at Essen 2024</note>
+         <x>Shapeshifting &amp; Omens <unplayed/><note>Bought at UKGE 2025</note></x>
+      </g>
+      <g>Friedrich Ebert: Der Weg zur Demokratie <note>EUR 30 at Essen 2024</note></g>
       <g>Between Light &amp; Shadow <note>+ Magistra Artium. EUR 25-30 at Essen 2024.</note></g>
-      <g>Glen More <unplayed/><note>18 EUR</note></g>
+      <g>Glen More<note>18 EUR</note></g>
       <g>La Isla <unplayed/><note>12 EUR</note></g>
       <g p="Playte">Sardegna <note>Reprint of "Kreta (2005)". EUR 18.50</note></g>
-      <g p="Playte">Pueblo <unplayed/><note>EUR 22</note></g>
+      <g p="Playte">Pueblo <note>EUR 22</note></g>
       <g>Orléans <unplayed/><note>20 EUR</note></g>
-      <g>Undergrove <unplayed/><note>EUR 45 w/ expansion</note>
+      <g>Undergrove <note>EUR 45 w/ expansion</note>
          <x>Undergrove: Whispering Woods <unplayed/></x>
       </g>
       <g>Puzzle box <unplayed/></g>
       <g>Obelus <note>15 EUR</note></g>
       <g>Quadropolis <unplayed/><note>15 EUR</note></g>
       <g>Santorini <unplayed/><note>20 EUR</note></g>
-      <g>Fall <unplayed/><note>30 EUR</note></g>
+      <g>Fall <note>30 EUR</note></g>
       <g>SETI <unplayed/><note>70 EUR</note></g>
       <!-- /Essen 2024 -->
+      <g>Deep Regrets: An Unfortunate Fishing Game <note>Backed on KS.</note></g>
+      <!-- UKGE 2025 -->
+      <g p="YAY Games">One Sheep, Two Sheep, Many Sheep</g>
+      <g p="YAY Games">Thunderbirds Danger Zone: The Game <unplayed/></g>
+      <g p="YAY Games">Sandcastles <unplayed/></g>
+      <g p="Wonderbow Games">Kelp: Shark vs Octopus <unplayed/><note>Asymmetrical 2p. Shark vs. Octopus. Sold out for EUR 46 at Essen 2024. Bought at UKGE 2025.</note></g>
+      <g>Orapa Mine</g>
+      <g>Sierra <unplayed/></g>
+      <g>Ofrenda <unplayed/></g>
+      <!-- /UKGE 2025 -->
    </list>
 
    <list name="New games played this year">
@@ -405,25 +420,39 @@
       <g>Syncro</g>
       <g>Intarsia</g>
       <g>Phoenix New Horizon</g>
-      <!-- Day 3 / Sunday -->
+      <!-- Day 4 / Sunday -->
       <g>Kiribati</g>
       <g>Babylon</g>
       <g>Inferno</g>
       <g>Beast</g>
       <g>Stationfall</g>
       <!-- /Essen 2024 -->
+      <g>Deep Regrets: An Unfortunate Fishing Game</g>
+      <!-- UKGE 2025 -->
+      <g p="YAY Games">Team GB: Ready Set Win</g>
+      <g p="YAY Games">One Sheep, Two Sheep, Many Sheep</g>
+      <g>Tacta</g>
+      <g>A Gentle Rain</g>
+      <g>Timelancers</g>
+      <g>Orapa Mine</g>
+      <!-- Hotel -->
+      <g>Ready Set Bet</g>
+      <g>Just One</g>
+      <g>Spyfall</g>
+      <!-- Day 2 / Sunday -->
+      <g>Sierra</g>
+      <g>Ofrenda</g>
+      <!-- /UKGE 2025 -->
    </list>
 
    <list name="Ordered/Backed">
-      <g>Dutch Resistance: Orange Shall Overcome! <note>EUR 91.20. Backed on KS. Expected delivery Dec 2024</note></g>
-      <g>Ada's Dream <note>Backed on KS. No shipping paid &amp; no address given. Expected delivery Feb 2025</note></g>
-      <g>Deep Regrets: An Unfortunate Fishing Game <note>Backed on KS. No shipping paid &amp; no address given. Expected delivery Mar 2025</note></g>
+      <g>Dutch Resistance: Orange Shall Overcome! <note>EUR 91.20. Backed on KS. Address given. No expected delivery given.</note></g>
+      <g>Ada's Dream <note>Backed on KS. No shipping paid &amp; no address given. Pledge manager by the end of July. Expected delivery Sep 2025</note></g>
    </list>
 
    <list name="Not bought at Essen (but wanted to)">
-      <g p="Geek Attitude Games">Babylon <note>UK retail release in Nov'24</note></g>
+      <g p="Geek Attitude Games">Babylon <note>UK retail release in Nov'24. Ordered at Meeple World but doesn't seem to come in.</note></g>
       <g p="Ion Game Design">Stationfall <note>Player-driven chaos on a de-orbiting space station. Components/Price tho? EUR 80 at Essen 2023</note></g>
-      <g p="Wonderbow Games">Kelp: Shark vs Octopus <note>Asymmetrical 2p. Shark vs. Octopus. Sold out for EUR 46 at Essen 2024</note></g>
    </list>
 
    <list name="Unplayed highlights from Essen 2024">
