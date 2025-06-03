@@ -25,6 +25,10 @@
             ul > li { list-style: none; }
             section        { position: relative; }
             a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
+            table {   font-size: 24px;
+  font-weight: 700; 
+    margin-left: 40px;
+   }
             footer { clear: both; }
             nav ul { padding: 0; }
             nav li { float: left; }
@@ -60,34 +64,58 @@
             document.documentElement.className = ('ontouchstart' in window) ? 'touch' : 'no-touch';
          </script>
          <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
+         <!-- Summary table for the old lists -->
+         <xsl:if test="list[old]">
+            <section id="new-games-played">
+               <a href="#nav" title="Go down to navigation">↓</a>
+               <h2>New games played in</h2>
+               <table>
+               <xsl:for-each select="list[old]">
+                  <tr>
+                     <td>
+                        <!-- Just the year -->
+                        <xsl:value-of select="substring(@name, string-length('New games played in ')+1)"/>
+                     </td>
+                     <td>
+                        <!-- Number of entries on this list -->
+                        <xsl:variable name="n" select="count(current()/g)"/>
+                        <xsl:value-of select="concat(' (',$n,')')"/>
+                     </td>
+                  </tr>
+               </xsl:for-each>
+               </table>
+            </section>
+         </xsl:if>
          <footer><a id="nav"/><nav><ul>
             <xsl:for-each select="//list">
                <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
             </xsl:for-each>
+            <li><a href="#new-games-played">New games played in</a></li>
          </ul></nav></footer>
          </html>
       </xsl:template>
 
       <xsl:template match="list">
-         <section id="{position()}">
-            <a href="#nav" title="Go down to navigation">↓</a>
-            <h2>
-               <!-- Name of the list (Category/Publisher/...) -->
-               <xsl:value-of select="@name"/>
-               <!-- Booth number (if present) -->
-               <xsl:if test="@booth">
-                  <xsl:value-of select="concat(' [',@booth,']')"/>
-               </xsl:if>
-               <!-- Number of entries on this list -->
-               <xsl:variable name="n" select="count(current()/g)"/>
-               <xsl:value-of select="concat(' (',$n,')')"/>
-            </h2>
-            <xsl:if test="not(old)">
-               <ul>
-                  <xsl:apply-templates/>
-               </ul>
-            </xsl:if>
-         </section>
+         <!-- Needs to match all lists but then not do anything with the old ones -->
+         <xsl:if test="not(old)">
+            <section id="{position()}">
+               <a href="#nav" title="Go down to navigation">↓</a>
+               <h2>
+                  <!-- Name of the list (Category/Publisher/...) -->
+                  <xsl:value-of select="@name"/>
+                  <!-- Booth number (if present) -->
+                  <xsl:if test="@booth">
+                     <xsl:value-of select="concat(' [',@booth,']')"/>
+                  </xsl:if>
+                  <!-- Number of entries on this list -->
+                  <xsl:variable name="n" select="count(current()/g)"/>
+                  <xsl:value-of select="concat(' (',$n,')')"/>
+               </h2>
+                  <ul>
+                     <xsl:apply-templates/>
+                  </ul>
+            </section>
+         </xsl:if>
       </xsl:template>
 
       <!-- Highlight unplayed games -->
@@ -397,37 +425,11 @@
    </list>
 
    <list name="New games played this year">
-      <g>Hideous Abomination</g>
-      <g>The Fox Experiment</g>
-      <g>Mazescape XP: Cryo-C</g>
-      <g>IOTA/Kwatro</g>
-      <g>Pick-a-Polar Bear</g>
-      <!-- Essen 2024 -->
-      <!-- Day 1 / Thursday -->
-      <g>Reef Project</g>
-      <g>Friedrich Ebert: Der Weg zur Demokratie</g>
-      <g>Rebirth</g>
-      <g>Black Forest</g>
-      <g>Floresta</g>
-      <!-- Day 2 / Friday -->
-      <g>Undergrove</g>
-      <g>Obelus</g>
-      <g>Sardegna/Kreta</g>
-      <!-- Day 3 / Saturday -->
-      <g>Fall</g>
-      <g>Space Missions</g>
-      <g>Little Alchemists</g>
-      <g>Syncro</g>
-      <g>Intarsia</g>
-      <g>Phoenix New Horizon</g>
-      <!-- Day 4 / Sunday -->
-      <g>Kiribati</g>
-      <g>Babylon</g>
-      <g>Inferno</g>
-      <g>Beast</g>
-      <g>Stationfall</g>
-      <!-- /Essen 2024 -->
       <g>Deep Regrets: An Unfortunate Fishing Game</g>
+      <g>Ecologies</g>
+      <g>Machine of Death</g>
+      <g>Sky Team</g>
+      <g>Pueblo</g>
       <!-- UKGE 2025 -->
       <g p="YAY Games">Team GB: Ready Set Win</g>
       <g p="YAY Games">One Sheep, Two Sheep, Many Sheep</g>
@@ -491,6 +493,41 @@
       <g>Janus</g>
       <g>Nimms leich</g>
    </list>
+
+   <list name="New games played in 2024">
+      <old/>
+      <g>Hideous Abomination</g>
+      <g>The Fox Experiment</g>
+      <g>Mazescape XP: Cryo-C</g>
+      <g>IOTA/Kwatro</g>
+      <g>Pick-a-Polar Bear</g>
+      <!-- Essen 2024 -->
+      <!-- Day 1 / Thursday -->
+      <g>Reef Project</g>
+      <g>Friedrich Ebert: Der Weg zur Demokratie</g>
+      <g>Rebirth</g>
+      <g>Black Forest</g>
+      <g>Floresta</g>
+      <!-- Day 2 / Friday -->
+      <g>Undergrove</g>
+      <g>Obelus</g>
+      <g>Sardegna/Kreta</g>
+      <!-- Day 3 / Saturday -->
+      <g>Fall</g>
+      <g>Space Missions</g>
+      <g>Little Alchemists</g>
+      <g>Syncro</g>
+      <g>Intarsia</g>
+      <g>Phoenix New Horizon</g>
+      <!-- Day 4 / Sunday -->
+      <g>Kiribati</g>
+      <g>Babylon</g>
+      <g>Inferno</g>
+      <g>Beast</g>
+      <g>Stationfall</g>
+      <!-- /Essen 2024 -->
+   </list>
+
 
    <list name="New games played in 2023">
       <old/>
