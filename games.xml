@@ -25,10 +25,11 @@
             ul > li { list-style: none; }
             section        { position: relative; }
             a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
-            table {   font-size: 24px;
-  font-weight: 700; 
-    margin-left: 40px;
-   }
+            table {
+               font-size: 24px;
+               font-weight: 700; 
+               margin-left: 40px;
+            }
             footer { clear: both; }
             nav ul { padding: 0; }
             nav li { float: left; }
@@ -184,7 +185,7 @@
          <x>Kataklysmus <unplayed/> <note>Bought for 10€(!) at Essen 2017.</note></x>
       </g>
       <!-- <g>Dixit <unplayed/></g> -->
-      <g>Star Wars LCG</g>
+      <!-- <g>Star Wars LCG</g> -->
       <!-- <g>Thor <note>Same as Botswana</note></g> -->
       <g>Marvel Dice Masters</g>
       <g>Strife: Legacy of the Eternals <note>Bought for 15€.</note></g>
@@ -195,7 +196,7 @@
       <g>Empire Engine <note>Bought for 5€ (in 2x deal) from AEG at Essen 2014.</note></g>
       <g>Coup + Reformation (KS Edition)</g>
       <g>Splendor <note>Bought for 26€.</note></g>
-      <g>Maximum Throwdown <unplayed/></g>
+      <!-- <g>Maximum Throwdown <unplayed/></g> -->
       <g>Star Realms <note>+ Colony Wars (2nd Base set) + Storage Box</note></g>
       <g>X-Wing <note>Two base sets + Millenium Falcon, XW, YW, BW, HWK, TIE, TIE-A, Imp. Aces (x2), Lambda</note></g>
       <g>Eight-Minute Empire</g>
@@ -229,7 +230,6 @@
       <g>For Sale</g>
       <g>6 nimmt</g>
       <g>Pass the Pigs</g>
-      <g>Zombie Dice</g>
       <g>Musée <note>Print &amp; Play</note></g>
       <g>Dreamwell</g>
       <g>Thunderbirds <note>KS Edition</note></g>
@@ -283,7 +283,7 @@
          <x>Kami-sama: Spirit Way Expansion <note>$8. Ordered with All Manor of Evil</note></x>
          <x>Kami-sama: The Awakened Stretch Goal Expansion <note>$12. Ordered with All Manor of Evil</note></x>
       </g>
-      <g>Debtzilla <note>35€ at Essen 2018.</note></g>
+      <!-- <g>Debtzilla <note>35€ at Essen 2018.</note></g> -->
       <g>Sub Terra <note>English Edition. ? at Essen 2018</note></g>
       <g>Photosynthesis <note>? at Essen 2018</note></g>
       <g>Versailles <note>18€! at Essen 2018</note></g>
@@ -302,7 +302,7 @@
       <!-- <g>Kami-sama: The Awakened Stretch Goal Expansion <note>$12. Ordered with All Manor of Evil</note></g> -->
       <!-- Essen 2019 -->
       <g>Ecogon: Stille Wasser <note>Would have been 28€, but bought in bundle at Essen 2019.</note></g>
-      <g>Fish &amp; Flips <note>Bought in bundle at Essen 2019.</note></g>
+      <!-- <g>Fish &amp; Flips <note>Bought in bundle at Essen 2019.</note></g> -->
       <g>Atlantis Rising (second edition) <note>60€ at Essen 2019.</note></g>
       <g>Draftosaurus <note>EUR 20€ at Essen 2019. Spanish Edition.</note></g>
       <g>Dreamscape <note>Move around dreams to construct your personal dreamscape. 1–4p. 45€ at Essen 2019.</note></g>
@@ -314,12 +314,12 @@
       <g>Spring on a String <note>Bought at Essen 2019.</note></g>
       <!-- /Essen 2019 -->
       <g p="KOSMOS">Imhotep: Das Duell <note>13.59€ in sale.</note></g>
-      <g>Kodama 3D <note>incl. playmat</note></g>
+      <!-- <g>Kodama 3D <note>incl. playmat</note></g> -->
       <!-- 2020 -->
       <g p="Leder Games">Vast: The Crystal Caverns <note>50€. Ordered with Seize the Bean</note></g>
       <!-- <g>Paleo <note>47.06€ at spiele-offensive.de</note></g> -->
       <g>Wildes Weltall <note>27.36€ at spiele-offensive.de</note></g>
-      <g>Potato Pirates 2: Enter The Spudnet</g>
+      <!-- <g>Potato Pirates 2: Enter The Spudnet</g> -->
       <g>Atheneum: Mystic Library <note>£34.55 at boardgameguru.co.uk</note></g>
       <g>Under Falling Skies <note>£22.55 at boardgameguru.co.uk</note></g>
       <!-- 2021 -->
@@ -327,7 +327,7 @@
       <g>The Quacks of Quedlinburg <note>£32.95 at Meeple Games, Durham</note></g>
       <g>Hamstern - Nuss, Nuss-Hurra (MINNY) <note>2.99€ at spiele-offensive.de</note></g>
       <g>Black Angel <note>37.99€ at spiele-offensive.de</note></g>
-      <g>Debunked</g>
+      <!-- <g>Debunked</g> -->
       <g>Aquatica <note>£34.55 at boardgameguru.co.uk</note></g>
       <g>Seastead <note>£23.03 at boardgameguru.co.uk</note></g>
       <g>Raiders of Scythia <note>£42.22 at boardgameguru.co.uk</note></g>
@@ -337,7 +337,7 @@
          <x>Dandân <note>Print &amp; Play</note></x>
       </g>
       <g>Hawken: Real-Time Card Game <note>Sharpshooter vs. Bruiser. £16.99 at magicmadhouse.co.uk</note></g>
-      <g>Radlands <note>New UK address. Backed on KS for CA$ 50.00. Sep 2021.</note></g>
+      <g>Radlands <note>Backed on KS for CA$ 50.00</note></g>
       <g p="Pandasaurus Games">Gods Love Dinosaurs <note>Dinos eat Lions eat Rabbits. Balance your ecosystem.</note></g>
       <g p="Schmidt Spiele">Islands in the Mist</g>
       <g p="Bombyx">Codex Naturalis</g>
@@ -363,7 +363,7 @@
       <g>Star Trek: Super-Skill Pinball <note></note></g>
       <g>Stroganov</g>
       <g>Plutocracy <note>€42 at Essen 2022.</note></g>
-      <g>Onirim <unplayed/></g>
+      <g>Onirim</g>
       <g>Verdant <note>€40 at Essen 2022.</note></g>
       <g>Wormholes <note>€35 at Essen 2022.</note></g>
       <!-- <g>Puzzle box</g> -->
@@ -383,10 +383,10 @@
       <g>Abyss <note>€15</note></g>
       <g>Suburbia<note>20€</note></g>
       <g>Castles of Mad King Ludwig<note>€27</note></g>
-      <g>Valdora <unplayed/><note>+ Valdora Extra + Special board 19 + Special board 20. €15.</note></g>
+      <g>Valdora <note>+ Valdora Extra + Special board 19 + Special board 20. €15.</note></g>
       <g>Valley of the Kings <note>10 EUR</note></g>
-      <g>Puzzle box</g>
-      <!-- /Essen 2022 -->
+      <!-- <g>Puzzle box</g> -->
+      <!-- /Essen 2023 -->
       <g>Galaxy Trucker <note>Second Edition</note></g>
       <g>Hideous Abomination <note>KS</note></g>
       <g>The Fox Experiment <note>Backed on KS for $60.00.</note></g>
@@ -396,31 +396,31 @@
          <x>Shapeshifting &amp; Omens <unplayed/><note>Bought at UKGE 2025</note></x>
       </g>
       <g>Friedrich Ebert: Der Weg zur Demokratie <note>EUR 30 at Essen 2024</note></g>
-      <g>Between Light &amp; Shadow <note>+ Magistra Artium. EUR 25-30 at Essen 2024.</note></g>
+      <g>Between Light &amp; Shadow <unplayed/><note>+ Magistra Artium. EUR 25-30 at Essen 2024.</note></g>
       <g>Glen More<note>18 EUR</note></g>
-      <g>La Isla <unplayed/><note>12 EUR</note></g>
+      <g>La Isla <note>12 EUR</note></g>
       <g p="Playte">Sardegna <note>Reprint of "Kreta (2005)". EUR 18.50</note></g>
       <g p="Playte">Pueblo <note>EUR 22</note></g>
       <g>Orléans <unplayed/><note>20 EUR</note></g>
       <g>Undergrove <note>EUR 45 w/ expansion</note>
          <x>Undergrove: Whispering Woods <unplayed/></x>
       </g>
-      <g>Puzzle box <unplayed/></g>
+      <!-- <g>Puzzle box</g> -->
       <g>Obelus <note>15 EUR</note></g>
-      <g>Quadropolis <unplayed/><note>15 EUR</note></g>
-      <g>Santorini <unplayed/><note>20 EUR</note></g>
+      <g>Quadropolis <note>15 EUR</note></g>
+      <g>Santorini <note>20 EUR</note></g>
       <g>Fall <note>30 EUR</note></g>
-      <g>SETI <unplayed/><note>70 EUR</note></g>
+      <g>SETI <note>70 EUR</note></g>
       <!-- /Essen 2024 -->
       <g>Deep Regrets: An Unfortunate Fishing Game <note>Backed on KS.</note></g>
       <!-- UKGE 2025 -->
       <g p="YAY Games">One Sheep, Two Sheep, Many Sheep</g>
       <g p="YAY Games">Thunderbirds Danger Zone: The Game <unplayed/></g>
       <g p="YAY Games">Sandcastles <unplayed/></g>
-      <g p="Wonderbow Games">Kelp: Shark vs Octopus <unplayed/><note>Asymmetrical 2p. Shark vs. Octopus. Sold out for EUR 46 at Essen 2024. Bought at UKGE 2025.</note></g>
+      <g p="Wonderbow Games">Kelp: Shark vs Octopus <note>Sold out for EUR 46 at Essen 2024. Bought at UKGE 2025.</note></g>
       <g>Orapa Mine</g>
-      <g>Sierra <unplayed/></g>
-      <g>Ofrenda <unplayed/></g>
+      <g>Sierra</g>
+      <g>Ofrenda</g>
       <!-- /UKGE 2025 -->
    </list>
 
@@ -433,7 +433,7 @@
       <!-- UKGE 2025 -->
       <g p="YAY Games">Team GB: Ready Set Win</g>
       <g p="YAY Games">One Sheep, Two Sheep, Many Sheep</g>
-      <g>Tacta</g>
+      <g>Tacta <note>Looked like a small game but was a massive table-hog</note></g>
       <g>A Gentle Rain</g>
       <g>Timelancers</g>
       <g>Orapa Mine</g>
@@ -445,11 +445,15 @@
       <g>Sierra</g>
       <g>Ofrenda</g>
       <!-- /UKGE 2025 -->
+      <g>Forest Shuffle</g>
+      <g p="Wonderbow Games">Kelp: Shark vs Octopus <note>Asymmetrical 2p</note></g>
+      <g>SETI</g>
    </list>
 
    <list name="Ordered/Backed">
-      <g>Dutch Resistance: Orange Shall Overcome! <note>EUR 91.20. Backed on KS. Address given. No expected delivery given.</note></g>
-      <g>Ada's Dream <note>Backed on KS. No shipping paid &amp; no address given. Pledge manager by the end of July. Expected delivery Sep 2025</note></g>
+      <g>Dutch Resistance: Orange Shall Overcome! <note>EUR 91.20. Backed on KS. Address given. Ship supposedly in the UK, but no expected delivery given.</note></g>
+      <g>Ada's Dream <note>Backed on KS. Shipping paid &amp; address given. Expected delivery Sep 2025</note></g>
+      <g>Even Deeper Regrets: An Unfortunate Fishing Game Expansion <note>Backed on KS. Shipping paid &amp; address given. Expected delivery Mar 2026.</note></g>
    </list>
 
    <list name="Not bought at Essen (but wanted to)">
@@ -480,6 +484,17 @@
       <g>Oceanos <url><![CDATA[https://www.boardgamegeek.com/boardgame/192860/oceanos]]></url></g>
       <g>Champions of Midgard <url><![CDATA[https://www.boardgamegeek.com/boardgame/172287/champions-midgard]]></url></g>
       <g>Impulse <url><![CDATA[https://www.boardgamegeek.com/boardgame/144239/impulse]]></url></g>
+   </list>
+
+   <list name="Games we are getting rid of">
+      <g>Star Wars LCG <note>In German. Put up for auction at next SPIEL</note></g>
+      <g>Potato Pirates 2: Enter The Spudnet <note>At Uni</note></g>
+      <g>Debtzilla <note>At Uni</note></g>
+      <g>Zombie Dice <note>At Uni</note></g>
+      <g>Maximum Throwdown <note>At Uni</note></g>
+      <g>Kodama 3D <note></note></g>
+      <g>Fish &amp; Flips <note></note></g>
+      <g>Debunked</g>
    </list>
 
    <list name="Games at my parents'">

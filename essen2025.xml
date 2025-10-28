@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="#style" ?>
+<games>
+   <xsl:stylesheet id="style" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+
+      <xsl:output method="html" indent="yes"/>
+      <xsl:strip-space elements="*"/>
+
+      <xsl:template match="games">
+         <meta name="viewport" content="width=device-width"/>
+         <style>
+            section {
+               margin: 1%;
+               padding: 5px;
+               border: 1px dashed #05f;
+               background: #acf;
+            }
+            section section {
+               background: rgba(203, 224, 255, 1);
+            }
+            @media screen and (min-width: 480px) { section {
+               float: left;
+            } }
+            h2 { margin: 5px; }
+            li { padding: 5px; }
+            ul > li { list-style: none; }
+            section        { position: relative; }
+            a[href="#nav"] { position: absolute; top: 0; right: 5px; color: #0055FF; font-size: 60%; }
+            footer { clear: both; }
+            nav ul { padding: 0; }
+            nav li { float: left; }
+            nav a { color: gray; font-size: 60%; text-decoration: none; }
+            .unplayed { color: red; }
+            .last-year { color: gray; }
+            .highlight-icon {
+               color: red;
+               position: absolute;
+               margin-left: -1.3em;
+            }
+            .note { font-size: 50%; }
+            .touch .note-indicator { display: none; }
+            .no-touch .note { display: none; }
+            a.url-indicator { color: black; text-decoration: none; }
+            .broken-off { list-style: none }
+            ul.expansions {
+               padding: 5px 0px 0px;
+               font-size: smaller;
+            }
+            ul.expansions > li {
+               padding-left: 0px;
+            }
+
+            @media print {
+               .note-indicator, .url-indicator { display: none; }
+               .note { display: inline ! important; }
+               nav, a[href='#nav'] { display: none; }
+               section { page-break-inside: avoid; }
+            }
+         </style>
+         <script>
+            /* Feature detection */
+            document.documentElement.className = ('ontouchstart' in window) ? 'touch' : 'no-touch';
+         </script>
+         <header><xsl:value-of select="count(//*[@booth]/g|//*[@booth]/G)"/> Games at <xsl:value-of select="count(//*[@booth][g|G])"/> booths</header>
+         <xsl:choose>
+            <xsl:when test="*[@booth]">
+               <!-- Group lists by hall -->
+               <xsl:for-each select="//hall">
+                  <section>
+                     <xsl:variable name="prefix" select="@prefix" />
+                     <xsl:apply-templates select="//*[local-name()!='stylesheet'][starts-with(@booth,$prefix)]"/>
+                  </section>
+               </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+               <!-- Show each list individually -->
+               <xsl:apply-templates select="*[local-name()!='stylesheet']"/>
+            </xsl:otherwise>
+         </xsl:choose>
+         <footer><a id="nav"/><nav><ul>
+            <xsl:for-each select="//list">
+               <li><a href="#{position()}"><xsl:value-of select="@name"/></a></li>
+            </xsl:for-each>
+         </ul></nav></footer>
+      </xsl:template>
+
+      <xsl:template match="list">
+         <xsl:if test ="g|G"> <!-- Only show lists that contains games -->
+         <section id="{position()}">
+            <a href="#nav" title="Go down to navigation">↓</a>
+            <h2>
+               <!-- Name of the list (Category/Publisher/...) -->
+               <xsl:value-of select="@name"/>
+               <!-- Booth number (if present) -->
+               <xsl:if test="@booth">
+                  <xsl:value-of select="concat(' [',@booth,']')"/>
+               </xsl:if>
+               <!-- Number of entries on this list -->
+               <xsl:if test="not(@booth)">
+                  <xsl:variable name="n" select="count(g|G)"/>
+                  <xsl:value-of select="concat(' (',$n,')')"/>
+               </xsl:if>
+            </h2>
+            <xsl:if test="not(old)">
+               <ul>
+                  <xsl:apply-templates/>
+               </ul>
+            </xsl:if>
+         </section>
+         </xsl:if>
+      </xsl:template>
+
+      <xsl:attribute-set name="classes">
+         <xsl:attribute name="class">
+            <!-- Highlight unplayed games -->
+            <xsl:if test="unplayed">unplayed</xsl:if>
+            <!-- Gray out games from last year -->
+            <xsl:if test="ly">last-year</xsl:if>
+         </xsl:attribute>
+      </xsl:attribute-set>
+
+      <xsl:template match="g|x|G">
+         <li title="{normalize-space(concat(note/text(), ' ', url/text()))}" xsl:use-attribute-sets="classes">
+            <xsl:if test="name()='x'">+ </xsl:if>
+            <!-- Highlight pre-ordered games -->
+            <xsl:if test="pp"><span title="Prepaid [{pp/@code}]" class='highlight-icon'>💰</span></xsl:if>
+            <xsl:if test="po"><span title="Preordered" class='highlight-icon'>😎</span></xsl:if>
+            <xsl:if test="name()='G'"><span class='highlight-icon'>♥</span></xsl:if>
+            <xsl:value-of select="text()"/>
+            <!-- Indicator for hover notes on desktop -->
+            <xsl:if test="note"><span class="note-indicator"> ✍</span></xsl:if>
+            <xsl:if test="url"><a class="url-indicator" href="{url/text()}"> 🔗</a></xsl:if>
+            <!-- Inline notes on mobile -->
+            <span class="note">
+               <xsl:if test="pp">Prepaid [<xsl:value-of select="pp/@code"/>].</xsl:if>
+               <xsl:value-of select="normalize-space(note/text())"/>
+            </span>
+            <xsl:if test="x">
+               <ul class="expansions">
+                  <xsl:apply-templates select="x"/>
+               </ul>
+            </xsl:if>
+         </li>
+      </xsl:template>
+
+   </xsl:stylesheet>
+
+   <!-- Hall 2 --><hall prefix="2-"/>
+
+   <list name="Elznir Games" booth="2-B110">
+      <!-- <g>Celestia Duo <note>EUR 25</note></g> -->
+   </list>
+
+   <list name="Weird City Games" booth="2-E111">
+      <!-- <g>Satchel Quest <note>Demo only. KS ends before Essen. Delivers around the time of next year, so maybe play and wait?</note></g> -->
+   </list>
+
+   <list name="Arcane Wonders" booth="2-E300">
+      <!-- <g>Aquatica: Duellum <note>2p version. Probably not. Maybe play. EUR 45</note></g> -->
+   </list>
+
+   <list name="Giant Roc" booth="2-E510">
+      <g>Bone Wars <ly/><note>EUR 65</note></g>
+   </list>
+
+
+   <!-- Hall 3 --> <hall prefix="3-"/>
+
+   <list name="Salt &amp; Pepper Games" booth="3-A400">
+      <G>The Voynich Puzzle <note>Based on the Voynich Manuscript! Beautiful illustrations, board with puzzle pieces! Heavy euro combo-fest. This is gonna sell out... EUR 60</note></G>
+   </list>
+
+   <list name="Alderac Entertainment Group" booth="3-B200">
+      <g>Propolis <note>Looks beautiful. Bees! EUR 20</note></g>
+   </list>
+
+   <list name="Skellig Games" booth="3-C300">
+      <g>Transgalactica <note>Fun artwork. "Move tracks to move other tracks". English version at Devir
+(3-D600) EUR 65</note></g>
+   </list>
+
+   <list name="Red Mojo" booth="3-C311">
+      <g>Inferno <ly/></g>
+      <!-- <g>Inferno 1348 <note>Demo only.</note></g> -->
+      <!-- <g>Inferno: Plutus & Phlegyas <note>EUR 25</note></g> -->
+   </list>
+
+   <list name="Devir" booth="3-D600">
+      <g>Transgalactica <note>Fun artwork. "Move tracks to move other tracks". German version at  Skellig Games (3-C300) EUR 55</note></g>
+   </list>
+   
+   <list name="Grand Gamers Guild" booth="3-E400">
+      <g>Bouba/Kiki <note>EUR 22</note></g>
+   </list>
+
+   <list name="Alion – by Dr Ø" booth="3-F110">
+      <!-- <g>Recall <note>EUR 79</note></g> -->
+   </list>
+
+   <list name="Ludonova" booth="3-F115">
+      <!-- <g>Adamastor <note>EUR 20</note></g> -->
+   </list>
+
+   <list name="Grail Games" booth="3-F120">
+      <!-- <g>Fjords <note>Another reprint. Didn't convince me on the 2022 Kickstarter. See if we can play it. EUR 15</note></g> -->
+   </list>
+
+   <list name="Board&amp;Dice" booth="3-G200">
+      <g>Thebai <note>Dice placement on a city grid under attack. German version at Pegasus Spiele (3-M120) EUR 70</note></g>
+   </list>
+
+   <list name="Hodari Spiele" booth="3-H300">
+      <!-- <g>Galaxy Postman <note>2nd edition. Looks nice, but quite long. Maybe play? EUR 60</note></g> -->
+   </list>
+
+   <list name="Portal Games" booth="3-J120">
+      <!-- <g>Bohemians <note>EUR 35</note></g> -->
+      <g>Babylon <ly/></g>
+   </list>
+
+   <list name="Awaken Realms" booth="3-K415">
+      <!-- <g>Labyrinth: Chronicles <note>Demo only. Coop Labyrinth?! How hard?</note></g> -->
+   </list>
+
+   <list name="PHALANX" booth="3-L500">
+      <g>Punica: Rome vs Carthage <note>Quick 2p-only army clashing game EUR 25</note></g>
+      <g>A Very Civil Whist <note>It's a wargame, but it's also a 2p! trick-taking game. EUR 34</note></g>
+   </list>
+
+   <list name="Pegasus Spiele" booth="3-M120">
+      <g>Thebai <note>Dice placement on a city grid under attack. English version at  Board&amp;Dice (3-G200) EUR 70</note></g>
+      <!-- <g>Bohemians <note>EUR 35</note></g> -->
+   </list>
+
+   <list name="Osprey Games" booth="3-M600">
+      <!-- <g>Ayar: Children of the Sun</g> -->
+   </list>
+
+   <list name="CrowD Games" booth="3-P200">
+      <g>En Route <note>Flip&amp;Write. Also exists in two HPL theme versions EUR 35</note></g>
+      <!-- <g>Arkham Travel Guide <note>"En route" w/ an HPL theme EUR 20</note></g> -->
+      <!-- <g>Innsmouth Travel Guide <note>"En route" w/ an HPL theme EUR 22</note></g> -->
+   </list>
+
+   <list name="ThunderGryph Games" booth="3-Q200">
+      <g>Etherstone <note>EUR 35. Unclear what you actually do. Something with drafting (does the "Seasons" thing for the demo). No direct attacking. Maybe play, see how it is with 2p?</note></g>
+   </list>
+
+   <list name="Studio Midhall" booth="3-Q400"> 
+      <g>Beast <ly/><note>There's expansions, but we might want to look for the base game and/or more art</note></g>
+   </list>
+  
+   <list name="Geek Attitude Games" booth="3-J120">
+      <G>Babylon <ly/></G>
+   </list>
+
+   <list name="Stonemaier Games" booth="3-R400">
+      <g>Vantage <note>Play for 2h, find a win condition. No campaign, easy to get started compared to EBR and RK's SGs. EUR 108</note></g>
+   </list>
+
+   <list name="Wonderbow Games" booth="3-T111">
+      <g>Polaris <note>Fairly abstract. Placing patterns on a night sky that rotates(?) EUR 35</note></g>
+   </list>
+
+   <list name="Ion Game Design" booth="3-T215">
+      <g p="Ion Game Design">Stationfall <ly/><note>Player-driven chaos on a de-orbiting space station. EUR 80 at Essen 2023</note></g>
+   </list>
+
+   <list name="Perro Loko Games" booth="3-U115">
+      <g>Orloj: The Prague Astronomical Clock <note>Look at the board! EUR 60</note></g>
+   </list>
+
+   <list name="Hot Banana Games" booth="3F110 (IPA - Independent Publishers Alliance)">
+      <!-- <g>Moon Bunny</g> -->
+   </list>
+
+
+   <!-- Hall 4 --> <hall prefix="4-"/>
+
+   <list name="Dotwood Games" booth="4-A210">
+      <g>Rite <note>Slightly asymmetric factions fight around a volcano by spending energy to move and defeat. EUR 60</note></g>
+   </list>
+
+   <list name="Cosmodrome Games" booth="4-A400">
+      <G>Aquatica: Stubborn Crab &amp; Huntress Promo Cards</G>
+   </list>
+
+   <list name="(Self-Published)" booth="4-D125">
+      <g>Jakarta Traffic <note>Chaotic pickup-and-deli.. oh crap my battery ran out! EUR 42</note></g>
+   </list>
+
+   <list name="Baroque Games" booth="4-D500">
+      <!-- <g>Roblins!</g> -->
+   </list>
+
+   <list name="Mistzone Games" booth="4-E220">
+      <g>Mimir's Challenge <note>Seems reasonably interesting. How does a head "stand up"? EUR 55</note></g>
+   </list>
+
+   <list name="(Self-Published)" booth="4-G225">
+      <g>Nocturnis <note>Draw in patterns for your moths EUR 20</note></g>
+   </list>
+
+   <list name="Mojito Studios" booth="4-G500">
+      <g>Incubo <note>2p Coop. One player plays the cat. We should try this to see how hard it is. EUR 25</note></g>
+   </list>
+
+   <list name="Taiwan Boardgame Design" booth="4-J325">
+      <g>Mijnlieff <note>Simple abstract that reimplements Mijnlieff (2010). See if it has nice components. EUR 13</note></g>
+   </list>
+
+
+   <!-- Hall 5 --> <hall prefix="5-"/>
+
+   <list name="Mizo Games" booth="5-B115 (Homosapiens Lab)">
+      <!-- <g>2045</g> -->
+   </list>
+
+   <list name="Fractal Juegos" booth="5-F315">
+      <G>Feya's Swamp <note>EUR 38. Probably sold out on day 1</note></G>
+   </list>
+
+   <list name="Hobby World" booth="5-G400">
+      <g>Tundra <note>Looks cute. EUR 50</note></g>
+   </list>
+
+   <list name="Bitewing Games" booth="5-J525">
+      <!-- <g>Ichor <note>Another Knizia. This is publishing attempt 3. EUR 26</note></g> -->
+      <!-- <g>Iliad <note>Knizia, so this abstract has nothing to do with the Iliad. 2p placing numbers to get tokens in 5 different colours. EUR 26</note></g> -->
+   </list>
+
+   <list name="Allplay" booth="5-L415">
+      <g>Ruins <note>Card shedding with upgradable cards. Nice art.</note></g>
+   </list>
+
+
+   <!-- Hall 6 --> <hall prefix="6-"/>
+
+   <list name="iDventure" booth="6-A201">
+      <!-- <g>Puzzle cube?</g> -->
+   </list>
+
+   <list name="Playte" booth="6-D310">
+      <g>StarFall <note>Fairly light. Buy and spent tiles to collect sets. Sounds simple but looks really intriguing. EUR 18</note></g>
+      <!-- <g>Orapa Space <note>EUR 21.5</note></g> -->
+   </list>
+
+   <list name="Zoch Verlag" booth="6-K110">
+      <g>Über den Wolken <note>Birds overtaking each other EUR 25</note></g>
+   </list>
+
+   <list name="Sorry We Are French" booth="6-K300 (Gigamic)">
+      <!-- <g>365 Adventures: Cthulhu 1926 <note>EUR 16</note></g> -->
+   </list>
+
+</games>
