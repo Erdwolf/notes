@@ -393,7 +393,7 @@
       <g>Sky Team</g>
       <!-- Essen 2024 -->
       <g>Septima <note>Retail edition. EUR 65 at Essen 2024</note>
-         <x>Shapeshifting &amp; Omens <unplayed/><note>Bought at UKGE 2025</note></x>
+         <x>Shapeshifting &amp; Omens <note>Bought at UKGE 2025</note></x>
       </g>
       <g>Friedrich Ebert: Der Weg zur Demokratie <note>EUR 30 at Essen 2024</note></g>
       <g>Between Light &amp; Shadow <unplayed/><note>+ Magistra Artium. EUR 25-30 at Essen 2024.</note></g>
@@ -412,11 +412,13 @@
       <g>Fall <note>30 EUR</note></g>
       <g>SETI <note>70 EUR</note></g>
       <!-- /Essen 2024 -->
-      <g>Deep Regrets: An Unfortunate Fishing Game <note>Backed on KS.</note></g>
+      <g>Deep Regrets: An Unfortunate Fishing Game <note>Backed on KS.</note>
+         <x>Even Deeper Regrets: An Unfortunate Fishing Game Expansion <note>Backed on KS.</note></x>
+      </g>
       <!-- UKGE 2025 -->
       <g p="YAY Games">One Sheep, Two Sheep, Many Sheep</g>
-      <g p="YAY Games">Thunderbirds Danger Zone: The Game <unplayed/></g>
-      <g p="YAY Games">Sandcastles <unplayed/></g>
+      <g p="YAY Games">Thunderbirds Danger Zone: The Game</g>
+      <g p="YAY Games">Sandcastles</g>
       <g p="Wonderbow Games">Kelp: Shark vs Octopus <note>Sold out for EUR 46 at Essen 2024. Bought at UKGE 2025.</note></g>
       <g>Orapa Mine</g>
       <g>Sierra</g>
@@ -424,7 +426,7 @@
       <!-- /UKGE 2025 -->
       <g>Dutch Resistance: Orange Shall Overcome! <unplayed/><note>EUR 91.20 on KS</note></g>
       <!-- Essen 2025 -->
-      <g p="PHALANX">A Very Civil Whist <unplayed/><note>EUR 25</note></g>
+      <g p="PHALANX">A Very Civil Whist <note>EUR 25</note></g>
       <g>Babylon <note>45 EUR</note></g>
       <g>The Voynich Puzzle <note>EUR 60</note></g>
       <g>Jakarta Traffic <note>40 EUR</note></g>
@@ -432,11 +434,102 @@
       <g>Where is That? <note>Europe + South America</note>
          <x>Where is That?: South America <unplayed/></x>
       </g>
-      <g>Paddy <unplayed/></g>
+      <g>Paddy</g>
       <!-- /Essen 2025 -->
+      <g p="Ion Game Design">Stationfall <unplayed/></g>
+      <g>Ada's Dream <note>Backed on KS</note></g>
+      <!-- <g>Even Deeper Regrets: An Unfortunate Fishing Game Expansion</g> -->
+      <!-- UKGE 2026 -->
+      <g>Frosted Blooms <unplayed/></g>
+      <g>Otter <unplayed/></g>
+      <g>Pondscape <unplayed/></g>
+      <g>Jamaica <unplayed/><note>UKGE B&amp;B for 20 GBP</note></g>
+      <g>Zombielife Insurance <unplayed/></g>
+      <g>Don Quixote: The Ingenious Hidalgo <unplayed/></g>
+      <!-- /UKGE 2026 -->
    </list>
 
    <list name="New games played this year">
+      <g>Septima: Shapeshifting &amp; Omens</g>
+      <g>Even Deeper Regrets: An Unfortunate Fishing Game Expansion</g>
+      <!-- UKGE 2026 -->
+      <g>Frosted Blooms</g>
+      <g>Otter</g>
+      <g>Pondscape</g>
+      <g>Wispwood</g>
+      <g>Aster <note>Space-ship abstract. Not released yet</note></g>
+      <!-- <g>Mountains of Madness <note></note></g> -->
+      <g>Mysterium Park <note>Was ok, but not very interesting.</note></g>
+
+      <g p="CGE">Drillers <note>Fun game about drilling. Not out yet</note></g>
+      <!-- <g>7 Wonders <note></note></g> -->
+      <g>Dune <note>Great asymmetric game for 6p</note></g>
+      <!-- /UKGE 2026 -->
+   </list>
+
+   <list name="Ordered/Backed">
+   </list>
+
+   <list name="Not bought at Essen (but wanted to)">
+      <g p="ThunderGryph Games">Etherstone <note>EUR 35 at Essen '25. Sold out, even online.</note></g>
+      <g p="Taiwan Boardgame Design">Garden <note>Simple abstract that reimplements Mijnlieff (2010). EUR 13 at Essen '25 but only took cash</note></g>
+   </list>
+
+   <list name="Unplayed highlights from Essen 2025 / UKGE 2026">
+      <g p="Mojito Studios">Incubo <note>2p Coop. One player plays the cat. We should try this to see how hard it is. EUR 25</note></g>
+      <g p="Fractal Juegos">Feya's Swamp <note>EUR 38. Probably sold out on day 1</note></g>
+      <g p="Dotwood Games">Rite <note>Slightly asymmetric factions fight around a volcano by spending energy to move and defeat. EUR 60</note></g>
+      <!-- UKGE -->
+      <g p="Grail Games">Night Soil <note>Waste-management game. Wasn't playable in UKGE</note></g>
+   </list>
+
+   <list name="Watchlist">
+      <g>Worms: The Board Game (2024) <note>waiting for the retail version</note></g>
+      <g>Everdell</g>
+      <g>Ark Nova</g>
+      <g p="Mighty Boards">Hamlet: The Village Building Game <note>EUR 49 at Essen 2023</note></g>
+      <g p="Stonemaier Games / Inside Up Games">Apiary <note>Bees in space. Asymmetric hives. There's a small expansion now</note></g>
+      <g p="Board&amp;Dice / Giant Roc">Barcelona <note>EUR 60 at Essen 2023</note></g>
+      <g p="Red Mojo">Inferno <note>Soul management with a little Dante walking down. You wanna go last. Disconnect between actions and points? Too long at 4p. EUR 70 at Essen 2024</note></g>
+      <g p="Pink Troubadour/Frosted Games">Galileo Galilei <note>You can point a telescope. Looks really good. EUR 55 at Essen 2024</note></g>
+      <g p="Grand Gamers Guild">Endeavor: Deep Sea <note>Can be coop or comp. Some people are complaining about the difficulty not being balanced. Have to try ourselves.</note></g>
+      <g p="Game Brewer">Bone Wars <note>Puts you in the middle of the rivalry between Cope and Marsh during the the dinosaur rush. How is this gonna work with only 2p? (there's a virtual opponent). EUR 65 at Essen 2024</note></g>
+      <g p="Board&amp;Dice/Giant Roc">Windmill Valley <note>Gears. Good with 2p. Lighter than Viticulture. EUR 60 at Essen 2024</note></g>
+      <g p="Mont Tàber">1984 <note>EUR 50 at Essen 2024</note></g>
+      <g p="Allplay">Switchbacks <note>Reprinted abstract with a fitting hiking theme. Tiny box. There's a meeple upgrade. EUR 17 at Essen 2024</note></g>
+   </list>
+
+   <list name="Games I might get to play them again">
+      <g>Oceanos <url><![CDATA[https://www.boardgamegeek.com/boardgame/192860/oceanos]]></url></g>
+      <g>Champions of Midgard <url><![CDATA[https://www.boardgamegeek.com/boardgame/172287/champions-midgard]]></url></g>
+      <g>Impulse <url><![CDATA[https://www.boardgamegeek.com/boardgame/144239/impulse]]></url></g>
+   </list>
+
+   <list name="Games we are getting rid of">
+      <g>Star Wars LCG <note>In German. Put up for auction at next SPIEL</note></g>
+      <g>Potato Pirates 2: Enter The Spudnet <note>At Uni</note></g>
+      <g>Debtzilla <note>At Uni</note></g>
+      <g>Zombie Dice <note>At Uni</note></g>
+      <g>Maximum Throwdown <note>At Uni</note></g>
+      <g>Kodama 3D <note></note></g>
+      <g>Fish &amp; Flips <note></note></g>
+      <g>Debunked</g>
+   </list>
+
+   <list name="Games at my parents'">
+      <g>Das verrückte Labyrinth</g>
+      <g>Speed</g>
+      <g>Siedler von Nürnberg</g>
+      <g>Das Gold der Maya</g>
+      <g>Kap Hoorn</g>
+      <g>Gipf mini</g>
+      <g>Katzenjammer Blues <note>Knizia</note></g>
+      <g>Janus</g>
+      <g>Nimms leich</g>
+   </list>
+
+   <list name="New games played in 2025">
+      <old/>
       <g>Deep Regrets: An Unfortunate Fishing Game</g>
       <g>Ecologies</g>
       <g>Machine of Death</g>
@@ -490,68 +583,10 @@
       <g>Ruins <note>Card shedding with upgradable cards. Nice art.</note></g>
       <g p="ThunderGryph Games">Etherstone <note>Nice art. You try to draft an engine that goes with one of two leaders. Does the "Seasons" thing for the demo.</note></g>
       <!-- /Essen 2025 -->
-   </list>
-
-   <list name="Ordered/Backed">
-      <g>Ada's Dream <note>Backed on KS. Shipping paid &amp; address given. Expected delivery Sep 2025</note></g>
-      <g>Even Deeper Regrets: An Unfortunate Fishing Game Expansion <note>Backed on KS. Shipping paid &amp; address given. Expected delivery Mar 2026.</note></g>
-   </list>
-
-   <list name="Not bought at Essen (but wanted to)">
-      <g p="Ion Game Design">Stationfall <note>Player-driven chaos on a de-orbiting space station. EUR 80 at Essen 2023</note></g>
-      <g p="ThunderGryph Games">Etherstone <note>EUR 35 at Essen '25. Sold out, even online.</note></g>
-      <g p="Taiwan Boardgame Design">Garden <note>Simple abstract that reimplements Mijnlieff (2010). EUR 13 at Essen '25 but only took cash</note></g>
-   </list>
-
-   <list name="Unplayed highlights from Essen 2025">
-      <g p="Mojito Studios">Incubo <note>2p Coop. One player plays the cat. We should try this to see how hard it is. EUR 25</note></g>
-      <g p="Fractal Juegos">Feya's Swamp <note>EUR 38. Probably sold out on day 1</note></g>
-      <g p="Dotwood Games">Rite <note>Slightly asymmetric factions fight around a volcano by spending energy to move and defeat. EUR 60</note></g>
-   </list>
-
-   <list name="Watchlist">
-      <g>Worms: The Board Game (2024) <note>waiting for the retail version</note></g>
-      <g>Everdell</g>
-      <g>Ark Nova</g>
-      <g p="Mighty Boards">Hamlet: The Village Building Game <note>EUR 49 at Essen 2023</note></g>
-      <g p="Stonemaier Games / Inside Up Games">Apiary <note>Bees in space. Asymmetric hives. There's a small expansion now</note></g>
-      <g p="Board&amp;Dice / Giant Roc">Barcelona <note>EUR 60 at Essen 2023</note></g>
-      <g p="Red Mojo">Inferno <note>Soul management with a little Dante walking down. You wanna go last. Disconnect between actions and points? Too long at 4p. EUR 70 at Essen 2024</note></g>
-      <g p="Pink Troubadour/Frosted Games">Galileo Galilei <note>You can point a telescope. Looks really good. EUR 55 at Essen 2024</note></g>
-      <g p="Grand Gamers Guild">Endeavor: Deep Sea <note>Can be coop or comp. Some people are complaining about the difficulty not being balanced. Have to try ourselves.</note></g>
-      <g p="Game Brewer">Bone Wars <note>Puts you in the middle of the rivalry between Cope and Marsh during the the dinosaur rush. How is this gonna work with only 2p? (there's a virtual opponent). EUR 65 at Essen 2024</note></g>
-      <g p="Board&amp;Dice/Giant Roc">Windmill Valley <note>Gears. Good with 2p. Lighter than Viticulture. EUR 60 at Essen 2024</note></g>
-      <g p="Mont Tàber">1984 <note>EUR 50 at Essen 2024</note></g>
-      <g p="Allplay">Switchbacks <note>Reprinted abstract with a fitting hiking theme. Tiny box. There's a meeple upgrade. EUR 17 at Essen 2024</note></g>
-   </list>
-
-   <list name="Games I might get to play them again">
-      <g>Oceanos <url><![CDATA[https://www.boardgamegeek.com/boardgame/192860/oceanos]]></url></g>
-      <g>Champions of Midgard <url><![CDATA[https://www.boardgamegeek.com/boardgame/172287/champions-midgard]]></url></g>
-      <g>Impulse <url><![CDATA[https://www.boardgamegeek.com/boardgame/144239/impulse]]></url></g>
-   </list>
-
-   <list name="Games we are getting rid of">
-      <g>Star Wars LCG <note>In German. Put up for auction at next SPIEL</note></g>
-      <g>Potato Pirates 2: Enter The Spudnet <note>At Uni</note></g>
-      <g>Debtzilla <note>At Uni</note></g>
-      <g>Zombie Dice <note>At Uni</note></g>
-      <g>Maximum Throwdown <note>At Uni</note></g>
-      <g>Kodama 3D <note></note></g>
-      <g>Fish &amp; Flips <note></note></g>
-      <g>Debunked</g>
-   </list>
-
-   <list name="Games at my parents'">
-      <g>Das verrückte Labyrinth</g>
-      <g>Speed</g>
-      <g>Siedler von Nürnberg</g>
-      <g>Das Gold der Maya</g>
-      <g>Kap Hoorn</g>
-      <g>Gipf mini</g>
-      <g>Katzenjammer Blues <note>Knizia</note></g>
-      <g>Janus</g>
-      <g>Nimms leich</g>
+      <g>The Voynich Puzzle</g>
+      <g p="PHALANX">A Very Civil Whist</g>
+      <g>Ada's Dream</g>
+      <g p="YAY Games">Thunderbirds Danger Zone: The Game</g>
    </list>
 
    <list name="New games played in 2024">
@@ -584,10 +619,9 @@
       <g>Babylon</g>
       <g>Inferno</g>
       <g>Beast <note>Fun hidden-movement game. We got some of the art, but the game itself is just really big and expensive</note></g>
-      <g>Stationfall</g>
+      <g>Stationfall <note>Player-driven chaos on a de-orbiting space station.</note></g>
       <!-- /Essen 2024 -->
    </list>
-
 
    <list name="New games played in 2023">
       <old/>
