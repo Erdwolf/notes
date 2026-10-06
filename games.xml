@@ -401,7 +401,7 @@
       <g>La Isla <note>12 EUR</note></g>
       <g p="Playte">Sardegna <note>Reprint of "Kreta (2005)". EUR 18.50</note></g>
       <g p="Playte">Pueblo <note>EUR 22</note></g>
-      <g>Orléans <unplayed/><note>20 EUR</note></g>
+      <g>Orléans <note>20 EUR</note></g>
       <g>Undergrove <note>EUR 45 w/ expansion</note>
          <x>Undergrove: Whispering Woods <unplayed/></x>
       </g>
@@ -424,7 +424,7 @@
       <g>Sierra</g>
       <g>Ofrenda</g>
       <!-- /UKGE 2025 -->
-      <g>Dutch Resistance: Orange Shall Overcome! <unplayed/><note>EUR 91.20 on KS</note></g>
+      <g>Dutch Resistance: Orange Shall Overcome! <note>EUR 91.20 on KS</note></g>
       <!-- Essen 2025 -->
       <g p="PHALANX">A Very Civil Whist <note>EUR 25</note></g>
       <g>Babylon <note>45 EUR</note></g>
@@ -436,16 +436,16 @@
       </g>
       <g>Paddy</g>
       <!-- /Essen 2025 -->
-      <g p="Ion Game Design">Stationfall <unplayed/></g>
+      <g p="Ion Game Design">Stationfall</g>
       <g>Ada's Dream <note>Backed on KS</note></g>
       <!-- <g>Even Deeper Regrets: An Unfortunate Fishing Game Expansion</g> -->
       <!-- UKGE 2026 -->
-      <g>Frosted Blooms <unplayed/></g>
-      <g>Otter <unplayed/></g>
-      <g>Pondscape <unplayed/></g>
-      <g>Jamaica <unplayed/><note>UKGE B&amp;B for 20 GBP</note></g>
-      <g>Zombielife Insurance <unplayed/></g>
-      <g>Don Quixote: The Ingenious Hidalgo <unplayed/></g>
+      <g>Frosted Blooms</g>
+      <g>Otter</g>
+      <g>Pondscape</g>
+      <g>Jamaica <note>UKGE B&amp;B for 20 GBP</note></g>
+      <g>Zombielife Insurance</g>
+      <g>Don Quixote: The Ingenious Hidalgo</g>
       <!-- /UKGE 2026 -->
    </list>
 
@@ -465,6 +465,8 @@
       <!-- <g>7 Wonders <note></note></g> -->
       <g>Dune <note>Great asymmetric game for 6p</note></g>
       <!-- /UKGE 2026 -->
+      <g>Zombielife Insurance</g>
+      <g>Don Quixote: The Ingenious Hidalgo</g>
    </list>
 
    <list name="Ordered/Backed">
